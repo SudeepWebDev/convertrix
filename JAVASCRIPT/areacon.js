@@ -9,6 +9,17 @@ const areavaluekilo = {
     "sqin": 1550000000
 
 }
+const areasym = {
+    sqkm: 'km²',
+    sqm: 'm²',
+    ha: 'ha',
+    acre: 'acre',
+    sqmi: 'mi²',
+    sqyd: 'yd²',
+    sqft: 'ft²',
+    sqin: 'in²'
+  };
+  
 
 const convertButton = document.querySelector(".convert-btn");
 
@@ -31,7 +42,7 @@ convertButton.addEventListener('click', function convert() {
         if (keys == convertOption2) {
             if (convertOption1 == 'sqkm') {
                 convertedArea = Number(value) * areavaluekilo[keys];
-                areaConverterPopupP.innerHTML = convertedArea;
+                areaConverterPopupP.innerHTML = Number(value)  + ' ' + areasym[convertOption1] + ' = ' + convertedArea + ' ' + areasym[convertOption2];
                 break;
             }
             else {
