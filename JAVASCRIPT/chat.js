@@ -14,7 +14,7 @@ async function handleUserInput() {
 }
 
 async function getResponse(question) {
-    if (question.includes('currency')) {
+    if (question.includes('currency') || question.includes('Currency')) {
         const currencies = question.match(/(?:^|\s)([A-Za-z]{3})(?=\s|$)/g).map(currency => currency.trim());
         const amount = question.match(/\d+/);
         const filteredCurrencies = currencies.filter(currency => !["cur", "ren"].includes(currency.toLowerCase()));
@@ -26,7 +26,7 @@ async function getResponse(question) {
         } else {
             return "I'm sorry, I couldn't understand the currency conversion request.";
         }
-    } else if (question.includes('Tips')) {
+    } else if (question.includes('Tips') || question.includes('tips')) {
 
         return "1. For Currency Converter:<br>Currency 100 usd to inr.<br><br>2. For Length Converter:<br>Length 100m to cm.<br><br>3. For Temperature Converter:<br>Temperature 100 C to K.";;
 
