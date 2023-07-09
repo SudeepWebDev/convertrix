@@ -42,7 +42,10 @@ const showConverterName = () => {
 
 showConverterName();
 
-
-
-
-
+const chatSection = document.getElementById('chat-section');
+const chatToggle = document.getElementById('chat-toggle');
+const chatToggleIcon = document.querySelector('#chat-toggle i');
+chatToggle.addEventListener('click', function () {
+  chatToggleIcon.classList.toggle('fa-minus');
+  chatSection.classList.toggle('hide-chat');
+});
