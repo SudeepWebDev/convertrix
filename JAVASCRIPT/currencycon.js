@@ -29,7 +29,8 @@ convertButton.addEventListener('click', async function convert() {
         convertedAmount = (Number(amount) / exchangeRate1) * exchangeRate2;
       }
 
-      currencyConverterPopupP.innerHTML = convertedAmount;
+      // currencyConverterPopupP.innerHTML = convertedAmount;
+      currencyConverterPopupP.innerHTML = Number(amount)  + ' ' + convertOption1 + ' = ' + convertedAmount + ' ' + convertOption2;
     } else {
       throw new Error('Failed to fetch exchange rates');
     }
@@ -224,7 +225,8 @@ function performManualConversion(convertOption1, convertOption2, amount) {
           if (keys2 == convertOption1) {
             convertedAmountINR = Number(amount) / currencyValueINR[keys2];
             convertedAmount = convertedAmountINR * currencyValueINR[convertOption2];
-            currencyConverterPopupP.innerHTML = convertedAmount;
+            // currencyConverterPopupP.innerHTML = convertedAmount;
+            currencyConverterPopupP.innerHTML = Number(amount)  + ' ' + convertOption1 + ' = ' + convertedAmount + ' ' + convertOption2;
             break;
           }
         }
