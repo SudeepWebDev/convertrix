@@ -5,10 +5,10 @@ const sendBtn = document.getElementById('send-btn');
 sendBtn.addEventListener('click', handleUserInput);
 
 async function handleUserInput() {
-    const question = (userInput.value).toLowerCase();
+    const question = (userInput.value);
     if (question) {
-        const response = await getResponse(question);
-        displayResponse(question, response);
+        const response = await getResponse(question.toLowerCase());
+        displayResponse(question.toLowerCase(), response);
         userInput.value = '';
     }
 }
