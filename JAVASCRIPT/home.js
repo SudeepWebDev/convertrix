@@ -10,10 +10,10 @@ const gradients = [
 ];
 
 const converterSrc = [
-    '/HTML/currencyConverter.html',
-    '/HTML/lengthConverter.html',
-    '/HTML/temperatureConverter.html',
-    '/HTML/areaConverter.html',
+    '/convertrix/HTML/currencyConverter.html',
+    '/convertrix/HTML/lengthConverter.html',
+    '/convertrix/HTML/temperatureConverter.html',
+    '/convertrix/HTML/areaConverter.html',
 
   ];
   
