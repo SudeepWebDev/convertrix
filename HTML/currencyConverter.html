@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currency Converter</title>
+    <link rel="stylesheet" href="/CSS/style.css">
+    <link rel="stylesheet" href="/CSS/responsive.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+    <script type="text/javascript"
+        src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({ pageLanguage: 'en' }, 'google_translate_element');
+        }
+    </script>
+</head>
+
+<body>
+    <header>
+        <!-- logo, navigation menu, and introductory content-->
+        <div class="accessibility_logo_cont">
+            <!-- <span></span> -->
+            <span id="menu_bar">
+                <i class="fa fa-bars fa-2x" aria-hidden="true"></i>
+            </span>
+
+            <span class="logo">Convertrix</span>
+
+            <span id="accessibility" title="accessibility"><i class="fa fa-universal-access fa-2x"
+                    aria-hidden="true"></i>
+                    <ul class="accessibility_menu">
+                        <!-- <li>
+                            <a href="#">
+                                <i class="fa fa-moon-o" title="dark theme" id="theme-toggle"></i>
+                            </a>
+                        </li> -->
+                        <li>
+                            <div id="google_translate_element" style="padding: 10px;"></div>
+                        </li>
+                    </ul>
+            </span>
+        </div>
+
+        <!-- main menu -->
+        <nav class="main_menu" id="menu">
+            <ul>
+                <li><a href="/HTML/Home.html">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Converters</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+
+    </header>
+
+    <main>
+        <div class="converter-box">
+            <div>
+
+                <div class="input-box"><label for="">Amount</label><input type="number" name="" id="amount"></div>
+                <div class="input-box"><label for="">From</label><select name="" id="a1">
+                        <option value="inr"><i class="fas fa-flag"></i> INR - Indian Rupee</option>
+                        <option value="usd" selected><i class="fas fa-dollar-sign"></i> USD - United States Dollar</option>
+                        <option value="eur"><i class="fas fa-euro-sign"></i> EUR - Euro</option>
+                        <option value="gbp"><i class="fas fa-pound-sign"></i> GBP - British Pound Sterling</option>
+                        <option value="jpy"><i class="fas fa-yen-sign"></i> JPY - Japanese Yen</option>
+                        <option value="aud"><i class="fas fa-dollar-sign"></i> AUD - Australian Dollar</option>
+                        <option value="cad"><i class="fas fa-dollar-sign"></i> CAD - Canadian Dollar</option>
+                        <option value="chf"><i class="fas fa-money-bill-wave"></i> CHF - Swiss Franc</option>
+                        <option value="cny"><i class="fas fa-yen-sign"></i> CNY - Chinese Yuan</option>
+                        <option value="hkd"><i class="fas fa-dollar-sign"></i> HKD - Hong Kong Dollar</option>
+                    </select></div>
+                <div class="input-box"><label for="">To</label><select name="" id="a2">
+                        <option value="inr"><i class="fas fa-flag"></i> INR - Indian Rupee</option>
+                        <option value="usd"><i class="fas fa-dollar-sign"></i> USD - United States Dollar</option>
+                        <option value="eur"><i class="fas fa-euro-sign"></i> EUR - Euro</option>
+                        <option value="gbp"><i class="fas fa-pound-sign"></i> GBP - British Pound Sterling</option>
+                        <option value="jpy"><i class="fas fa-yen-sign"></i> JPY - Japanese Yen</option>
+                        <option value="aud"><i class="fas fa-dollar-sign"></i> AUD - Australian Dollar</option>
+                        <option value="cad"><i class="fas fa-dollar-sign"></i> CAD - Canadian Dollar</option>
+                        <option value="chf"><i class="fas fa-money-bill-wave"></i> CHF - Swiss Franc</option>
+                        <option value="cny"><i class="fas fa-yen-sign"></i> CNY - Chinese Yuan</option>
+                        <option value="hkd"><i class="fas fa-dollar-sign"></i> HKD - Hong Kong Dollar</option>
+                    </select></div>
+                    <div class="currency-converter-popup popup">
+                        <p></p>
+                        <button class="">
+                            Convert Again
+                        </button>
+                    </div>
+            </div>
+            <button class="convert-btn">
+                Start Converting...
+            </button>
+        </div>
+    </main>
+
+    <footer>
+
+        <div class="footer-container">
+            <div class="footer-column">
+                <h4>About Us</h4>
+                <p>We are a leading converter website that provides easy-to-use tools for converting temperature,
+                    currency, and length. Our mission is to make conversion tasks effortless and accessible to everyone.
+                </p>
+            </div>
+            <div class="footer-column">
+                <h4>Contact</h4>
+                <p>Email: info@converterwebsite.com</p>
+                <p>Phone: +91 123-456-7890</p>
+            </div>
+            <div class="footer-column">
+                <h4>Follow Us</h4>
+                <div class="social-media-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+
+
+    </footer>
+    <script src="/JAVASCRIPT/main.js"></script>
+    <script>
+        // menu
+        const menuBar = document.getElementById('menu_bar');
+        const menu = document.getElementById('menu');
+
+        menuBar.addEventListener('click', () => {
+            menu.classList.toggle('show-menu');
+        });
+
+    </script>
+</body>
+
+</html>

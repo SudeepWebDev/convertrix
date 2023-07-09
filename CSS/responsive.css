@@ -1,0 +1,41 @@
+@media screen and (max-width: 769px) {
+
+  .converter-box{
+    width: 100%;
+    margin: 5px;
+  }
+
+  .converter-box>div {
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .converter-box div div {
+    margin: 10px;
+
+  }
+
+  .converter-box div .input-box {
+    width: 100%;
+    margin: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+  }
+
+  
+
+.footer-container {
+  display: flex;
+  flex-direction: column;
+  
+
+}
+
+.footer-container div {
+  margin: 10px;
+}
+
+
+}
