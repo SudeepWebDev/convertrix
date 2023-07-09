@@ -44,7 +44,7 @@ convertButton.addEventListener('click', function convert() {
         if (keys == convertOption2) {
             if (convertOption1 == 'm') {
                 convertedAmount = Number(amount) * lengthValueM[keys];
-                areaConverterPopupP.innerHTML = Number(amount)  + ' ' + lengthsym[convertOption1] + ' = ' + convertedAmount + ' ' + lengthsym[convertOption2];
+                lengthConverterPopupP.innerHTML = Number(amount)  + ' ' + lengthsym[convertOption1] + ' = ' + convertedAmount + ' ' + lengthsym[convertOption2];
                 break;
             } else {
 
@@ -52,7 +52,7 @@ convertButton.addEventListener('click', function convert() {
                     if (keys2 == convertOption1) {
                         convertedAmountM = Number(amount) / lengthValueM[keys2];
                         convertedAmount = convertedAmountM * lengthValueM[convertOption2];
-                        areaConverterPopupP.innerHTML = Number(amount)  + ' ' + lengthsym[convertOption1] + ' = ' + convertedAmount + ' ' + lengthsym[convertOption2];
+                        lengthConverterPopupP.innerHTML = Number(amount)  + ' ' + lengthsym[convertOption1] + ' = ' + convertedAmount + ' ' + lengthsym[convertOption2];
                         break;
                     }
                 }
