@@ -299,3 +299,7 @@ footer p {
     border-image: linear-gradient(rgb(10, 20, 110), #0071EB);
     border-image-slice: 1;
   }
+
+  h2{
+    text-align: center;
+  }
