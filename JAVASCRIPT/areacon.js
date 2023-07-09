@@ -50,8 +50,7 @@ convertButton.addEventListener('click', function convert() {
                     if (keys2 == convertOption1) {
                         convertedAreaKM = Number(value) / areavaluekilo[keys2];
                         convertedArea = convertedAreaKM * areavaluekilo[convertOption2];
-
-                        areaConverterPopupP.innerHTML = convertedArea;
+                        areaConverterPopupP.innerHTML = Number(value)  + ' ' + areasym[convertOption1] + ' = ' + convertedArea + ' ' + areasym[convertOption2];
                         break;
                     }
                 }

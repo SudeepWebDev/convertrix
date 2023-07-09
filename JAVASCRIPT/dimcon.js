@@ -11,6 +11,17 @@ const lengthValueM = {
     'mi': 0.000621
 
 }
+const lengthsym = {
+    'm': 'm',
+    'mm': 'mm',
+    'cm': 'cm',
+    'km': 'km',
+    'in': 'in',
+    'ft': 'ft',
+    'yd': 'yd',
+    'mi': 'mi'
+  };
+  
 
 
 const convertButton = document.querySelector('.convert-btn');
@@ -33,7 +44,7 @@ convertButton.addEventListener('click', function convert() {
         if (keys == convertOption2) {
             if (convertOption1 == 'm') {
                 convertedAmount = Number(amount) * lengthValueM[keys];
-                lengthConverterPopupP.innerHTML = convertedAmount;
+                areaConverterPopupP.innerHTML = Number(amount)  + ' ' + lengthsym[convertOption1] + ' = ' + convertedArea + ' ' + lengthsym[convertOption2];
                 break;
             } else {
 
@@ -41,7 +52,7 @@ convertButton.addEventListener('click', function convert() {
                     if (keys2 == convertOption1) {
                         convertedAmountM = Number(amount) / lengthValueM[keys2];
                         convertedAmount = convertedAmountM * lengthValueM[convertOption2];
-                        lengthConverterPopupP.innerHTML = convertedAmount;
+                        areaConverterPopupP.innerHTML = Number(amount)  + ' ' + lengthsym[convertOption1] + ' = ' + convertedArea + ' ' + lengthsym[convertOption2];
                         break;
                     }
                 }
