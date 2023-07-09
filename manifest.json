@@ -1,0 +1,14 @@
+{
+    "name": "Convertrix",
+    "short_name": "Convertrix",
+    "start_url": "/convertrix/index.html",
+    "display": "standalone",
+    "orientation": "portrait",
+    "icons": [
+        {
+            "src": "/convertrix/images/logo300.png",
+            "sizes": "300x300",
+            "type": "image/png"
+        }
+    ]
+}
