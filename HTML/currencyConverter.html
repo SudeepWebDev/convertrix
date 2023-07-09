@@ -4,8 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Convertrix is a versatile conversion tool that allows you to effortlessly convert between different units of measurement, including currency, length, temperature, and area. Simplify your conversions with Convertrix and get accurate results in seconds.">
-    <meta name="keywords" content="conversion tool, unit converter, currency converter, length converter, temperature converter, area converter, online converter, measurement converter, currency exchange, convert units, convert currency, convert length, convert temperature, convert area">
+    <meta name="description"
+        content="Convertrix is a versatile conversion tool that allows you to effortlessly convert between different units of measurement, including currency, length, temperature, and area. Simplify your conversions with Convertrix and get accurate results in seconds.">
+    <meta name="keywords"
+        content="conversion tool, unit converter, currency converter, length converter, temperature converter, area converter, online converter, measurement converter, currency exchange, convert units, convert currency, convert length, convert temperature, convert area">
     <meta name="msapplication-tap-highlight" content="no">
 
     <!-- Web Application Manifest -->
@@ -56,16 +58,16 @@
 
             <span id="accessibility" title="accessibility"><i class="fa fa-universal-access fa-2x"
                     aria-hidden="true"></i>
-                    <ul class="accessibility_menu">
-                        <!-- <li>
+                <ul class="accessibility_menu">
+                    <!-- <li>
                             <a href="#">
                                 <i class="fa fa-moon-o" title="dark theme" id="theme-toggle"></i>
                             </a>
                         </li> -->
-                        <li>
-                            <div id="google_translate_element" style="padding: 10px;"></div>
-                        </li>
-                    </ul>
+                    <li>
+                        <div id="google_translate_element" style="padding: 10px;"></div>
+                    </li>
+                </ul>
             </span>
         </div>
 
@@ -89,34 +91,340 @@
                 <div class="input-box"><label for="">Amount</label><input type="number" name="" id="amount"></div>
                 <div class="input-box"><label for="">From</label><select name="" id="a1">
                         <option value="inr"><i class="fas fa-flag"></i> INR - Indian Rupee</option>
-                        <option value="usd" selected><i class="fas fa-dollar-sign"></i> USD - United States Dollar</option>
-                        <option value="eur"><i class="fas fa-euro-sign"></i> EUR - Euro</option>
-                        <option value="gbp"><i class="fas fa-pound-sign"></i> GBP - British Pound Sterling</option>
-                        <option value="jpy"><i class="fas fa-yen-sign"></i> JPY - Japanese Yen</option>
-                        <option value="aud"><i class="fas fa-dollar-sign"></i> AUD - Australian Dollar</option>
-                        <option value="cad"><i class="fas fa-dollar-sign"></i> CAD - Canadian Dollar</option>
-                        <option value="chf"><i class="fas fa-money-bill-wave"></i> CHF - Swiss Franc</option>
-                        <option value="cny"><i class="fas fa-yen-sign"></i> CNY - Chinese Yuan</option>
-                        <option value="hkd"><i class="fas fa-dollar-sign"></i> HKD - Hong Kong Dollar</option>
+                        <option value="usd" selected><i class="fas fa-flag"></i> USD - United States Dollar</option>
+                        <option value="eur"><i class="fas fa-flag"></i> EUR - Euro</option>
+                        <option value="gbp"><i class="fas fa-flag"></i> GBP - British Pound Sterling</option>
+                        <option value="jpy"><i class="fas fa-flag"></i> JPY - Japanese Yen</option>
+                        <option value="aud"><i class="fas fa-flag"></i> AUD - Australian Dollar</option>
+                        <option value="cad"><i class="fas fa-flag"></i> CAD - Canadian Dollar</option>
+                        <option value="chf"><i class="fas fa-flag"></i> CHF - Swiss Franc</option>
+                        <option value="cny"><i class="fas fa-flag"></i> CNY - Chinese Yuan</option>
+                        <option value="hkd"><i class="fas fa-flag"></i> HKD - Hong Kong Dollar</option>
+                        <option value="aed"><i class="fas fa-flag"></i> AED - United Arab Emirates Dirham</option>
+                        <option value="afn"><i class="fas fa-flag"></i> AFN - Afghan Afghani</option>
+                        <option value="all"><i class="fas fa-flag"></i> ALL - Albanian Lek</option>
+                        <option value="amd"><i class="fas fa-flag"></i> AMD - Armenian Dram</option>
+                        <option value="ang"><i class="fas fa-flag"></i> ANG - Netherlands Antillean Guilder</option>
+                        <option value="aoa"><i class="fas fa-flag"></i> AOA - Angolan Kwanza</option>
+                        <option value="ars"><i class="fas fa-flag"></i> ARS - Argentine Peso</option>
+                        <option value="awg"><i class="fas fa-flag"></i> AWG - Aruban Florin</option>
+                        <option value="azn"><i class="fas fa-flag"></i> AZN - Azerbaijani Manat</option>
+                        <option value="bam"><i class="fas fa-flag"></i> BAM - Bosnia-Herzegovina Convertible Mark
+                        </option>
+                        <option value="bbd"><i class="fas fa-flag"></i> BBD - Barbadian Dollar</option>
+                        <option value="bdt"><i class="fas fa-flag"></i> BDT - Bangladeshi Taka</option>
+                        <option value="bgn"><i class="fas fa-flag"></i> BGN - Bulgarian Lev</option>
+                        <option value="bhd"><i class="fas fa-flag"></i> BHD - Bahraini Dinar</option>
+                        <option value="bif"><i class="fas fa-flag"></i> BIF - Burundian Franc</option>
+                        <option value="bmd"><i class="fas fa-flag"></i> BMD - Bermudan Dollar</option>
+                        <option value="bnd"><i class="fas fa-flag"></i> BND - Brunei Dollar</option>
+                        <option value="bob"><i class="fas fa-flag"></i> BOB - Bolivian Boliviano</option>
+                        <option value="brl"><i class="fas fa-flag"></i> BRL - Brazilian Real</option>
+                        <option value="bsd"><i class="fas fa-flag"></i> BSD - Bahamian Dollar</option>
+                        <option value="btn"><i class="fas fa-flag"></i> BTN - Bhutanese Ngultrum</option>
+                        <option value="bwp"><i class="fas fa-flag"></i> BWP - Botswanan Pula</option>
+                        <option value="byn"><i class="fas fa-flag"></i> BYN - Belarusian Ruble</option>
+                        <option value="bzd"><i class="fas fa-flag"></i> BZD - Belize Dollar</option>
+                        <option value="cdf"><i class="fas fa-flag"></i> CDF - Congolese Franc</option>
+                        <option value="clp"><i class="fas fa-flag"></i> CLP - Chilean Peso</option>
+                        <option value="cop"><i class="fas fa-flag"></i> COP - Colombian Peso</option>
+                        <option value="crc"><i class="fas fa-flag"></i> CRC - Costa Rican Colón</option>
+                        <option value="cup"><i class="fas fa-flag"></i> CUP - Cuban Peso</option>
+                        <option value="cve"><i class="fas fa-flag"></i> CVE - Cape Verdean Escudo</option>
+                        <option value="czk"><i class="fas fa-flag"></i> CZK - Czech Koruna</option>
+                        <option value="djf"><i class="fas fa-flag"></i> DJF - Djiboutian Franc</option>
+                        <option value="dkk"><i class="fas fa-flag"></i> DKK - Danish Krone</option>
+                        <option value="dop"><i class="fas fa-flag"></i> DOP - Dominican Peso</option>
+                        <option value="dzd"><i class="fas fa-flag"></i> DZD - Algerian Dinar</option>
+                        <option value="egp"><i class="fas fa-flag"></i> EGP - Egyptian Pound</option>
+                        <option value="ern"><i class="fas fa-flag"></i> ERN - Eritrean Nakfa</option>
+                        <option value="etb"><i class="fas fa-flag"></i> ETB - Ethiopian Birr</option>
+                        <option value="fjd"><i class="fas fa-flag"></i> FJD - Fijian Dollar</option>
+                        <option value="fkp"><i class="fas fa-flag"></i> FKP - Falkland Islands Pound</option>
+                        <option value="fok"><i class="fas fa-flag"></i> FOK - Faroese Króna</option>
+                        <option value="gel"><i class="fas fa-flag"></i> GEL - Georgian Lari</option>
+                        <option value="ggp"><i class="fas fa-flag"></i> GGP - Guernsey Pound</option>
+                        <option value="ghs"><i class="fas fa-flag"></i> GHS - Ghanaian Cedi</option>
+                        <option value="gip"><i class="fas fa-flag"></i> GIP - Gibraltar Pound</option>
+                        <option value="gmd"><i class="fas fa-flag"></i> GMD - Gambian Dalasi</option>
+                        <option value="gnf"><i class="fas fa-flag"></i> GNF - Guinean Franc</option>
+                        <option value="gtq"><i class="fas fa-flag"></i> GTQ - Guatemalan Quetzal</option>
+                        <option value="gyd"><i class="fas fa-flag"></i> GYD - Guyanaese Dollar</option>
+                        <option value="hnl"><i class="fas fa-flag"></i> HNL - Honduran Lempira</option>
+                        <option value="hrk"><i class="fas fa-flag"></i> HRK - Croatian Kuna</option>
+                        <option value="htg"><i class="fas fa-flag"></i> HTG - Haitian Gourde</option>
+                        <option value="huf"><i class="fas fa-flag"></i> HUF - Hungarian Forint</option>
+                        <option value="idr"><i class="fas fa-flag"></i> IDR - Indonesian Rupiah</option>
+                        <option value="ils"><i class="fas fa-flag"></i> ILS - Israeli New Shekel</option>
+                        <option value="imp"><i class="fas fa-flag"></i> IMP - Manx pound</option>
+                        <option value="iqd"><i class="fas fa-flag"></i> IQD - Iraqi Dinar</option>
+                        <option value="irr"><i class="fas fa-flag"></i> IRR - Iranian Rial</option>
+                        <option value="isk"><i class="fas fa-flag"></i> ISK - Icelandic Króna</option>
+                        <option value="jep"><i class="fas fa-flag"></i> JEP - Jersey Pound</option>
+                        <option value="jmd"><i class="fas fa-flag"></i> JMD - Jamaican Dollar</option>
+                        <option value="jod"><i class="fas fa-flag"></i> JOD - Jordanian Dinar</option>
+                        <option value="kes"><i class="fas fa-flag"></i> KES - Kenyan Shilling</option>
+                        <option value="kgs"><i class="fas fa-flag"></i> KGS - Kyrgystani Som</option>
+                        <option value="khr"><i class="fas fa-flag"></i> KHR - Cambodian Riel</option>
+                        <option value="kid"><i class="fas fa-flag"></i> KID - Kiribati Dollar</option>
+                        <option value="kmf"><i class="fas fa-flag"></i> KMF - Comorian Franc</option>
+                        <option value="krw"><i class="fas fa-flag"></i> KRW - South Korean Won</option>
+                        <option value="kwd"><i class="fas fa-flag"></i> KWD - Kuwaiti Dinar</option>
+                        <option value="kyd"><i class="fas fa-flag"></i> KYD - Cayman Islands Dollar</option>
+                        <option value="kzt"><i class="fas fa-flag"></i> KZT - Kazakhstani Tenge</option>
+                        <option value="lak"><i class="fas fa-flag"></i> LAK - Laotian Kip</option>
+                        <option value="lbp"><i class="fas fa-flag"></i> LBP - Lebanese Pound</option>
+                        <option value="lkr"><i class="fas fa-flag"></i> LKR - Sri Lankan Rupee</option>
+                        <option value="lrd"><i class="fas fa-flag"></i> LRD - Liberian Dollar</option>
+                        <option value="lsl"><i class="fas fa-flag"></i> LSL - Lesotho Loti</option>
+                        <option value="lyd"><i class="fas fa-flag"></i> LYD - Libyan Dinar</option>
+                        <option value="mad"><i class="fas fa-flag"></i> MAD - Moroccan Dirham</option>
+                        <option value="mdl"><i class="fas fa-flag"></i> MDL - Moldovan Leu</option>
+                        <option value="mga"><i class="fas fa-flag"></i> MGA - Malagasy Ariary</option>
+                        <option value="mkd"><i class="fas fa-flag"></i> MKD - Macedonian Denar</option>
+                        <option value="mmk"><i class="fas fa-flag"></i> MMK - Burmese Kyat</option>
+                        <option value="mnt"><i class="fas fa-flag"></i> MNT - Mongolian Tugrik</option>
+                        <option value="mop"><i class="fas fa-flag"></i> MOP - Macanese Pataca</option>
+                        <option value="mru"><i class="fas fa-flag"></i> MRU - Mauritanian Ouguiya</option>
+                        <option value="mur"><i class="fas fa-flag"></i> MUR - Mauritian Rupee</option>
+                        <option value="mvr"><i class="fas fa-flag"></i> MVR - Maldivian Rufiyaa</option>
+                        <option value="mwk"><i class="fas fa-flag"></i> MWK - Malawian Kwacha</option>
+                        <option value="mxn"><i class="fas fa-flag"></i> MXN - Mexican Peso</option>
+                        <option value="myr"><i class="fas fa-flag"></i> MYR - Malaysian Ringgit</option>
+                        <option value="mzn"><i class="fas fa-flag"></i> MZN - Mozambican Metical</option>
+                        <option value="nad"><i class="fas fa-flag"></i> NAD - Namibian Dollar</option>
+                        <option value="ngn"><i class="fas fa-flag"></i> NGN - Nigerian Naira</option>
+                        <option value="nio"><i class="fas fa-flag"></i> NIO - Nicaraguan Córdoba</option>
+                        <option value="nok"><i class="fas fa-flag"></i> NOK - Norwegian Krone</option>
+                        <option value="npr"><i class="fas fa-flag"></i> NPR - Nepalese Rupee</option>
+                        <option value="nzd"><i class="fas fa-flag"></i> NZD - New Zealand Dollar</option>
+                        <option value="omr"><i class="fas fa-flag"></i> OMR - Omani Rial</option>
+                        <option value="pab"><i class="fas fa-flag"></i> PAB - Panamanian Balboa</option>
+                        <option value="pen"><i class="fas fa-flag"></i> PEN - Peruvian Sol</option>
+                        <option value="pgk"><i class="fas fa-flag"></i> PGK - Papua New Guinean Kina</option>
+                        <option value="php"><i class="fas fa-flag"></i> PHP - Philippine Peso</option>
+                        <option value="pkr"><i class="fas fa-flag"></i> PKR - Pakistani Rupee</option>
+                        <option value="pln"><i class="fas fa-flag"></i> PLN - Polish Złoty</option>
+                        <option value="pyg"><i class="fas fa-flag"></i> PYG - Paraguayan Guarani</option>
+                        <option value="qar"><i class="fas fa-flag"></i> QAR - Qatari Rial</option>
+                        <option value="ron"><i class="fas fa-flag"></i> RON - Romanian Leu</option>
+                        <option value="rsd"><i class="fas fa-flag"></i> RSD - Serbian Dinar</option>
+                        <option value="rub"><i class="fas fa-flag"></i> RUB - Russian Ruble</option>
+                        <option value="rwf"><i class="fas fa-flag"></i> RWF - Rwandan Franc</option>
+                        <option value="sar"><i class="fas fa-flag"></i> SAR - Saudi Riyal</option>
+                        <option value="sbd"><i class="fas fa-flag"></i> SBD - Solomon Islands Dollar</option>
+                        <option value="scr"><i class="fas fa-flag"></i> SCR - Seychellois Rupee</option>
+                        <option value="sdg"><i class="fas fa-flag"></i> SDG - Sudanese Pound</option>
+                        <option value="sek"><i class="fas fa-flag"></i> SEK - Swedish Krona</option>
+                        <option value="sgd"><i class="fas fa-flag"></i> SGD - Singapore Dollar</option>
+                        <option value="shp"><i class="fas fa-flag"></i> SHP - Saint Helena Pound</option>
+                        <option value="sle"><i class="fas fa-flag"></i> SLE - Sierra Leonean Leone</option>
+                        <option value="sll"><i class="fas fa-flag"></i> SLL - Sierra Leonean Leone</option>
+                        <option value="sos"><i class="fas fa-flag"></i> SOS - Somali Shilling</option>
+                        <option value="srd"><i class="fas fa-flag"></i> SRD - Surinamese Dollar</option>
+                        <option value="ssp"><i class="fas fa-flag"></i> SSP - South Sudanese Pound</option>
+                        <option value="stn"><i class="fas fa-flag"></i> STN - São Tomé and Príncipe Dobra</option>
+                        <option value="syp"><i class="fas fa-flag"></i> SYP - Syrian Pound</option>
+                        <option value="szl"><i class="fas fa-flag"></i> SZL - Eswatini Lilangeni</option>
+                        <option value="thb"><i class="fas fa-flag"></i> THB - Thai Baht</option>
+                        <option value="tjs"><i class="fas fa-flag"></i> TJS - Tajikistani Somoni</option>
+                        <option value="tmt"><i class="fas fa-flag"></i> TMT - Turkmenistan Manat</option>
+                        <option value="tnd"><i class="fas fa-flag"></i> TND - Tunisian Dinar</option>
+                        <option value="top"><i class="fas fa-flag"></i> TOP - Tongan Pa'anga</option>
+                        <option value="try"><i class="fas fa-flag"></i> TRY - Turkish Lira</option>
+                        <option value="ttd"><i class="fas fa-flag"></i> TTD - Trinidad and Tobago Dollar</option>
+                        <option value="tvd"><i class="fas fa-flag"></i> TVD - Tuvaluan Dollar</option>
+                        <option value="twd"><i class="fas fa-flag"></i> TWD - New Taiwan Dollar</option>
+                        <option value="tzs"><i class="fas fa-flag"></i> TZS - Tanzanian Shilling</option>
+                        <option value="uah"><i class="fas fa-flag"></i> UAH - Ukrainian Hryvnia</option>
+                        <option value="ugx"><i class="fas fa-flag"></i> UGX - Ugandan Shilling</option>
+                        <option value="uyu"><i class="fas fa-flag"></i> UYU - Uruguayan Peso</option>
+                        <option value="uzs"><i class="fas fa-flag"></i> UZS - Uzbekistan Som</option>
+                        <option value="ves"><i class="fas fa-flag"></i> VES - Venezuelan Bolívar</option>
+                        <option value="vnd"><i class="fas fa-flag"></i> VND - Vietnamese Đồng</option>
+                        <option value="vuv"><i class="fas fa-flag"></i> VUV - Vanuatu Vatu</option>
+                        <option value="wst"><i class="fas fa-flag"></i> WST - Samoan Tala</option>
+                        <option value="xaf"><i class="fas fa-flag"></i> XAF - Central African CFA Franc</option>
+                        <option value="xcd"><i class="fas fa-flag"></i> XCD - East Caribbean Dollar</option>
+                        <option value="xdr"><i class="fas fa-flag"></i> XDR - Special Drawing Rights</option>
+                        <option value="xof"><i class="fas fa-flag"></i> XOF - West African CFA Franc</option>
+                        <option value="xpf"><i class="fas fa-flag"></i> XPF - CFP Franc</option>
+                        <option value="yer"><i class="fas fa-flag"></i> YER - Yemeni Rial</option>
+                        <option value="zar"><i class="fas fa-flag"></i> ZAR - South African Rand</option>
+                        <option value="zmw"><i class="fas fa-flag"></i> ZMW - Zambian Kwacha</option>
+                        <option value="zwl"><i class="fas fa-flag"></i> ZWL - Zimbabwean Dollar</option>
                     </select></div>
                 <div class="input-box"><label for="">To</label><select name="" id="a2">
                         <option value="inr"><i class="fas fa-flag"></i> INR - Indian Rupee</option>
-                        <option value="usd"><i class="fas fa-dollar-sign"></i> USD - United States Dollar</option>
-                        <option value="eur"><i class="fas fa-euro-sign"></i> EUR - Euro</option>
-                        <option value="gbp"><i class="fas fa-pound-sign"></i> GBP - British Pound Sterling</option>
-                        <option value="jpy"><i class="fas fa-yen-sign"></i> JPY - Japanese Yen</option>
-                        <option value="aud"><i class="fas fa-dollar-sign"></i> AUD - Australian Dollar</option>
-                        <option value="cad"><i class="fas fa-dollar-sign"></i> CAD - Canadian Dollar</option>
-                        <option value="chf"><i class="fas fa-money-bill-wave"></i> CHF - Swiss Franc</option>
-                        <option value="cny"><i class="fas fa-yen-sign"></i> CNY - Chinese Yuan</option>
-                        <option value="hkd"><i class="fas fa-dollar-sign"></i> HKD - Hong Kong Dollar</option>
+                        <option value="usd" selected><i class="fas fa-flag"></i> USD - United States Dollar</option>
+                        <option value="eur"><i class="fas fa-flag"></i> EUR - Euro</option>
+                        <option value="gbp"><i class="fas fa-flag"></i> GBP - British Pound Sterling</option>
+                        <option value="jpy"><i class="fas fa-flag"></i> JPY - Japanese Yen</option>
+                        <option value="aud"><i class="fas fa-flag"></i> AUD - Australian Dollar</option>
+                        <option value="cad"><i class="fas fa-flag"></i> CAD - Canadian Dollar</option>
+                        <option value="chf"><i class="fas fa-flag"></i> CHF - Swiss Franc</option>
+                        <option value="cny"><i class="fas fa-flag"></i> CNY - Chinese Yuan</option>
+                        <option value="hkd"><i class="fas fa-flag"></i> HKD - Hong Kong Dollar</option>
+                        <option value="aed"><i class="fas fa-flag"></i> AED - United Arab Emirates Dirham</option>
+                        <option value="afn"><i class="fas fa-flag"></i> AFN - Afghan Afghani</option>
+                        <option value="all"><i class="fas fa-flag"></i> ALL - Albanian Lek</option>
+                        <option value="amd"><i class="fas fa-flag"></i> AMD - Armenian Dram</option>
+                        <option value="ang"><i class="fas fa-flag"></i> ANG - Netherlands Antillean Guilder</option>
+                        <option value="aoa"><i class="fas fa-flag"></i> AOA - Angolan Kwanza</option>
+                        <option value="ars"><i class="fas fa-flag"></i> ARS - Argentine Peso</option>
+                        <option value="awg"><i class="fas fa-flag"></i> AWG - Aruban Florin</option>
+                        <option value="azn"><i class="fas fa-flag"></i> AZN - Azerbaijani Manat</option>
+                        <option value="bam"><i class="fas fa-flag"></i> BAM - Bosnia-Herzegovina Convertible Mark
+                        </option>
+                        <option value="bbd"><i class="fas fa-flag"></i> BBD - Barbadian Dollar</option>
+                        <option value="bdt"><i class="fas fa-flag"></i> BDT - Bangladeshi Taka</option>
+                        <option value="bgn"><i class="fas fa-flag"></i> BGN - Bulgarian Lev</option>
+                        <option value="bhd"><i class="fas fa-flag"></i> BHD - Bahraini Dinar</option>
+                        <option value="bif"><i class="fas fa-flag"></i> BIF - Burundian Franc</option>
+                        <option value="bmd"><i class="fas fa-flag"></i> BMD - Bermudan Dollar</option>
+                        <option value="bnd"><i class="fas fa-flag"></i> BND - Brunei Dollar</option>
+                        <option value="bob"><i class="fas fa-flag"></i> BOB - Bolivian Boliviano</option>
+                        <option value="brl"><i class="fas fa-flag"></i> BRL - Brazilian Real</option>
+                        <option value="bsd"><i class="fas fa-flag"></i> BSD - Bahamian Dollar</option>
+                        <option value="btn"><i class="fas fa-flag"></i> BTN - Bhutanese Ngultrum</option>
+                        <option value="bwp"><i class="fas fa-flag"></i> BWP - Botswanan Pula</option>
+                        <option value="byn"><i class="fas fa-flag"></i> BYN - Belarusian Ruble</option>
+                        <option value="bzd"><i class="fas fa-flag"></i> BZD - Belize Dollar</option>
+                        <option value="cdf"><i class="fas fa-flag"></i> CDF - Congolese Franc</option>
+                        <option value="clp"><i class="fas fa-flag"></i> CLP - Chilean Peso</option>
+                        <option value="cop"><i class="fas fa-flag"></i> COP - Colombian Peso</option>
+                        <option value="crc"><i class="fas fa-flag"></i> CRC - Costa Rican Colón</option>
+                        <option value="cup"><i class="fas fa-flag"></i> CUP - Cuban Peso</option>
+                        <option value="cve"><i class="fas fa-flag"></i> CVE - Cape Verdean Escudo</option>
+                        <option value="czk"><i class="fas fa-flag"></i> CZK - Czech Koruna</option>
+                        <option value="djf"><i class="fas fa-flag"></i> DJF - Djiboutian Franc</option>
+                        <option value="dkk"><i class="fas fa-flag"></i> DKK - Danish Krone</option>
+                        <option value="dop"><i class="fas fa-flag"></i> DOP - Dominican Peso</option>
+                        <option value="dzd"><i class="fas fa-flag"></i> DZD - Algerian Dinar</option>
+                        <option value="egp"><i class="fas fa-flag"></i> EGP - Egyptian Pound</option>
+                        <option value="ern"><i class="fas fa-flag"></i> ERN - Eritrean Nakfa</option>
+                        <option value="etb"><i class="fas fa-flag"></i> ETB - Ethiopian Birr</option>
+                        <option value="fjd"><i class="fas fa-flag"></i> FJD - Fijian Dollar</option>
+                        <option value="fkp"><i class="fas fa-flag"></i> FKP - Falkland Islands Pound</option>
+                        <option value="fok"><i class="fas fa-flag"></i> FOK - Faroese Króna</option>
+                        <option value="gel"><i class="fas fa-flag"></i> GEL - Georgian Lari</option>
+                        <option value="ggp"><i class="fas fa-flag"></i> GGP - Guernsey Pound</option>
+                        <option value="ghs"><i class="fas fa-flag"></i> GHS - Ghanaian Cedi</option>
+                        <option value="gip"><i class="fas fa-flag"></i> GIP - Gibraltar Pound</option>
+                        <option value="gmd"><i class="fas fa-flag"></i> GMD - Gambian Dalasi</option>
+                        <option value="gnf"><i class="fas fa-flag"></i> GNF - Guinean Franc</option>
+                        <option value="gtq"><i class="fas fa-flag"></i> GTQ - Guatemalan Quetzal</option>
+                        <option value="gyd"><i class="fas fa-flag"></i> GYD - Guyanaese Dollar</option>
+                        <option value="hnl"><i class="fas fa-flag"></i> HNL - Honduran Lempira</option>
+                        <option value="hrk"><i class="fas fa-flag"></i> HRK - Croatian Kuna</option>
+                        <option value="htg"><i class="fas fa-flag"></i> HTG - Haitian Gourde</option>
+                        <option value="huf"><i class="fas fa-flag"></i> HUF - Hungarian Forint</option>
+                        <option value="idr"><i class="fas fa-flag"></i> IDR - Indonesian Rupiah</option>
+                        <option value="ils"><i class="fas fa-flag"></i> ILS - Israeli New Shekel</option>
+                        <option value="imp"><i class="fas fa-flag"></i> IMP - Manx pound</option>
+                        <option value="iqd"><i class="fas fa-flag"></i> IQD - Iraqi Dinar</option>
+                        <option value="irr"><i class="fas fa-flag"></i> IRR - Iranian Rial</option>
+                        <option value="isk"><i class="fas fa-flag"></i> ISK - Icelandic Króna</option>
+                        <option value="jep"><i class="fas fa-flag"></i> JEP - Jersey Pound</option>
+                        <option value="jmd"><i class="fas fa-flag"></i> JMD - Jamaican Dollar</option>
+                        <option value="jod"><i class="fas fa-flag"></i> JOD - Jordanian Dinar</option>
+                        <option value="kes"><i class="fas fa-flag"></i> KES - Kenyan Shilling</option>
+                        <option value="kgs"><i class="fas fa-flag"></i> KGS - Kyrgystani Som</option>
+                        <option value="khr"><i class="fas fa-flag"></i> KHR - Cambodian Riel</option>
+                        <option value="kid"><i class="fas fa-flag"></i> KID - Kiribati Dollar</option>
+                        <option value="kmf"><i class="fas fa-flag"></i> KMF - Comorian Franc</option>
+                        <option value="krw"><i class="fas fa-flag"></i> KRW - South Korean Won</option>
+                        <option value="kwd"><i class="fas fa-flag"></i> KWD - Kuwaiti Dinar</option>
+                        <option value="kyd"><i class="fas fa-flag"></i> KYD - Cayman Islands Dollar</option>
+                        <option value="kzt"><i class="fas fa-flag"></i> KZT - Kazakhstani Tenge</option>
+                        <option value="lak"><i class="fas fa-flag"></i> LAK - Laotian Kip</option>
+                        <option value="lbp"><i class="fas fa-flag"></i> LBP - Lebanese Pound</option>
+                        <option value="lkr"><i class="fas fa-flag"></i> LKR - Sri Lankan Rupee</option>
+                        <option value="lrd"><i class="fas fa-flag"></i> LRD - Liberian Dollar</option>
+                        <option value="lsl"><i class="fas fa-flag"></i> LSL - Lesotho Loti</option>
+                        <option value="lyd"><i class="fas fa-flag"></i> LYD - Libyan Dinar</option>
+                        <option value="mad"><i class="fas fa-flag"></i> MAD - Moroccan Dirham</option>
+                        <option value="mdl"><i class="fas fa-flag"></i> MDL - Moldovan Leu</option>
+                        <option value="mga"><i class="fas fa-flag"></i> MGA - Malagasy Ariary</option>
+                        <option value="mkd"><i class="fas fa-flag"></i> MKD - Macedonian Denar</option>
+                        <option value="mmk"><i class="fas fa-flag"></i> MMK - Burmese Kyat</option>
+                        <option value="mnt"><i class="fas fa-flag"></i> MNT - Mongolian Tugrik</option>
+                        <option value="mop"><i class="fas fa-flag"></i> MOP - Macanese Pataca</option>
+                        <option value="mru"><i class="fas fa-flag"></i> MRU - Mauritanian Ouguiya</option>
+                        <option value="mur"><i class="fas fa-flag"></i> MUR - Mauritian Rupee</option>
+                        <option value="mvr"><i class="fas fa-flag"></i> MVR - Maldivian Rufiyaa</option>
+                        <option value="mwk"><i class="fas fa-flag"></i> MWK - Malawian Kwacha</option>
+                        <option value="mxn"><i class="fas fa-flag"></i> MXN - Mexican Peso</option>
+                        <option value="myr"><i class="fas fa-flag"></i> MYR - Malaysian Ringgit</option>
+                        <option value="mzn"><i class="fas fa-flag"></i> MZN - Mozambican Metical</option>
+                        <option value="nad"><i class="fas fa-flag"></i> NAD - Namibian Dollar</option>
+                        <option value="ngn"><i class="fas fa-flag"></i> NGN - Nigerian Naira</option>
+                        <option value="nio"><i class="fas fa-flag"></i> NIO - Nicaraguan Córdoba</option>
+                        <option value="nok"><i class="fas fa-flag"></i> NOK - Norwegian Krone</option>
+                        <option value="npr"><i class="fas fa-flag"></i> NPR - Nepalese Rupee</option>
+                        <option value="nzd"><i class="fas fa-flag"></i> NZD - New Zealand Dollar</option>
+                        <option value="omr"><i class="fas fa-flag"></i> OMR - Omani Rial</option>
+                        <option value="pab"><i class="fas fa-flag"></i> PAB - Panamanian Balboa</option>
+                        <option value="pen"><i class="fas fa-flag"></i> PEN - Peruvian Sol</option>
+                        <option value="pgk"><i class="fas fa-flag"></i> PGK - Papua New Guinean Kina</option>
+                        <option value="php"><i class="fas fa-flag"></i> PHP - Philippine Peso</option>
+                        <option value="pkr"><i class="fas fa-flag"></i> PKR - Pakistani Rupee</option>
+                        <option value="pln"><i class="fas fa-flag"></i> PLN - Polish Złoty</option>
+                        <option value="pyg"><i class="fas fa-flag"></i> PYG - Paraguayan Guarani</option>
+                        <option value="qar"><i class="fas fa-flag"></i> QAR - Qatari Rial</option>
+                        <option value="ron"><i class="fas fa-flag"></i> RON - Romanian Leu</option>
+                        <option value="rsd"><i class="fas fa-flag"></i> RSD - Serbian Dinar</option>
+                        <option value="rub"><i class="fas fa-flag"></i> RUB - Russian Ruble</option>
+                        <option value="rwf"><i class="fas fa-flag"></i> RWF - Rwandan Franc</option>
+                        <option value="sar"><i class="fas fa-flag"></i> SAR - Saudi Riyal</option>
+                        <option value="sbd"><i class="fas fa-flag"></i> SBD - Solomon Islands Dollar</option>
+                        <option value="scr"><i class="fas fa-flag"></i> SCR - Seychellois Rupee</option>
+                        <option value="sdg"><i class="fas fa-flag"></i> SDG - Sudanese Pound</option>
+                        <option value="sek"><i class="fas fa-flag"></i> SEK - Swedish Krona</option>
+                        <option value="sgd"><i class="fas fa-flag"></i> SGD - Singapore Dollar</option>
+                        <option value="shp"><i class="fas fa-flag"></i> SHP - Saint Helena Pound</option>
+                        <option value="sle"><i class="fas fa-flag"></i> SLE - Sierra Leonean Leone</option>
+                        <option value="sll"><i class="fas fa-flag"></i> SLL - Sierra Leonean Leone</option>
+                        <option value="sos"><i class="fas fa-flag"></i> SOS - Somali Shilling</option>
+                        <option value="srd"><i class="fas fa-flag"></i> SRD - Surinamese Dollar</option>
+                        <option value="ssp"><i class="fas fa-flag"></i> SSP - South Sudanese Pound</option>
+                        <option value="stn"><i class="fas fa-flag"></i> STN - São Tomé and Príncipe Dobra</option>
+                        <option value="syp"><i class="fas fa-flag"></i> SYP - Syrian Pound</option>
+                        <option value="szl"><i class="fas fa-flag"></i> SZL - Eswatini Lilangeni</option>
+                        <option value="thb"><i class="fas fa-flag"></i> THB - Thai Baht</option>
+                        <option value="tjs"><i class="fas fa-flag"></i> TJS - Tajikistani Somoni</option>
+                        <option value="tmt"><i class="fas fa-flag"></i> TMT - Turkmenistan Manat</option>
+                        <option value="tnd"><i class="fas fa-flag"></i> TND - Tunisian Dinar</option>
+                        <option value="top"><i class="fas fa-flag"></i> TOP - Tongan Pa'anga</option>
+                        <option value="try"><i class="fas fa-flag"></i> TRY - Turkish Lira</option>
+                        <option value="ttd"><i class="fas fa-flag"></i> TTD - Trinidad and Tobago Dollar</option>
+                        <option value="tvd"><i class="fas fa-flag"></i> TVD - Tuvaluan Dollar</option>
+                        <option value="twd"><i class="fas fa-flag"></i> TWD - New Taiwan Dollar</option>
+                        <option value="tzs"><i class="fas fa-flag"></i> TZS - Tanzanian Shilling</option>
+                        <option value="uah"><i class="fas fa-flag"></i> UAH - Ukrainian Hryvnia</option>
+                        <option value="ugx"><i class="fas fa-flag"></i> UGX - Ugandan Shilling</option>
+                        <option value="uyu"><i class="fas fa-flag"></i> UYU - Uruguayan Peso</option>
+                        <option value="uzs"><i class="fas fa-flag"></i> UZS - Uzbekistan Som</option>
+                        <option value="ves"><i class="fas fa-flag"></i> VES - Venezuelan Bolívar</option>
+                        <option value="vnd"><i class="fas fa-flag"></i> VND - Vietnamese Đồng</option>
+                        <option value="vuv"><i class="fas fa-flag"></i> VUV - Vanuatu Vatu</option>
+                        <option value="wst"><i class="fas fa-flag"></i> WST - Samoan Tala</option>
+                        <option value="xaf"><i class="fas fa-flag"></i> XAF - Central African CFA Franc</option>
+                        <option value="xcd"><i class="fas fa-flag"></i> XCD - East Caribbean Dollar</option>
+                        <option value="xdr"><i class="fas fa-flag"></i> XDR - Special Drawing Rights</option>
+                        <option value="xof"><i class="fas fa-flag"></i> XOF - West African CFA Franc</option>
+                        <option value="xpf"><i class="fas fa-flag"></i> XPF - CFP Franc</option>
+                        <option value="yer"><i class="fas fa-flag"></i> YER - Yemeni Rial</option>
+                        <option value="zar"><i class="fas fa-flag"></i> ZAR - South African Rand</option>
+                        <option value="zmw"><i class="fas fa-flag"></i> ZMW - Zambian Kwacha</option>
+                        <option value="zwl"><i class="fas fa-flag"></i> ZWL - Zimbabwean Dollar</option>
                     </select></div>
-                    <div class="currency-converter-popup popup">
-                        <p></p>
-                        <button class="">
-                            Convert Again
-                        </button>
-                    </div>
+                <div class="currency-converter-popup popup">
+                    <p></p>
+                    <button class="">
+                        Convert Again
+                    </button>
+                </div>
             </div>
             <button class="convert-btn">
                 Start Converting...
