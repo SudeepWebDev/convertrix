@@ -300,6 +300,7 @@ footer p {
     border-image-slice: 1;
   }
 
-  h2{
+  menu>h2{
     text-align: center;
+    margin-top: 20px;
   }
