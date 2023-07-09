@@ -63,6 +63,5 @@ convertButton.addEventListener('click', function convert() {
 let areaConverterPopupBtn = document.querySelector('.area-converter-popup button');
 areaConverterPopupBtn.addEventListener('click', function reConvert() {
     let areaConverterPopupCont = document.querySelector('.area-converter-popup');
-
     areaConverterPopupCont.style.display = "none";
 })

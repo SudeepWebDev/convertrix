@@ -377,4 +377,65 @@ h2 {
     }
   }
   
+  /* footer creator details section*/
+
+  
+
+  .footer-copy {
+    text-align: center;
+    margin-top: 40px;
+    padding: 40px;
+    background: linear-gradient(45deg, #0071EB, #00C6FF);
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    color: black;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.5s;
+    transform: rotateY(20deg) ;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+    font-size: 20px;
+
+  }
+  .created-by {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .name {
+    margin: 0 10px;
+  }
+  .author {
+    font-weight: bold;
+    color: black;
+  }
+  
+  .roll-no {
+    margin-top: 10px;
+  }
+  
+  .label {
+    font-weight: bold;
+  }
+  
+  .roll {
+    display: inline-block;
+    margin: 0 5px;
+  }
+  
+  .course {
+    margin-top: 10px;
+  }
+  
+  .college {
+    margin-top: 10px;
+    font-style: italic;
+  }
+  
+  .copy-right {
+    margin-top: 20px;
+  }
   

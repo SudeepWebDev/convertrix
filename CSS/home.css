@@ -9,6 +9,7 @@
 #about-us {
   text-align: center;
   margin-top: 40px;
+  margin-bottom: 40px;
   padding: 40px;
   background: linear-gradient(45deg, #0071EB, #00C6FF);
   border-radius: 5px;
@@ -16,11 +17,12 @@
   color: #fff;
   position: relative;
   transform-style: preserve-3d;
+  transform: rotateY(20deg);
   transition: transform 0.5s;
 }
 
 #about-us:hover {
-  transform: rotateY(20deg) translateZ(20px);
+  transform: rotateY(25deg) ;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
 }
 
