@@ -30,7 +30,7 @@ async function getResponse(question) {
 
         return "1. For Currency Converter:<br>Currency 100 usd to inr.<br><br>2. For Length Converter:<br>Length 100m to cm.<br><br>3. For Temperature Converter:<br>Temperature 100 C to K.";;
 
-    } else if (question.includes('symbols')) {
+    } else if (question.includes('symbol')) {
         return "1. For Currency Symbol:<br>Three letter unique symbol is used.<br>Example: usd, inr, aud etc.<br><br>2. For Length Symbol:<br>one/two letter unique symbol is used.<br>Example: m, cm, km, ha, mm, in etc.<br><br>3. For Area Symbol:<br>Two/Three/Four letter unique symbol is used.<br> Example: sqkm, sqm, ha etc.";
 
     } else if (question.includes('area')) {
@@ -306,19 +306,19 @@ function convertArea(convertOption1, convertOption2, amount) {
     };
 
     let convertedAmount;
-    let convertedLengthSQKM;
+    let convertedAreaSQKM;
 
     for (keys in areaValueSQKM) {
         if (keys == convertOption2) {
-            if (convertOption1 == 'm') {
+            if (convertOption1 == 'sqkm') {
                 convertedAmount = Number(amount) * areaValueSQKM[keys];
                 return convertedAmount;
                 //   break;
             } else {
                 for (keys2 in areaValueSQKM) {
                     if (keys2 == convertOption1) {
-                        convertedLengthSQKM = Number(amount) / areaValueSQKM[keys2];
-                        convertedAmount = convertedLengthSQKM * areaValueSQKM[convertOption2];
+                        convertedAreaSQKM = Number(amount) / areaValueSQKM[keys2];
+                        convertedAmount = convertedAreaSQKM * areaValueSQKM[convertOption2];
                         return convertedAmount;
                         //    break;
                     }
