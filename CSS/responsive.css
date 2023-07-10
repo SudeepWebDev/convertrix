@@ -34,6 +34,7 @@
   .converter-box {
     width: 95%;
     margin: 5px auto;
+    padding: 0;
   }
 
   .converter-box>div {
@@ -43,6 +44,8 @@
 
   .converter-box div div {
     margin: 10px;
+    margin-left: 0;
+    margin-right: 0;
   }
 
   .converter-box div .input-box {
