@@ -14,6 +14,10 @@ async function handleUserInput() {
 }
 
 async function getResponse(question) {
+
+    const greetingsRegex = /^(hi|hello|hey|greetings|howdy)\b/i;
+    const thankYouRegex = /\b(thank\s*you|thanks)\b/i;
+
     if (question.includes('currency')) {
         const currencies = question.match(/(?:^|\s)([A-Za-z]{3})(?=\s|$)/g).map(currency => currency.trim());
         const amount = question.match(/\d+/);
@@ -69,11 +73,20 @@ async function getResponse(question) {
         } else {
             return "I'm sorry, I couldn't understand the length conversion request.";
         }
-    } else if (question.includes('hi') || question.includes('hello')) {
+    } else if (greetingsRegex.test(question)) {
         return "Hi there! How can I assist you today?";
-    } else if (question.includes('thank you') || question.includes('thank')) {
-        return "You're welcome! If you have any more conversions, feel free to ask.";
+    } else if (thankYouRegex.test(question)) {
+        const randomResponses = [
+            "You're welcome! If you have any more conversions, feel free to ask.",
+            "No problem! If there's anything else you need to convert, just let me know.",
+            "You're welcome! I'm here to help with any conversions you need.",
+            "You're welcome! Don't hesitate to ask if you have more conversions you'd like to make.",
+            "My pleasure! If there's anything else you'd like to convert, feel free to ask."
+        ];
+        const randomIndex = Math.floor(Math.random() * randomResponses.length);
+        return randomResponses[randomIndex];
     }
+
     // Default response
     return "I'm sorry, I cannot answer that question.";
 }
