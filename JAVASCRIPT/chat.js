@@ -28,49 +28,9 @@ async function getResponse(question) {
         }
     } else if (question.includes('tips')) {
 
-        return "1. For Currency Converter:<br>Currency 100 usd to inr.<br><br>2. For Length Converter:<br>Length 100 m to cm.<br><br>3. For Area Converter:<br>Area 100 sqkm to ha.";
+        return "1. For Currency Converter:<br>Currency 100 usd to inr.<br><br>2. For Length Converter:<br>Length 100m to cm.<br><br>3. For Temperature Converter:<br>Temperature 100 C to K.";;
 
-    } else if (question.includes('symbols')) {
-        return "1. For Currency Symbol:<br>Three letter unique symbol is used.<br>Example: usd, inr, aud etc.<br><br>2. For Length Symbol:<br>one/two letter unique symbol is used.<br>Example: m, cm, km, ha, mm, in etc.<br><br>3. For Area Symbol:<br>Two/Three/Four letter unique symbol is used.<br> Example: sqkm, sqm, ha etc.";
-
-    } else if (question.includes('area')) {
-        const areas = question.match(/(?:^|\s)([A-Za-z]{2,4})(?=\s|$)/g).map(area => area.trim());
-        const amount2 = parseFloat(question.match(/\d+/));
-        const filteredAreas = areas.filter(area => !["area"].includes(area.toLowerCase()));
-
-        if (filteredAreas.length >= 2 && !isNaN(amount2)) {
-            const fromArea = filteredAreas[0];
-            const toArea = filteredAreas[2];
-
-            if (fromArea !== toArea) {
-                const convertedAmount = convertArea(fromArea, toArea, amount2);
-                return `The converted area from ${fromArea} to ${toArea} is ${convertedAmount}`;
-            } else {
-                return "The 'from' and 'to' area units are the same. No conversion needed.";
-            }
-        } else {
-            return "I'm sorry, I couldn't understand the area conversion request.";
-        }
-    } else if (question.includes('length')) {
-        const lengths = question.match(/(?:^|\s)([A-Za-z]{1,2})(?=\s|$)/g).map(length => length.trim());
-        const amount1 = parseFloat(question.match(/\d+/));
-        const filteredLengths = lengths.filter(length => !["len", "gth"].includes(length.toLowerCase()));
-
-        if (filteredLengths.length >= 2 && !isNaN(amount1)) {
-            const fromLength = filteredLengths[0];
-            const toLength = filteredLengths[2];
-
-            if (fromLength !== toLength) {
-                const convertedAmount = convertLength(fromLength, toLength, amount1);
-                return `The converted length from ${fromLength} to ${toLength} is ${convertedAmount}`;
-            } else {
-                return "The 'from' and 'to' length units are the same. No conversion needed.";
-            }
-        } else {
-            return "I'm sorry, I couldn't understand the length conversion request.";
-        }
     }
-
     // Default response
     return "I'm sorry, I cannot answer that question.";
 }
@@ -295,77 +255,6 @@ function performManualConversion(convertOption1, convertOption2, amount) {
     }
 }
 
-function convertArea(convertOption1, convertOption2, amount) {
-    const areaValueSQKM = {
-        "sqkm": 1,
-        "sqm": 1000000,
-        "ha": 100,
-        "acre": 247.105,
-        "sqmi": 0.386102,
-        "sqyd": 1196000,
-        "sqft": 10760000,
-        "sqin": 1550000000
-    };
-
-    let convertedAmount;
-    let convertedLengthSQKM;
-
-    for (keys in areaValueSQKM) {
-        if (keys == convertOption2) {
-            if (convertOption1 == 'm') {
-                convertedAmount = Number(amount) * areaValueSQKM[keys];
-                return convertedAmount;
-                //   break;
-            } else {
-                for (keys2 in areaValueSQKM) {
-                    if (keys2 == convertOption1) {
-                        convertedLengthSQKM = Number(amount) / areaValueSQKM[keys2];
-                        convertedAmount = convertedLengthSQKM * areaValueSQKM[convertOption2];
-                        return convertedAmount;
-                        //    break;
-                    }
-                }
-            }
-        }
-    }
-}
-function convertLength(convertOption1, convertOption2, amount) {
-    const lengthValueM = {
-        'm': 1,
-        'mm': 1000,
-        'cm': 100,
-        'km': 0.001,
-        'in': 39.3701,
-        'ft': 3.28084,
-        'yd': 1.09361,
-        'mi': 0.000621
-    };
-
-    let convertedAmount;
-    let convertedLengthM;
-
-    for (keys in lengthValueM) {
-        if (keys == convertOption2) {
-            if (convertOption1 == 'm') {
-                convertedAmount = Number(amount) * lengthValueM[keys];
-                return convertedAmount;
-                //   break;
-            } else {
-                for (keys2 in lengthValueM) {
-                    if (keys2 == convertOption1) {
-                        convertedLengthM = Number(amount) / lengthValueM[keys2];
-                        convertedAmount = convertedLengthM * lengthValueM[convertOption2];
-                        return convertedAmount;
-                        //    break;
-                    }
-                }
-            }
-        }
-    }
-}
-
-
-// SHowing the chat
 
 function displayResponse(question, response) {
     const chatBubble = document.createElement('div');
