@@ -30,7 +30,21 @@ async function getResponse(question) {
 
         return "1. For Currency Converter:<br>Currency 100 usd to inr.<br><br>2. For Length Converter:<br>Length 100m to cm.<br><br>3. For Temperature Converter:<br>Temperature 100 C to K.";;
 
+    } else if (question.includes('length')) {
+        const lengths = question.match(/(?:^|\s)([A-Za-z]{1,2})(?=\s|$)/g).map(length => length.trim());
+        const amount = parseFloat(question.match(/\d+/));
+        const filteredLengths = lengths.filter(length => !["len", "gth"].includes(length.toLowerCase()));
+    
+        if (filteredLengths.length === 2 && !isNaN(amount)) {
+            const fromLength = filteredLengths[0].toUpperCase();
+            const toLength = filteredLengths[1].toUpperCase();
+            const convertedAmount = await convertLength(fromLength, toLength, amount);
+            return `The converted length from ${fromLength} to ${toLength} is ${convertedAmount}`;
+        } else {
+            return "I'm sorry, I couldn't understand the length conversion request.";
+        }
     }
+    
     // Default response
     return "I'm sorry, I cannot answer that question.";
 }
@@ -255,6 +269,43 @@ function performManualConversion(convertOption1, convertOption2, amount) {
     }
 }
 
+function convertLength(convertOption1, convertOption2, amount) {
+    const lengthValueM = {
+        'm': 1,
+        'mm': 1000,
+        'cm': 100,
+        'km': 0.001,
+        'in': 39.3701,
+        'ft': 3.28084,
+        'yd': 1.09361,
+        'mi': 0.000621
+    };
+
+    let convertedAmount;
+    let convertedLengthM;
+
+    for (keys in lengthValueM) {
+        if (keys == convertOption2) {
+            if (convertOption1 == 'm') {
+                convertedAmount = Number(amount) * lengthValueM[keys];
+                return convertedAmount;
+                //   break;
+            } else {
+                for (keys2 in lengthValueM) {
+                    if (keys2 == convertOption1) {
+                        convertedLengthM = Number(amount) / lengthValueM[keys2];
+                        convertedAmount = convertedLengthM * lengthValueM[convertOption2];
+                        return convertedAmount;
+                        //    break;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+// SHowing the chat
 
 function displayResponse(question, response) {
     const chatBubble = document.createElement('div');
