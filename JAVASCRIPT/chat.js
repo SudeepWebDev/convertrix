@@ -34,17 +34,22 @@ async function getResponse(question) {
         const lengths = question.match(/(?:^|\s)([A-Za-z]{1,2})(?=\s|$)/g).map(length => length.trim());
         const amount = parseFloat(question.match(/\d+/));
         const filteredLengths = lengths.filter(length => !["len", "gth"].includes(length.toLowerCase()));
-    
+
         if (filteredLengths.length === 2 && !isNaN(amount)) {
             const fromLength = filteredLengths[0].toUpperCase();
             const toLength = filteredLengths[1].toUpperCase();
-            const convertedAmount = await convertLength(fromLength, toLength, amount);
-            return `The converted length from ${fromLength} to ${toLength} is ${convertedAmount}`;
+
+            if (fromLength !== toLength) {
+                const convertedAmount = convertLength(fromLength, toLength, amount);
+                return `The converted length from ${fromLength} to ${toLength} is ${convertedAmount}`;
+            } else {
+                return "The 'from' and 'to' length units are the same. No conversion needed.";
+            }
         } else {
             return "I'm sorry, I couldn't understand the length conversion request.";
         }
     }
-    
+
     // Default response
     return "I'm sorry, I cannot answer that question.";
 }
