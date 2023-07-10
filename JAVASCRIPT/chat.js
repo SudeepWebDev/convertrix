@@ -12,7 +12,6 @@ async function handleUserInput() {
         userInput.value = '';
     }
 }
-
 async function getResponse(question) {
 
     const greetingsRegex = /^(hi|hello|hey|greetings|namaste)\b/i;
@@ -90,7 +89,6 @@ async function getResponse(question) {
     // Default response
     return "I'm sorry, I cannot answer that question.";
 }
-
 async function convertCurrency(fromCurrency, toCurrency, amount) {
     try {
         const response = await fetch('https://v6.exchangerate-api.com/v6/fb230eb436df708215fa43f1/latest/USD');
@@ -378,7 +376,6 @@ function convertLength(convertOption1, convertOption2, amount) {
         }
     }
 }
-
 function displayResponse(question, response) {
     const chatBubble = document.createElement('div');
     const userBubble = document.createElement('div');
