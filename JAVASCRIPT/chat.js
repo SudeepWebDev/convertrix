@@ -15,7 +15,7 @@ async function handleUserInput() {
 
 async function getResponse(question) {
 
-    const greetingsRegex = /^(hi|hello|hey|greetings|howdy)\b/i;
+    const greetingsRegex = /^(hi|hello|hey|greetings|namaste)\b/i;
     const thankYouRegex = /\b(thank\s*you|thanks)\b/i;
 
     if (question.includes('currency')) {
