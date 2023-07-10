@@ -16,7 +16,7 @@ async function handleUserInput() {
 async function getResponse(question) {
 
     const greetingsRegex = /^(hi|hello|hey|greetings|namaste)\b/i;
-    const thankYouRegex = /\b(thank\s*you|thanks)\b/i;
+    const thankYouRegex = /\b(thank\s*you|thanks|thank)\b/i;
 
     if (question.includes('currency')) {
         const currencies = question.match(/(?:^|\s)([A-Za-z]{3})(?=\s|$)/g).map(currency => currency.trim());
