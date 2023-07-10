@@ -49,3 +49,41 @@ chatToggle.addEventListener('click', function () {
   chatToggleIcon.classList.toggle('fa-minus');
   chatSection.classList.toggle('hide-chat');
 });
+
+
+const chatHead = document.getElementById('chat-head');
+
+let touchStartY = 0;
+let touchEndY = 0;
+
+chatHead.addEventListener('touchstart', handleTouchStart, false);
+chatHead.addEventListener('touchend', handleTouchEnd, false);
+
+function handleTouchStart(event) {
+  touchStartY = event.touches[0].clientY;
+}
+
+function handleTouchEnd(event) {
+  touchEndY = event.changedTouches[0].clientY;
+
+  const touchDiffY = touchEndY - touchStartY;
+
+  if (touchDiffY > 0) {
+    showChat();
+  }
+  else if (touchDiffY < 0) {
+    hideChat();
+  }
+}
+
+function showChat() {
+  chatToggleIcon.classList.remove('fa-arrow-up');
+  chatToggleIcon.classList.add('fa-arrow-down');
+  chatSection.classList.remove('hide-chat');
+}
+
+function hideChat() {
+  chatToggleIcon.classList.remove('fa-arrow-down');
+  chatToggleIcon.classList.add('fa-arrow-up');
+  chatSection.classList.add('hide-chat');
+}
