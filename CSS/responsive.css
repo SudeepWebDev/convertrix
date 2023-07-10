@@ -66,4 +66,9 @@
   .chat-section {
     width: 100%;
   }
+  .converter-box div div select, .converter-box div div input {
+    padding: 10px;
+    /* overflow-x: hidden; */
+    width: 250px;
+}
 }
