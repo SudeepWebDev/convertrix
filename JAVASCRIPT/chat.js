@@ -28,7 +28,7 @@ async function getResponse(question) {
         }
     } else if (question.includes('tips')) {
 
-        return "1. For Currency Converter:<br>Currency 100 usd to inr.<br><br>2. For Length Converter:<br>Length 100m to cm.<br><br>3. For Temperature Converter:<br>Temperature 100 C to K.";;
+        return "1. For Currency Converter:<br>Currency 100 usd to inr.<br><br>2. For Length Converter:<br>Length 100 m to cm.<br><br>3. For Area Converter:<br>Area 100 sqkm to ha.";;
 
     } else if (question.includes('symbol')) {
         return "1. For Currency Symbol:<br>Three letter unique symbol is used.<br>Example: usd, inr, aud etc.<br><br>2. For Length Symbol:<br>one/two letter unique symbol is used.<br>Example: m, cm, km, ha, mm, in etc.<br><br>3. For Area Symbol:<br>Two/Three/Four letter unique symbol is used.<br> Example: sqkm, sqm, ha etc.";
