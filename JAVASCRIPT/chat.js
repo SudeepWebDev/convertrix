@@ -71,7 +71,7 @@ async function getResponse(question) {
         }
     } else if (question.includes('hi') || question.includes('hello')) {
         return "Hi there! How can I assist you today?";
-    } else if (question.includes('thank you') || question.includes('thanks')) {
+    } else if (question.includes('thank you') || question.includes('thank')) {
         return "You're welcome! If you have any more conversions, feel free to ask.";
     }
     // Default response
