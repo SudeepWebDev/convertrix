@@ -106,6 +106,8 @@ fetch("https://raw.githubusercontent.com/SudeepWebDev/Rewards-Assistant/main/ads
   })
   .catch(error => {
     console.error('Error fetching promo data:', error);
+    document.getElementById('ads_section').style.display = 'none';
+
   });
 
 function onPlayerStateChange(event) {
