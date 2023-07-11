@@ -82,4 +82,10 @@
     /* overflow-x: hidden; */
     width: 180px;
   }
+
+
+  iframe#video-container {
+    width: 100%;
+    height: auto;
+  }
 }
