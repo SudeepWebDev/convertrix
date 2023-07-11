@@ -23,12 +23,14 @@
 
   }
 
-  .converter-box div div select, .converter-box div div input {
+  .converter-box div div select,
+  .converter-box div div input {
     padding: 10px;
     /* overflow-x: hidden; */
     width: 250px;
+  }
 }
-}
+
 @media screen and (max-width: 769px) {
 
   .converter-box {
@@ -54,7 +56,11 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    margin: 10px auto;
+  }
 
+  .convert-btn {
+    margin-bottom: 10px;
   }
 
   .footer-container {
@@ -69,9 +75,11 @@
   .chat-section {
     width: 100%;
   }
-  .converter-box div div select, .converter-box div div input {
+
+  .converter-box div div select,
+  .converter-box div div input {
     padding: 10px;
     /* overflow-x: hidden; */
     width: 180px;
-}
+  }
 }
