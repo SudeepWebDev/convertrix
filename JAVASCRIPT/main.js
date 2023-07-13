@@ -82,20 +82,16 @@ fetch("https://raw.githubusercontent.com/SudeepWebDev/Rewards-Assistant/main/ads
     const promoData = data[randomKey];
 
     const { url } = promoData;
-    // const videoId = url; // Use the stored videoId
     onYouTubeIframeAPIReady(url);
-    // Function called when the YouTube API is loaded
     function onYouTubeIframeAPIReady(url) {
-      // Create the YouTube player
       player = new YT.Player('video-container', {
         width: 560,
         height: 315,
         videoId: url, // Use the stored videoId
         playerVars: {
           controls: 0,
-          // disablekb: 1,
+          disablekb: 1,
           rel: 0,
-          // start: 315,
           autoplay: 1,
           mute: 1,
 
@@ -115,15 +111,11 @@ fetch("https://raw.githubusercontent.com/SudeepWebDev/Rewards-Assistant/main/ads
 
 function onPlayerStateChange(event) {
   if (event.data === YT.PlayerState.ENDED) {
-    // Video has ended, perform desired actions
   } else if (event.data === YT.PlayerState.PLAYING) {
-    // Check if player is muted or not
     if (player.isMuted()) {
-      // Player is muted, show unmute button
       showUnmuteButton();
       textchange();
     } else {
-      // Player is not muted, show mute button
       showMuteButton();
       textchange();
 
@@ -133,10 +125,8 @@ function onPlayerStateChange(event) {
 
 function toggleMute() {
   if (player.isMuted()) {
-    // Player is muted, unmute it
     player.unMute();
   } else {
-    // Player is not muted, mute it
     player.mute();
   }
   updateButtonState();
@@ -166,6 +156,5 @@ function showUnmuteButton() {
   unmuteButton.style.display = 'block';
 }
 
-// Add click event listeners to the mute and unmute buttons
 document.querySelector('#mute-button').addEventListener('click', toggleMute);
 document.querySelector('#mute-button').addEventListener('click', toggleMute);
