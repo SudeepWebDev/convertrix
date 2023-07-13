@@ -41,6 +41,7 @@ fetch("https://raw.githubusercontent.com/SudeepWebDev/Rewards-Assistant/main/pro
     const promoKeys = Object.keys(data);
     const randomKey = promoKeys[Math.floor(Math.random() * promoKeys.length)];
     const promoData = data[randomKey];
+    document.getElementById('ads_section').style.display = 'block';
 
     const { url, imageDivId, title, platform, description, ctaUrl, ctaText } = promoData;
 
@@ -66,6 +67,8 @@ fetch("https://raw.githubusercontent.com/SudeepWebDev/Rewards-Assistant/main/pro
   })
   .catch(error => {
     console.error('Error fetching promo data:', error);
+    document.getElementById('ads_section').style.display = 'none';
+
   });
 
 

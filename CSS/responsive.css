@@ -89,3 +89,9 @@
     height: auto;
   }
 }
+
+
+iframe#video-container {
+  width: 560px;
+  height: 315px;
+}
