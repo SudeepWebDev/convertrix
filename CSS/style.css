@@ -447,6 +447,7 @@ h2 {
 .ads_section {
   margin-top: 20px;
   margin-bottom: 20px;
+  display: none;
 }
 
 .promo-container {
