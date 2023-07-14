@@ -18,88 +18,192 @@ async function getResponse(question) {
     const greetingsRegex = /^(hi|hello|hey|greetings|namaste)\b/i;
     const thankYouRegex = /\b(thank\s*you|thanks|thank)\b/i;
     if (question.includes('currency supported') || question.includes('currency list')) {
+
         const currencyList = {
-          "inr": { name: "Indian Rupee" },
-          "xpf": { name: "CFP Franc" },
-          "yer": { name: "Yemeni Rial" },
-          // Add more currencies here
+            "inr": { name: "Indian Rupee" },
+            "aed": { name: "United Arab Emirates Dirham" },
+            "afn": { name: "Afghan Afghani" },
+            "all": { name: "Albanian Lek" },
+            "amd": { name: "Armenian Dram" },
+            "ang": { name: "Netherlands Antillean Guilder" },
+            "aoa": { name: "Angolan Kwanza" },
+            "ars": { name: "Argentine Peso" },
+            "aud": { name: "Australian Dollar" },
+            "awg": { name: "Aruban Florin" },
+            "azn": { name: "Azerbaijani Manat" },
+            "bam": { name: "Bosnia-Herzegovina Convertible Mark" },
+            "bbd": { name: "Barbadian Dollar" },
+            "bdt": { name: "Bangladeshi Taka" },
+            "bgn": { name: "Bulgarian Lev" },
+            "bhd": { name: "Bahraini Dinar" },
+            "bif": { name: "Burundian Franc" },
+            "bmd": { name: "Bermudan Dollar" },
+            "bnd": { name: "Brunei Dollar" },
+            "bob": { name: "Bolivian Boliviano" },
+            "brl": { name: "Brazilian Real" },
+            "bsd": { name: "Bahamian Dollar" },
+            "btn": { name: "Bhutanese Ngultrum" },
+            "bwp": { name: "Botswanan Pula" },
+            "byn": { name: "Belarusian Ruble" },
+            "bzd": { name: "Belize Dollar" },
+            "cad": { name: "Canadian Dollar" },
+            "cdf": { name: "Congolese Franc" },
+            "chf": { name: "Swiss Franc" },
+            "clp": { name: "Chilean Peso" },
+            "cny": { name: "Chinese Yuan" },
+            "cop": { name: "Colombian Peso" },
+            "crc": { name: "Costa Rican Colón" },
+            "cup": { name: "Cuban Peso" },
+            "cve": { name: "Cape Verdean Escudo" },
+            "czk": { name: "Czech Koruna" },
+            "djf": { name: "Djiboutian Franc" },
+            "dkk": { name: "Danish Krone" },
+            "dop": { name: "Dominican Peso" },
+            "dzd": { name: "Algerian Dinar" },
+            "egp": { name: "Egyptian Pound" },
+            "ern": { name: "Eritrean Nakfa" },
+            "etb": { name: "Ethiopian Birr" },
+            "eur": { name: "Euro" },
+            "fjd": { name: "Fijian Dollar" },
+            "fkp": { name: "Falkland Islands Pound" },
+            "fok": { name: "Faroese Króna" },
+            "gbp": { name: "British Pound Sterling" },
+            "gel": { name: "Georgian Lari" },
+            "ggp": { name: "Guernsey Pound" },
+            "ghs": { name: "Ghanaian Cedi" },
+            "gip": { name: "Gibraltar Pound" },
+            "gmd": { name: "Gambian Dalasi" },
+            "gnf": { name: "Guinean Franc" },
+            "gtq": { name: "Guatemalan Quetzal" },
+            "gyd": { name: "Guyanaese Dollar" },
+            "hkd": { name: "Hong Kong Dollar" },
+            "hnl": { name: "Honduran Lempira" },
+            "hrk": { name: "Croatian Kuna" },
+            "htg": { name: "Haitian Gourde" },
+            "huf": { name: "Hungarian Forint" },
+            "idr": { name: "Indonesian Rupiah" },
+            "ils": { name: "Israeli New Shekel" },
+            "imp": { name: "Manx pound" },
+            "iqd": { name: "Iraqi Dinar" },
+            "irr": { name: "Iranian Rial" },
+            "isk": { name: "Icelandic Króna" },
+            "jep": { name: "Jersey Pound" },
+            "jmd": { name: "Jamaican Dollar" },
+            "jod": { name: "Jordanian Dinar" },
+            "jpy": { name: "Japanese Yen" },
+            "kes": { name: "Kenyan Shilling" },
+            "kgs": { name: "Kyrgystani Som" },
+            "khr": { name: "Cambodian Riel" },
+            "kid": { name: "Kiribati Dollar" },
+            "kmf": { name: "Comorian Franc" },
+            "krw": { name: "South Korean Won" },
+            "kwd": { name: "Kuwaiti Dinar" },
+            "kyd": { name: "Cayman Islands Dollar" },
+            "kzt": { name: "Kazakhstani Tenge" },
+            "lak": { name: "Laotian Kip" },
+            "lbp": { name: "Lebanese Pound" },
+            "lkr": { name: "Sri Lankan Rupee" },
+            "lrd": { name: "Liberian Dollar" },
+            "lsl": { name: "Lesotho Loti" },
+            "lyd": { name: "Libyan Dinar" },
+            "mad": { name: "Moroccan Dirham" },
+            "mdl": { name: "Moldovan Leu" },
+            "mga": { name: "Malagasy Ariary" },
+            "mkd": { name: "Macedonian Denar" },
+            "mmk": { name: "Myanmar Kyat" },
+            "mnt": { name: "Mongolian Tugrik" },
+            "mop": { name: "Macanese Pataca" },
+            "mru": { name: "Mauritanian Ouguiya" },
+            "mur": { name: "Mauritian Rupee" },
+            "mvr": { name: "Maldivian Rufiyaa" },
+            "mwk": { name: "Malawian Kwacha" },
+            "mxn": { name: "Mexican Peso" },
+            "myr": { name: "Malaysian Ringgit" },
+            "mzn": { name: "Mozambican Metical" },
+            "nad": { name: "Namibian Dollar" },
+            "ngn": { name: "Nigerian Naira" },
+            "nio": { name: "Nicaraguan Córdoba" },
+            "nok": { name: "Norwegian Krone" },
+            "npr": { name: "Nepalese Rupee" },
+            "nzd": { name: "New Zealand Dollar" },
+            "omr": { name: "Omani Rial" },
+            "pab": { name: "Panamanian Balboa" },
+            "pen": { name: "Peruvian Sol" },
+            "pgk": { name: "Papua New Guinean Kina" },
+            "php": { name: "Philippine Peso" },
+            "pkr": { name: "Pakistani Rupee" },
+            "pln": { name: "Polish Złoty" },
+            "pyg": { name: "Paraguayan Guarani" },
+            "qar": { name: "Qatari Rial" },
+            "ron": { name: "Romanian Leu" },
+            "rsd": { name: "Serbian Dinar" },
+            "rub": { name: "Russian Ruble" },
+            "rwf": { name: "Rwandan Franc" },
+            "sar": { name: "Saudi Riyal" },
+            "sbd": { name: "Solomon Islands Dollar" },
+            "scr": { name: "Seychellois Rupee" },
+            "sdg": { name: "Sudanese Pound" },
+            "sek": { name: "Swedish Krona" },
+            "sgd": { name: "Singapore Dollar" },
+            "shp": { name: "Saint Helena Pound" },
+            "sle": { name: "Sierra Leonean Leone" },
+            "sll": { name: "Sierra Leonean Leone" },
+            "sos": { name: "Somali Shilling" },
+            "srd": { name: "Surinamese Dollar" },
+            "ssp": { name: "South Sudanese Pound" },
+            "stn": { name: "São Tomé and Príncipe Dobra" },
+            "syp": { name: "Syrian Pound" },
+            "szl": { name: "Swazi Lilangeni" },
+            "thb": { name: "Thai Baht" },
+            "tjs": { name: "Tajikistani Somoni" },
+            "tmt": { name: "Turkmenistani Manat" },
+            "tnd": { name: "Tunisian Dinar" },
+            "top": { name: "Tongan Pa'anga" },
+            "try": { name: "Turkish Lira" },
+            "ttd": { name: "Trinidad and Tobago Dollar" },
+            "tvd": { name: "Tuvaluan Dollar" },
+            "twd": { name: "New Taiwan Dollar" },
+            "tzs": { name: "Tanzanian Shilling" },
+            "uah": { name: "Ukrainian Hryvnia" },
+            "ugx": { name: "Ugandan Shilling" },
+            "usd": { name: "United States Dollar" },
+            "uyu": { name: "Uruguayan Peso" },
+            "uzs": { name: "Uzbekistani Som" },
+            "ves": { name: "Venezuelan Bolívar Soberano" },
+            "vnd": { name: "Vietnamese Đồng" },
+            "vuv": { name: "Vanuatu Vatu" },
+            "wst": { name: "Samoan Tala" },
+            "xaf": { name: "Central African CFA Franc" },
+            "xcd": { name: "East Caribbean Dollar" },
+            "xdr": { name: "Special Drawing Rights" },
+            "xof": { name: "West African CFA franc" },
+            "xpf": { name: "CFP Franc" },
+            "yer": { name: "Yemeni Rial" },
+            "zar": { name: "South African Rand" },
+            "zmw": { name: "Zambian Kwacha" },
+            "zwl": { name: "Zimbabwean Dollar" },
         };
-      
         // Function to retrieve the supported currencies
         function getSupportedCurrencies() {
-          const currencies = Object.keys(currencyList);
-          const currencyListItems = currencies.slice(0, 10).map(currency => `${currency} - ${currencyList[currency].name}`);
-          return currencyListItems.join("<br>");
+            const currencies = Object.keys(currencyList);
+            const currencyList1 = currencies.map(currency => `${currency} - ${currencyList[currency].name}`);
+            return currencyList1.join("<br>");
         }
-      
-        // Function to retrieve the remaining supported currencies
-        function getRemainingCurrencies() {
-          const currencies = Object.keys(currencyList);
-          const currencyListItems = currencies.slice(10).map(currency => `${currency} - ${currencyList[currency].name}`);
-          return currencyListItems.join("<br>");
-        }
-      
-        // Check if user has clicked the "More" button
-        let isMoreButtonClicked = false; // Determine if the "More" button was clicked
-      
-        // Function to display the supported currencies
-        function displaySupportedCurrencies() {
-          const supportedCurrencies = getSupportedCurrencies();
-          const parentContainer = document.querySelector('#parentContainer');
-      
-          const currenciesDiv = document.createElement('div');
-          currenciesDiv.className = 'supportedCurrencies';
-          currenciesDiv.innerHTML = supportedCurrencies;
-      
-          parentContainer.appendChild(currenciesDiv);
-        }
-      
-        // Function to display the remaining supported currencies
-        function displayRemainingCurrencies() {
-          const remainingCurrencies = getRemainingCurrencies();
-          const currenciesDivs = document.getElementsByClassName('supportedCurrencies');
-      
-          if (currenciesDivs.length > 0) {
-            const lastCurrenciesDiv = currenciesDivs[currenciesDivs.length - 1];
-            lastCurrenciesDiv.innerHTML += "<br><br>" + remainingCurrencies;
-          }
-        }
-      
-        // Function to create and append the "More" button
-        function createMoreButton() {
-          const moreButton = document.createElement('button');
-          moreButton.innerText = 'More';
-      
-          // Add a click event listener to the "More" button
-          moreButton.addEventListener('click', function () {
-            isMoreButtonClicked = true;
-            displayRemainingCurrencies();
-            moreButton.style.display = 'none';
-          });
-      
-          // Find the parent container of the supported currencies
-          const parentContainer = document.querySelector('#parentContainer');
-      
-          // Check if the parent container has any supported currencies div
-          const supportedCurrenciesDivs = parentContainer.getElementsByClassName('supportedCurrencies');
-      
-          // If supported currencies div exists, append the button to the last div
-          if (supportedCurrenciesDivs.length > 0) {
-            const lastCurrenciesDiv = supportedCurrenciesDivs[supportedCurrenciesDivs.length - 1];
-            lastCurrenciesDiv.appendChild(moreButton);
-          }
-        }
-      
-        // Check if the "More" button was previously clicked
-        if (isMoreButtonClicked) {
-          displayRemainingCurrencies();
-          createMoreButton();
+
+        // Check if user has requested to see the entire currency list
+        const isMoreRequested = question.includes('more');
+
+        // Update the conversation state
+        conversationState.isCurrencyList1Requested = true;
+
+        // Return the supported currencies
+        if (isMoreRequested) {
+            return "Supported currencies:<br>" + getSupportedCurrencies();
         } else {
-          displaySupportedCurrencies();
-          createMoreButton();
+            return "Supported currencies:<br>" + getSupportedCurrencies() + "<br><br>" +
+                "To view the entire currency list, type 'more'.";
         }
-      }
-      
+    }
     else if (question.includes('currency')) {
         const currencies = question.match(/(?:^|\s)([A-Za-z]{3})(?=\s|$)/g).map(currency => currency.trim());
         const amount = question.match(/\d+/);
@@ -167,7 +271,6 @@ async function getResponse(question) {
     else if (question.includes('area supported') || question.includes('area list')) {
         // Return the list of supported area units
     }
-
     else if (question.includes('area')) {
         const areas = question.match(/(?:^|\s)([A-Za-z]{2,4})(?=\s|$)/g).map(area => area.trim());
         const amount2 = parseFloat(question.match(/\d+/));
@@ -218,7 +321,9 @@ async function getResponse(question) {
         const randomIndex = Math.floor(Math.random() * randomResponses.length);
         return randomResponses[randomIndex];
     }
-
+    if (!question.includes('more') && conversationState.isCurrencyListRequested) {
+        conversationState = {};
+    }
     // Default response
     return "I'm sorry, I cannot answer that question.";
 }
