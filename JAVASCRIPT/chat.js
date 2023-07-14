@@ -236,10 +236,10 @@ async function getResponse(question) {
         return "Conversion Examples:<br>" +
             "- Currency Conversion:<br>" +
             "   Example: Convert 100 USD to INR<br>" +
-            "   Example: Convert 50 EUR to USD<br>" +
+            "   Example: Convert 50 EUR to USD<br><br>" +
             "- Length Conversion:<br>" +
             "   Example: Convert 100 m to cm<br>" +
-            "   Example: Convert 5 ft to m<br>" +
+            "   Example: Convert 5 ft to m<br><br>" +
             "- Area Conversion:<br>" +
             "   Example: Convert 100 sqkm to ha<br>" +
             "   Example: Convert 50 acres to sqm";
