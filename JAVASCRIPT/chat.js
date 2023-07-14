@@ -204,7 +204,7 @@ async function getResponse(question) {
         return "Documentation Syntax:\n\n" +
             "1. Conversion Prompts:\n\n\n" +
             "   - For currency conversion, use the format: 'Convert [amount] [from currency symbol] to [to currency symbol]'\n\n\n" +
-            "     Example: Convert 100 USD to INR\n" +
+            "     Example: Convert 100 USD to INR\n\n\n" +
             "   - For length conversion, use the format: 'Convert [amount] [from unit symbol] to [to unit symbol]'\n\n\n" +
             "     Example: Convert 100 m to cm\n\n\n" +
             "   - For area conversion, use the format: 'Convert [amount] [from unit symbol] to [to unit symbol]'\n\n\n" +
