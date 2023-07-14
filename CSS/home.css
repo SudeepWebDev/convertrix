@@ -1,6 +1,10 @@
 #dynamic_textH3 {
   text-align: center;
-  /* margin: auto; */
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  transform: translate(0, -10px);
 }
 
 
