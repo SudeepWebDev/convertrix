@@ -184,15 +184,15 @@ async function getResponse(question) {
         // Function to retrieve the supported currencies
         // Function to retrieve the supported currencies
         function getSupportedCurrencies() {
-            const currencies = Object.keys(currencyValueINR);
-            const currencyList = currencies.slice(0, 10).map(currency => `${currency} - ${currencyValueINR[currency].name}`);
+            const currencies = Object.keys(currencyList);
+            const currencyList = currencies.slice(0, 10).map(currency => `${currency} - ${currencyList[currency].name}`);
             return currencyList.join("<br>");
         }
 
         // Function to retrieve the remaining supported currencies
         function getRemainingCurrencies() {
-            const currencies = Object.keys(currencyValueINR);
-            const currencyList = currencies.slice(10).map(currency => `${currency} - ${currencyValueINR[currency].name}`);
+            const currencies = Object.keys(currencyList);
+            const currencyList = currencies.slice(10).map(currency => `${currency} - ${currencyList[currency].name}`);
             return currencyList.join("<br>");
         }
 
