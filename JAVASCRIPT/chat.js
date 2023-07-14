@@ -2,7 +2,6 @@ const chatContainer = document.getElementById('chat-container');
 const userInput = document.getElementById('user-input');
 const sendBtn = document.getElementById('send-btn');
 
-
 sendBtn.addEventListener('click', handleUserInput);
 
 async function handleUserInput() {
@@ -13,7 +12,6 @@ async function handleUserInput() {
         userInput.value = '';
     }
 }
-
 async function getResponse(question) {
 
     const greetingsRegex = /^(hi|hello|hey|greetings|namaste)\b/i;
@@ -213,21 +211,20 @@ async function getResponse(question) {
     } else if (question.includes('syntax')) {
         return "<b>Documentation Syntax:</b><br><br>" +
             "<b>1. Conversion Prompts:</b><br><br>" +
-            "   - For currency conversion, use the format: 'Convert [amount] [from currency symbol] to [to currency symbol]'<br>" +
+            "   - <b>For currency conversion,</b> use the format: 'Convert [amount] [from currency symbol] to [to currency symbol]'<br>" +
             "     Example: Convert 100 USD to INR<br><br>" +
-            "   - For length conversion, use the format: 'Convert [amount] [from unit symbol] to [to unit symbol]'<br>" +
+            "   - <b>For length conversion,</b> use the format: 'Convert [amount] [from unit symbol] to [to unit symbol]'<br>" +
             "     Example: Convert 100 m to cm<br><br>" +
-            "   - For area conversion, use the format: 'Convert [amount] [from unit symbol] to [to unit symbol]'<br>" +
+            "   - <b>For area conversion,</b> use the format: 'Convert [amount] [from unit symbol] to [to unit symbol]'<br>" +
             "     Example: Convert 100 sqkm to ha<br><br>" +
             "<b>2. Commands Available:</b><br><br>" +
-            "   - 'help' or 'commands' to see the available commands<br>" +
-            "   - 'examples' or 'usage' to get examples of conversion requests<br>" +
-            "   - 'syntax' to see the documentation syntax<br>" +
-            "   - 'currency supported' or 'currency list' to see the supported currencies<br>" +
-            "   - 'length supported' or 'length list' to see the supported length units<br>" +
-            "- 'area supported' or 'area list': See the supported area units" +
-            "Please make sure to include the appropriate conversion keywords (Currency, Length, Area) in your request to indicate the type of conversion you want.<br>" +
-            "You can also ask for 'tips' to get examples of conversion requests.";
+            "   - <b>'help' or 'commands'</b> to see the available commands<br><br>" +
+            "   - <b>'examples' or 'usage'</b> to get examples of conversion requests<br><br>" +
+            "   - <b>'syntax'</b> to see the documentation syntax<br><br>" +
+            "   - <b>'currency supported' or 'currency list'</b> to see the supported currencies<br><br>" +
+            "   - <b>'length supported' or 'length list'</b> to see the supported length units<br><br>" +
+            "   - <b>'area supported' or 'area list':</b> See the supported area units<br><br>" +
+            "Please make sure to include the appropriate conversion keywords (Currency, Length, Area) in your request to indicate the type of conversion you want.<br>";
     }
 
     else if (question.includes('help') || question.includes('commands')) {
@@ -251,7 +248,6 @@ async function getResponse(question) {
             "   Example: Convert 100 sqkm to ha<br>" +
             "   Example: Convert 50 acres to sqm";
     }
-
     else if (question.includes('length supported') || question.includes('length list')) {
         const lengthList = {
             'm': { name: 'meter' },
