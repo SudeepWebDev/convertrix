@@ -225,23 +225,23 @@ async function getResponse(question) {
     }
     else if (question.includes('help') || question.includes('commands')) {
         return "Available Commands:<br>" +
-            "- 'help' or 'commands': See the available commands\n" +
-            "- 'examples' or 'usage': Get examples of conversion requests\n" +
-            "- 'syntax': See the documentation syntax\n" +
-            "- 'currency supported' or 'currency list': See the supported currencies\n" +
-            "- 'length supported' or 'length list': See the supported length units\n" +
+            "- 'help' or 'commands': See the available commands<br>" +
+            "- 'examples' or 'usage': Get examples of conversion requests<br>" +
+            "- 'syntax': See the documentation syntax<br>" +
+            "- 'currency supported' or 'currency list': See the supported currencies<br>" +
+            "- 'length supported' or 'length list': See the supported length units<br>" +
             "- 'area supported' or 'area list': See the supported area units";
     }
     else if (question.includes('examples') || question.includes('usage')) {
         return "Conversion Examples:<br>" +
-            "- Currency Conversion:\n" +
-            "   Example: Convert 100 USD to INR\n" +
+            "- Currency Conversion:<br>" +
+            "   Example: Convert 100 USD to INR<br>" +
             "   Example: Convert 50 EUR to USD<br>" +
-            "- Length Conversion:\n" +
-            "   Example: Convert 100 m to cm\n" +
+            "- Length Conversion:<br>" +
+            "   Example: Convert 100 m to cm<br>" +
             "   Example: Convert 5 ft to m<br>" +
-            "- Area Conversion:\n" +
-            "   Example: Convert 100 sqkm to ha\n" +
+            "- Area Conversion:<br>" +
+            "   Example: Convert 100 sqkm to ha<br>" +
             "   Example: Convert 50 acres to sqm";
     }
     else if (question.includes('currency supported') || question.includes('currency list')) {
@@ -249,25 +249,25 @@ async function getResponse(question) {
         function getSupportedCurrencies() {
             const currencies = Object.keys(currencyValueINR);
             const currencyList = currencies.slice(0, 10).map(currency => `${currency} - ${currencyValueINR[currency].name}`);
-            return currencyList.join("\n");
+            return currencyList.join("<br>");
         }
 
         // Function to retrieve the remaining supported currencies
         function getRemainingCurrencies() {
             const currencies = Object.keys(currencyValueINR);
             const currencyList = currencies.slice(10).map(currency => `${currency} - ${currencyValueINR[currency].name}`);
-            return currencyList.join("\n");
+            return currencyList.join("<br>");
         }
 
         // Check if user has clicked the "More" button
-        const isMoreButtonClicked = '';// Determine if the "More" button was clicked
+        const isMoreButtonClicked = ''; // Determine if the "More" button was clicked
 
         // Return the supported currencies with the option to show more
         if (isMoreButtonClicked) {
-            return "Supported currencies:\n" + getSupportedCurrencies() + "\n\n" +
-                "More supported currencies:\n" + getRemainingCurrencies();
+            return "Supported currencies:<br>" + getSupportedCurrencies() + "<br><br>" +
+                "More supported currencies:<br>" + getRemainingCurrencies();
         } else {
-            return "Supported currencies:\n" + getSupportedCurrencies() + "\n\n" +
+            return "Supported currencies:<br>" + getSupportedCurrencies() + "<br><br>" +
                 "To view more supported currencies, click 'More'.";
         }
     }
@@ -315,7 +315,8 @@ async function getResponse(question) {
         } else {
             return "I'm sorry, I couldn't understand the length conversion request.";
         }
-    } else if (greetingsRegex.test(question)) {
+    }
+    else if (greetingsRegex.test(question)) {
         return "Hi there! How can I assist you today?";
     } else if (thankYouRegex.test(question)) {
         const randomResponses = [
