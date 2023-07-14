@@ -293,6 +293,7 @@ async function getResponse(question) {
             "   - 'syntax' to see the documentation syntax<br>" +
             "   - 'currency supported' or 'currency list' to see the supported currencies<br>" +
             "   - 'length supported' or 'length list' to see the supported length units<br>" +
+            "- 'area supported' or 'area list': See the supported area units" +
             "Please make sure to include the appropriate conversion keywords (Currency, Length, Area) in your request to indicate the type of conversion you want.<br>" +
             "You can also ask for 'tips' to get examples of conversion requests.";
     }
@@ -308,13 +309,13 @@ async function getResponse(question) {
     }
     else if (question.includes('examples') || question.includes('usage')) {
         return "<b>Conversion Examples:</b><br><br>" +
-            "- Currency Conversion:<br>" +
+            "- <b>Currency Conversion:</b><br>" +
             "   Example: Convert 100 USD to INR<br>" +
             "   Example: Convert 50 EUR to USD<br><br>" +
-            "- Length Conversion:<br>" +
+            "- <b>Length Conversion:</b><br>" +
             "   Example: Convert 100 m to cm<br>" +
             "   Example: Convert 5 ft to m<br><br>" +
-            "- Area Conversion:<br>" +
+            "- <b>Area Conversion:</b><br>" +
             "   Example: Convert 100 sqkm to ha<br>" +
             "   Example: Convert 50 acres to sqm";
     }
