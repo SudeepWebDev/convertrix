@@ -202,34 +202,34 @@ async function getResponse(question) {
 
     } else if (question.includes('syntax')) {
         return "Documentation Syntax:<br>" +
-            "1. Conversion Prompts:<br>\n" +
-            "   - For currency conversion, use the format: 'Convert [amount] [from currency symbol] to [to currency symbol]'<br>\n" +
-            "     Example: Convert 100 USD to INR<br>\n" +
-            "   - For length conversion, use the format: 'Convert [amount] [from unit symbol] to [to unit symbol]'<br>\n" +
-            "     Example: Convert 100 m to cm<br>\n" +
-            "   - For area conversion, use the format: 'Convert [amount] [from unit symbol] to [to unit symbol]'<br>\n" +
+            "1. Conversion Prompts:<br><br>" +
+            "   - For currency conversion, use the format: 'Convert [amount] [from currency symbol] to [to currency symbol]'<br><br>" +
+            "     Example: Convert 100 USD to INR<br><br>" +
+            "   - For length conversion, use the format: 'Convert [amount] [from unit symbol] to [to unit symbol]'<br><br>" +
+            "     Example: Convert 100 m to cm<br><br>" +
+            "   - For area conversion, use the format: 'Convert [amount] [from unit symbol] to [to unit symbol]'<br><br>" +
             "     Example: Convert 100 sqkm to ha<br><br>" +
-            "2. Commands Available:<br>\n" +
-            "   - 'help' or 'commands' to see the available commands<br>\n" +
-            "   - 'examples' or 'usage' to get examples of conversion requests<br>\n" +
-            "   - 'syntax' to see the documentation syntax<br>\n" +
-            "   - 'currency supported' or 'currency list' to see the supported currencies<br>\n" +
-            "   - 'length supported' or 'length list' to see the supported length units<br>\n" +
+            "2. Commands Available:<br><br>" +
+            "   - 'help' or 'commands' to see the available commands<br><br>" +
+            "   - 'examples' or 'usage' to get examples of conversion requests<br><br>" +
+            "   - 'syntax' to see the documentation syntax<br><br>" +
+            "   - 'currency supported' or 'currency list' to see the supported currencies<br><br>" +
+            "   - 'length supported' or 'length list' to see the supported length units<br><br>" +
             "   - 'area supported' or 'area list' to see the supported area units<br><br>" +
             "Additional Information:<br><br>" +
-            "- To cancel a conversion or any ongoing process, simply say 'cancel'<br>\n" +
-            "- If you encounter any issues or need further assistance, feel free to ask 'support' or 'contact support'<br>\n" +
-            "- You can provide feedback or suggestions by saying 'feedback' or 'submit feedback'<br>\n" +
-            "Please make sure to include the appropriate conversion keywords (Currency, Length, Area) in your request to indicate the type of conversion you want.<br>\n" +
+            "- To cancel a conversion or any ongoing process, simply say 'cancel'<br><br>" +
+            "- If you encounter any issues or need further assistance, feel free to ask 'support' or 'contact support'<br><br>" +
+            "- You can provide feedback or suggestions by saying 'feedback' or 'submit feedback'<br><br>" +
+            "Please make sure to include the appropriate conversion keywords (Currency, Length, Area) in your request to indicate the type of conversion you want.<br><br>" +
             "You can also ask for 'tips' to get examples of conversion requests.";
     }
     else if (question.includes('help') || question.includes('commands')) {
-        return "Available Commands:<br>" +
-            "- 'help' or 'commands': See the available commands<br>" +
-            "- 'examples' or 'usage': Get examples of conversion requests<br>" +
-            "- 'syntax': See the documentation syntax<br>" +
-            "- 'currency supported' or 'currency list': See the supported currencies<br>" +
-            "- 'length supported' or 'length list': See the supported length units<br>" +
+        return "Available Commands:<br><br>" +
+            "- 'help' or 'commands': See the available commands<br><br>" +
+            "- 'examples' or 'usage': Get examples of conversion requests<br><br>" +
+            "- 'syntax': See the documentation syntax<br><br>" +
+            "- 'currency supported' or 'currency list': See the supported currencies<br><br>" +
+            "- 'length supported' or 'length list': See the supported length units<br><br>" +
             "- 'area supported' or 'area list': See the supported area units";
     }
     else if (question.includes('examples') || question.includes('usage')) {

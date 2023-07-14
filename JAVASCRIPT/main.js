@@ -114,10 +114,8 @@ function onPlayerStateChange(event) {
   } else if (event.data === YT.PlayerState.PLAYING) {
     if (player.isMuted()) {
       showUnmuteButton();
-      textchange();
     } else {
       showMuteButton();
-      textchange();
 
     }
   }
