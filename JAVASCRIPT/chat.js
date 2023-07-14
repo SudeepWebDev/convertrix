@@ -1,6 +1,170 @@
 const chatContainer = document.getElementById('chat-container');
 const userInput = document.getElementById('user-input');
 const sendBtn = document.getElementById('send-btn');
+const currencyList = {
+    "inr": { name: "Indian Rupee" },
+    "aed": { name: "United Arab Emirates Dirham" },
+    "afn": { name: "Afghan Afghani" },
+    "all": { name: "Albanian Lek" },
+    "amd": { name: "Armenian Dram" },
+    "ang": { name: "Netherlands Antillean Guilder" },
+    "aoa": { name: "Angolan Kwanza" },
+    "ars": { name: "Argentine Peso" },
+    "aud": { name: "Australian Dollar" },
+    "awg": { name: "Aruban Florin" },
+    "azn": { name: "Azerbaijani Manat" },
+    "bam": { name: "Bosnia-Herzegovina Convertible Mark" },
+    "bbd": { name: "Barbadian Dollar" },
+    "bdt": { name: "Bangladeshi Taka" },
+    "bgn": { name: "Bulgarian Lev" },
+    "bhd": { name: "Bahraini Dinar" },
+    "bif": { name: "Burundian Franc" },
+    "bmd": { name: "Bermudan Dollar" },
+    "bnd": { name: "Brunei Dollar" },
+    "bob": { name: "Bolivian Boliviano" },
+    "brl": { name: "Brazilian Real" },
+    "bsd": { name: "Bahamian Dollar" },
+    "btn": { name: "Bhutanese Ngultrum" },
+    "bwp": { name: "Botswanan Pula" },
+    "byn": { name: "Belarusian Ruble" },
+    "bzd": { name: "Belize Dollar" },
+    "cad": { name: "Canadian Dollar" },
+    "cdf": { name: "Congolese Franc" },
+    "chf": { name: "Swiss Franc" },
+    "clp": { name: "Chilean Peso" },
+    "cny": { name: "Chinese Yuan" },
+    "cop": { name: "Colombian Peso" },
+    "crc": { name: "Costa Rican Colón" },
+    "cup": { name: "Cuban Peso" },
+    "cve": { name: "Cape Verdean Escudo" },
+    "czk": { name: "Czech Koruna" },
+    "djf": { name: "Djiboutian Franc" },
+    "dkk": { name: "Danish Krone" },
+    "dop": { name: "Dominican Peso" },
+    "dzd": { name: "Algerian Dinar" },
+    "egp": { name: "Egyptian Pound" },
+    "ern": { name: "Eritrean Nakfa" },
+    "etb": { name: "Ethiopian Birr" },
+    "eur": { name: "Euro" },
+    "fjd": { name: "Fijian Dollar" },
+    "fkp": { name: "Falkland Islands Pound" },
+    "fok": { name: "Faroese Króna" },
+    "gbp": { name: "British Pound Sterling" },
+    "gel": { name: "Georgian Lari" },
+    "ggp": { name: "Guernsey Pound" },
+    "ghs": { name: "Ghanaian Cedi" },
+    "gip": { name: "Gibraltar Pound" },
+    "gmd": { name: "Gambian Dalasi" },
+    "gnf": { name: "Guinean Franc" },
+    "gtq": { name: "Guatemalan Quetzal" },
+    "gyd": { name: "Guyanaese Dollar" },
+    "hkd": { name: "Hong Kong Dollar" },
+    "hnl": { name: "Honduran Lempira" },
+    "hrk": { name: "Croatian Kuna" },
+    "htg": { name: "Haitian Gourde" },
+    "huf": { name: "Hungarian Forint" },
+    "idr": { name: "Indonesian Rupiah" },
+    "ils": { name: "Israeli New Shekel" },
+    "imp": { name: "Manx pound" },
+    "iqd": { name: "Iraqi Dinar" },
+    "irr": { name: "Iranian Rial" },
+    "isk": { name: "Icelandic Króna" },
+    "jep": { name: "Jersey Pound" },
+    "jmd": { name: "Jamaican Dollar" },
+    "jod": { name: "Jordanian Dinar" },
+    "jpy": { name: "Japanese Yen" },
+    "kes": { name: "Kenyan Shilling" },
+    "kgs": { name: "Kyrgystani Som" },
+    "khr": { name: "Cambodian Riel" },
+    "kid": { name: "Kiribati Dollar" },
+    "kmf": { name: "Comorian Franc" },
+    "krw": { name: "South Korean Won" },
+    "kwd": { name: "Kuwaiti Dinar" },
+    "kyd": { name: "Cayman Islands Dollar" },
+    "kzt": { name: "Kazakhstani Tenge" },
+    "lak": { name: "Laotian Kip" },
+    "lbp": { name: "Lebanese Pound" },
+    "lkr": { name: "Sri Lankan Rupee" },
+    "lrd": { name: "Liberian Dollar" },
+    "lsl": { name: "Lesotho Loti" },
+    "lyd": { name: "Libyan Dinar" },
+    "mad": { name: "Moroccan Dirham" },
+    "mdl": { name: "Moldovan Leu" },
+    "mga": { name: "Malagasy Ariary" },
+    "mkd": { name: "Macedonian Denar" },
+    "mmk": { name: "Myanmar Kyat" },
+    "mnt": { name: "Mongolian Tugrik" },
+    "mop": { name: "Macanese Pataca" },
+    "mru": { name: "Mauritanian Ouguiya" },
+    "mur": { name: "Mauritian Rupee" },
+    "mvr": { name: "Maldivian Rufiyaa" },
+    "mwk": { name: "Malawian Kwacha" },
+    "mxn": { name: "Mexican Peso" },
+    "myr": { name: "Malaysian Ringgit" },
+    "mzn": { name: "Mozambican Metical" },
+    "nad": { name: "Namibian Dollar" },
+    "ngn": { name: "Nigerian Naira" },
+    "nio": { name: "Nicaraguan Córdoba" },
+    "nok": { name: "Norwegian Krone" },
+    "npr": { name: "Nepalese Rupee" },
+    "nzd": { name: "New Zealand Dollar" },
+    "omr": { name: "Omani Rial" },
+    "pab": { name: "Panamanian Balboa" },
+    "pen": { name: "Peruvian Sol" },
+    "pgk": { name: "Papua New Guinean Kina" },
+    "php": { name: "Philippine Peso" },
+    "pkr": { name: "Pakistani Rupee" },
+    "pln": { name: "Polish Złoty" },
+    "pyg": { name: "Paraguayan Guarani" },
+    "qar": { name: "Qatari Rial" },
+    "ron": { name: "Romanian Leu" },
+    "rsd": { name: "Serbian Dinar" },
+    "rub": { name: "Russian Ruble" },
+    "rwf": { name: "Rwandan Franc" },
+    "sar": { name: "Saudi Riyal" },
+    "sbd": { name: "Solomon Islands Dollar" },
+    "scr": { name: "Seychellois Rupee" },
+    "sdg": { name: "Sudanese Pound" },
+    "sek": { name: "Swedish Krona" },
+    "sgd": { name: "Singapore Dollar" },
+    "shp": { name: "Saint Helena Pound" },
+    "sle": { name: "Sierra Leonean Leone" },
+    "sll": { name: "Sierra Leonean Leone" },
+    "sos": { name: "Somali Shilling" },
+    "srd": { name: "Surinamese Dollar" },
+    "ssp": { name: "South Sudanese Pound" },
+    "stn": { name: "São Tomé and Príncipe Dobra" },
+    "syp": { name: "Syrian Pound" },
+    "szl": { name: "Swazi Lilangeni" },
+    "thb": { name: "Thai Baht" },
+    "tjs": { name: "Tajikistani Somoni" },
+    "tmt": { name: "Turkmenistani Manat" },
+    "tnd": { name: "Tunisian Dinar" },
+    "top": { name: "Tongan Pa'anga" },
+    "try": { name: "Turkish Lira" },
+    "ttd": { name: "Trinidad and Tobago Dollar" },
+    "tvd": { name: "Tuvaluan Dollar" },
+    "twd": { name: "New Taiwan Dollar" },
+    "tzs": { name: "Tanzanian Shilling" },
+    "uah": { name: "Ukrainian Hryvnia" },
+    "ugx": { name: "Ugandan Shilling" },
+    "usd": { name: "United States Dollar" },
+    "uyu": { name: "Uruguayan Peso" },
+    "uzs": { name: "Uzbekistani Som" },
+    "ves": { name: "Venezuelan Bolívar Soberano" },
+    "vnd": { name: "Vietnamese Đồng" },
+    "vuv": { name: "Vanuatu Vatu" },
+    "wst": { name: "Samoan Tala" },
+    "xaf": { name: "Central African CFA Franc" },
+    "xcd": { name: "East Caribbean Dollar" },
+    "xdr": { name: "Special Drawing Rights" },
+    "xof": { name: "West African CFA franc" },
+    "xpf": { name: "CFP Franc" },
+    "yer": { name: "Yemeni Rial" },
+    "zar": { name: "South African Rand" },
+    "zmw": { name: "Zambian Kwacha" },
+    "zwl": { name: "Zimbabwean Dollar" },
+};
 
 sendBtn.addEventListener('click', handleUserInput);
 
@@ -36,7 +200,86 @@ async function getResponse(question) {
     } else if (question.includes('symbol')) {
         return "1. For Currency Symbol:<br>Three letters unique symbol is used.<br>Example: usd, inr, aud etc.<br><br>2. For Length Symbol:<br>one/two letter(s) unique symbol is used.<br>Example: m, cm, km, ha, mm, in etc.<br><br>3. For Area Symbol:<br>Two/Three/Four letters unique symbol is used.<br> Example: sqkm, sqm, ha etc.";
 
-    } else if (question.includes('area')) {
+    } else if (question.includes('syntax')) {
+        return "Documentation Syntax:\n\n" +
+            "1. Conversion Prompts:\n" +
+            "   - For currency conversion, use the format: 'Convert [amount] [from currency symbol] to [to currency symbol]'\n" +
+            "     Example: Convert 100 USD to INR\n" +
+            "   - For length conversion, use the format: 'Convert [amount] [from unit symbol] to [to unit symbol]'\n" +
+            "     Example: Convert 100 m to cm\n" +
+            "   - For area conversion, use the format: 'Convert [amount] [from unit symbol] to [to unit symbol]'\n" +
+            "     Example: Convert 100 sqkm to ha\n\n" +
+            "2. Commands Available:\n" +
+            "   - 'help' or 'commands' to see the available commands\n" +
+            "   - 'examples' or 'usage' to get examples of conversion requests\n" +
+            "   - 'syntax' to see the documentation syntax\n" +
+            "   - 'currency supported' or 'currency list' to see the supported currencies\n" +
+            "   - 'length supported' or 'length list' to see the supported length units\n" +
+            "   - 'area supported' or 'area list' to see the supported area units\n\n" +
+            "Additional Information:\n" +
+            "- To cancel a conversion or any ongoing process, simply say 'cancel'\n" +
+            "- If you encounter any issues or need further assistance, feel free to ask 'support' or 'contact support'\n" +
+            "- You can provide feedback or suggestions by saying 'feedback' or 'submit feedback'\n\n" +
+            "Please make sure to include the appropriate conversion keywords (Currency, Length, Area) in your request to indicate the type of conversion you want.\n" +
+            "You can also ask for 'tips' to get examples of conversion requests.";
+    }
+    else if (question.includes('help') || question.includes('commands')) {
+        return "Available Commands:\n\n" +
+            "- 'help' or 'commands': See the available commands\n" +
+            "- 'examples' or 'usage': Get examples of conversion requests\n" +
+            "- 'syntax': See the documentation syntax\n" +
+            "- 'currency supported' or 'currency list': See the supported currencies\n" +
+            "- 'length supported' or 'length list': See the supported length units\n" +
+            "- 'area supported' or 'area list': See the supported area units";
+    }
+    else if (question.includes('examples') || question.includes('usage')) {
+        return "Conversion Examples:\n\n" +
+            "- Currency Conversion:\n" +
+            "   Example: Convert 100 USD to INR\n" +
+            "   Example: Convert 50 EUR to USD\n\n" +
+            "- Length Conversion:\n" +
+            "   Example: Convert 100 m to cm\n" +
+            "   Example: Convert 5 ft to m\n\n" +
+            "- Area Conversion:\n" +
+            "   Example: Convert 100 sqkm to ha\n" +
+            "   Example: Convert 50 acres to sqm";
+    }
+    else if (question.includes('currency supported') || question.includes('currency list')) {
+        // Function to retrieve the supported currencies
+        function getSupportedCurrencies() {
+            const currencies = Object.keys(currencyValueINR);
+            const currencyList = currencies.slice(0, 10).map(currency => `${currency} - ${currencyValueINR[currency].name}`);
+            return currencyList.join("\n");
+        }
+
+        // Function to retrieve the remaining supported currencies
+        function getRemainingCurrencies() {
+            const currencies = Object.keys(currencyValueINR);
+            const currencyList = currencies.slice(10).map(currency => `${currency} - ${currencyValueINR[currency].name}`);
+            return currencyList.join("\n");
+        }
+
+        // Check if user has clicked the "More" button
+        const isMoreButtonClicked = '';// Determine if the "More" button was clicked
+
+        // Return the supported currencies with the option to show more
+        if (isMoreButtonClicked) {
+            return "Supported currencies:\n" + getSupportedCurrencies() + "\n\n" +
+                "More supported currencies:\n" + getRemainingCurrencies();
+        } else {
+            return "Supported currencies:\n" + getSupportedCurrencies() + "\n\n" +
+                "To view more supported currencies, click 'More'.";
+        }
+    }
+
+    else if (question.includes('length supported') || question.includes('length list')) {
+        // Return the list of supported length units
+    }
+    else if (question.includes('area supported') || question.includes('area list')) {
+        // Return the list of supported area units
+    }
+
+    else if (question.includes('area')) {
         const areas = question.match(/(?:^|\s)([A-Za-z]{2,4})(?=\s|$)/g).map(area => area.trim());
         const amount2 = parseFloat(question.match(/\d+/));
         const filteredAreas = areas.filter(area => !["area"].includes(area.toLowerCase()));
