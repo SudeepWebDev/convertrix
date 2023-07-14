@@ -291,17 +291,12 @@ async function getResponse(question) {
             "   - 'syntax' to see the documentation syntax<br>" +
             "   - 'currency supported' or 'currency list' to see the supported currencies<br>" +
             "   - 'length supported' or 'length list' to see the supported length units<br>" +
-            "   - 'area supported' or 'area list' to see the supported area units<br><br>" +
-            "<b>Additional Information:</b><br><br>" +
-            "- To cancel a conversion or any ongoing process, simply say 'cancel'<br>" +
-            "- If you encounter any issues or need further assistance, feel free to ask 'support' or 'contact support'<br>" +
-            "- You can provide feedback or suggestions by saying 'feedback' or 'submit feedback'<br><br>" +
             "Please make sure to include the appropriate conversion keywords (Currency, Length, Area) in your request to indicate the type of conversion you want.<br>" +
             "You can also ask for 'tips' to get examples of conversion requests.";
     }
 
     else if (question.includes('help') || question.includes('commands')) {
-        return "Available Commands:<br><br>" +
+        return "<b>Available Commands:</b><br><br>" +
             "- 'help' or 'commands': See the available commands<br><br>" +
             "- 'examples' or 'usage': Get examples of conversion requests<br><br>" +
             "- 'syntax': See the documentation syntax<br><br>" +
@@ -310,7 +305,7 @@ async function getResponse(question) {
             "- 'area supported' or 'area list': See the supported area units";
     }
     else if (question.includes('examples') || question.includes('usage')) {
-        return "Conversion Examples:<br>" +
+        return "<b>Conversion Examples:</b><br><br>" +
             "- Currency Conversion:<br>" +
             "   Example: Convert 100 USD to INR<br>" +
             "   Example: Convert 50 EUR to USD<br><br>" +
