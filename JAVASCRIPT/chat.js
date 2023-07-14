@@ -191,7 +191,7 @@ async function getResponse(question) {
             return currencyList1.join("<br>");
         }
 
-        return "Supported currencies:<br>" + getSupportedCurrencies()
+        return "<b>Supported currencies:</b><br><br>" + getSupportedCurrencies()
 
     }
     else if (question.includes('currency')) {
@@ -271,7 +271,7 @@ async function getResponse(question) {
             return lengthList1.join("<br>");
         }
 
-        return "Supported Length:<br>" + getSupportedLength()
+        return "<b>Supported Length:</b><br><br>" + getSupportedLength()
     }
     else if (question.includes('area supported') || question.includes('area list')) {
         const areaList = {
@@ -288,7 +288,7 @@ async function getResponse(question) {
             const supportedAreas = areas.map(area => `${area} - ${areaList[area].name}`);
             return supportedAreas.join("<br>");
         }
-        return "Supported Area:<br>" + getSupportedArea()
+        return "<b>Supported Area:</b><br><br>" + getSupportedArea()
     }
     else if (question.includes('area')) {
         const areas = question.match(/(?:^|\s)([A-Za-z]{2,4})(?=\s|$)/g).map(area => area.trim());
