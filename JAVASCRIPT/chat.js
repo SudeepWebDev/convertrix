@@ -13,6 +13,8 @@ async function handleUserInput() {
         userInput.value = '';
     }
 }
+
+let conversationState = {};
 async function getResponse(question) {
 
     const greetingsRegex = /^(hi|hello|hey|greetings|namaste)\b/i;
