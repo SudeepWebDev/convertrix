@@ -202,25 +202,25 @@ async function getResponse(question) {
 
     } else if (question.includes('syntax')) {
         return "Documentation Syntax:\n\n" +
-            "1. Conversion Prompts:\n" +
-            "   - For currency conversion, use the format: 'Convert [amount] [from currency symbol] to [to currency symbol]'\n" +
+            "1. Conversion Prompts:\n\n\n" +
+            "   - For currency conversion, use the format: 'Convert [amount] [from currency symbol] to [to currency symbol]'\n\n\n" +
             "     Example: Convert 100 USD to INR\n" +
-            "   - For length conversion, use the format: 'Convert [amount] [from unit symbol] to [to unit symbol]'\n" +
-            "     Example: Convert 100 m to cm\n" +
-            "   - For area conversion, use the format: 'Convert [amount] [from unit symbol] to [to unit symbol]'\n" +
-            "     Example: Convert 100 sqkm to ha\n\n" +
-            "2. Commands Available:\n" +
-            "   - 'help' or 'commands' to see the available commands\n" +
-            "   - 'examples' or 'usage' to get examples of conversion requests\n" +
-            "   - 'syntax' to see the documentation syntax\n" +
-            "   - 'currency supported' or 'currency list' to see the supported currencies\n" +
-            "   - 'length supported' or 'length list' to see the supported length units\n" +
-            "   - 'area supported' or 'area list' to see the supported area units\n\n" +
-            "Additional Information:\n" +
-            "- To cancel a conversion or any ongoing process, simply say 'cancel'\n" +
-            "- If you encounter any issues or need further assistance, feel free to ask 'support' or 'contact support'\n" +
-            "- You can provide feedback or suggestions by saying 'feedback' or 'submit feedback'\n\n" +
-            "Please make sure to include the appropriate conversion keywords (Currency, Length, Area) in your request to indicate the type of conversion you want.\n" +
+            "   - For length conversion, use the format: 'Convert [amount] [from unit symbol] to [to unit symbol]'\n\n\n" +
+            "     Example: Convert 100 m to cm\n\n\n" +
+            "   - For area conversion, use the format: 'Convert [amount] [from unit symbol] to [to unit symbol]'\n\n\n" +
+            "     Example: Convert 100 sqkm to ha\n\n\n\n" +
+            "2. Commands Available:\n\n\n" +
+            "   - 'help' or 'commands' to see the available commands\n\n\n" +
+            "   - 'examples' or 'usage' to get examples of conversion requests\n\n\n" +
+            "   - 'syntax' to see the documentation syntax\n\n\n" +
+            "   - 'currency supported' or 'currency list' to see the supported currencies\n\n\n" +
+            "   - 'length supported' or 'length list' to see the supported length units\n\n\n" +
+            "   - 'area supported' or 'area list' to see the supported area units\n\n\n\n" +
+            "Additional Information:\n\n\n\n" +
+            "- To cancel a conversion or any ongoing process, simply say 'cancel'\n\n\n" +
+            "- If you encounter any issues or need further assistance, feel free to ask 'support' or 'contact support'\n\n\n" +
+            "- You can provide feedback or suggestions by saying 'feedback' or 'submit feedback'\n\n\n" +
+            "Please make sure to include the appropriate conversion keywords (Currency, Length, Area) in your request to indicate the type of conversion you want.\n\n\n" +
             "You can also ask for 'tips' to get examples of conversion requests.";
     }
     else if (question.includes('help') || question.includes('commands')) {
