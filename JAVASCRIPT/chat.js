@@ -246,6 +246,7 @@ async function getResponse(question) {
     }
     else if (question.includes('currency supported') || question.includes('currency list')) {
         // Function to retrieve the supported currencies
+        // Function to retrieve the supported currencies
         function getSupportedCurrencies() {
             const currencies = Object.keys(currencyValueINR);
             const currencyList = currencies.slice(0, 10).map(currency => `${currency} - ${currencyValueINR[currency].name}`);
@@ -260,16 +261,64 @@ async function getResponse(question) {
         }
 
         // Check if user has clicked the "More" button
-        const isMoreButtonClicked = ''; // Determine if the "More" button was clicked
+        let isMoreButtonClicked = false; // Determine if the "More" button was clicked
+
+        // Function to display the supported currencies
+        function displaySupportedCurrencies() {
+            const supportedCurrencies = getSupportedCurrencies();
+            const parentContainer = document.querySelector('#parentContainer');
+
+            const currenciesDiv = document.createElement('div');
+            currenciesDiv.className = 'supportedCurrencies';
+            currenciesDiv.innerHTML = supportedCurrencies;
+
+            parentContainer.appendChild(currenciesDiv);
+        }
+
+        // Function to display the remaining supported currencies
+        function displayRemainingCurrencies() {
+            const remainingCurrencies = getRemainingCurrencies();
+            const currenciesDivs = document.getElementsByClassName('supportedCurrencies');
+
+            if (currenciesDivs.length > 0) {
+                const lastCurrenciesDiv = currenciesDivs[currenciesDivs.length - 1];
+                lastCurrenciesDiv.innerHTML += "<br><br>" + remainingCurrencies;
+            }
+        }
+
+        // Function to create and append the "More" button
+        function createMoreButton() {
+            const moreButton = document.createElement('button');
+            moreButton.innerText = 'More';
+
+            // Add a click event listener to the "More" button
+            moreButton.addEventListener('click', function () {
+                displayRemainingCurrencies();
+                moreButton.style.display = 'none';
+            });
+
+            // Find the parent container of the supported currencies
+            const parentContainer = document.querySelector('#parentContainer');
+
+            // Check if the parent container has any supported currencies div
+            const supportedCurrenciesDivs = parentContainer.getElementsByClassName('supportedCurrencies');
+
+            // If supported currencies div exists, append the button to the last div
+            if (supportedCurrenciesDivs.length > 0) {
+                const lastCurrenciesDiv = supportedCurrenciesDivs[supportedCurrenciesDivs.length - 1];
+                lastCurrenciesDiv.appendChild(moreButton);
+            }
+        }
 
         // Return the supported currencies with the option to show more
         if (isMoreButtonClicked) {
-            return "Supported currencies:<br>" + getSupportedCurrencies() + "<br><br>" +
-                "More supported currencies:<br>" + getRemainingCurrencies();
+            displayRemainingCurrencies();
+            createMoreButton();
         } else {
-            return "Supported currencies:<br>" + getSupportedCurrencies() + "<br><br>" +
-                "To view more supported currencies, click 'More'.";
+            displaySupportedCurrencies();
+            createMoreButton();
         }
+
     }
 
     else if (question.includes('length supported') || question.includes('length list')) {
