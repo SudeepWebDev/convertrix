@@ -14,7 +14,6 @@ async function handleUserInput() {
     }
 }
 
-let conversationState = {};
 async function getResponse(question) {
 
     const greetingsRegex = /^(hi|hello|hey|greetings|namaste)\b/i;
@@ -192,19 +191,8 @@ async function getResponse(question) {
             return currencyList1.join("<br>");
         }
 
-        // Check if user has requested to see the entire currency list
-        const isMoreRequested = question.includes('more');
+        return "Supported currencies:<br>" + getSupportedCurrencies()
 
-        // Update the conversation state
-        conversationState.isCurrencyList1Requested = true;
-
-        // Return the supported currencies
-        if (isMoreRequested) {
-            return "Supported currencies:<br>" + getSupportedCurrencies();
-        } else {
-            return "Supported currencies:<br>" + getSupportedCurrencies() + "<br><br>" +
-                "To view the entire currency list, type 'more'.";
-        }
     }
     else if (question.includes('currency')) {
         const currencies = question.match(/(?:^|\s)([A-Za-z]{3})(?=\s|$)/g).map(currency => currency.trim());
@@ -218,9 +206,6 @@ async function getResponse(question) {
         } else {
             return "I'm sorry, I couldn't understand the currency conversion request.";
         }
-    } else if (question.includes('tips')) {
-
-        return "1. For Currency Converter:<br>Currency 100 usd to inr.<br><br>2. For Length Converter:<br>Length 100 m to cm.<br><br>3. For Area Converter:<br>Area 100 sqkm to ha.";;
 
     } else if (question.includes('symbol')) {
         return "1. For Currency Symbol:<br>Three letters unique symbol is used.<br>Example: usd, inr, aud etc.<br><br>2. For Length Symbol:<br>one/two letter(s) unique symbol is used.<br>Example: m, cm, km, ha, mm, in etc.<br><br>3. For Area Symbol:<br>Two/Three/Four letters unique symbol is used.<br> Example: sqkm, sqm, ha etc.";
@@ -268,10 +253,42 @@ async function getResponse(question) {
     }
 
     else if (question.includes('length supported') || question.includes('length list')) {
-        // Return the list of supported length units
+        const lengthList = {
+            'm': { name: 'meter' },
+            'mm': { name: 'millimeter' },
+            'cm': { name: 'centimeter' },
+            'km': { name: 'kilometer' },
+            'in': { name: 'inch' },
+            'ft': { name: 'foot' },
+            'yd': { name: 'yard' },
+            'mi': { name: 'mile' }
+        };
+
+
+        function getSupportedLength() {
+            const Length = Object.keys(lengthList);
+            const lengthList1 = Length.map(length => `${length} - ${lengthList[length].name}`);
+            return lengthList1.join("<br>");
+        }
+
+        return "Supported Length:<br>" + getSupportedLength()
     }
     else if (question.includes('area supported') || question.includes('area list')) {
-        // Return the list of supported area units
+        const areaList = {
+            'sqkm': { name: 'square kilometer' },
+            'sqm': { name: 'square meter' },
+            'ha': { name: 'hectare' },
+            'acre': { name: 'acre' },
+            'sqmi': { name: 'square mile' },
+            'sqyd': { name: 'square yard' },
+            'sqft': { name: 'square foot' },
+            'sqin': { name: 'square inch' }
+        }; function getSupportedArea() {
+            const areas = Object.keys(areaList);
+            const supportedAreas = areas.map(area => `${area} - ${areaList[area].name}`);
+            return supportedAreas.join("<br>");
+        }
+        return "Supported Area:<br>" + getSupportedArea()
     }
     else if (question.includes('area')) {
         const areas = question.match(/(?:^|\s)([A-Za-z]{2,4})(?=\s|$)/g).map(area => area.trim());
@@ -322,9 +339,6 @@ async function getResponse(question) {
         ];
         const randomIndex = Math.floor(Math.random() * randomResponses.length);
         return randomResponses[randomIndex];
-    }
-    if (!question.includes('more') && conversationState.isCurrencyListRequested) {
-        conversationState = {};
     }
     // Default response
     return "I'm sorry, I cannot answer that question.";
