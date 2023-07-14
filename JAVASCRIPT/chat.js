@@ -180,71 +180,7 @@ async function getResponse(question) {
 
     const greetingsRegex = /^(hi|hello|hey|greetings|namaste)\b/i;
     const thankYouRegex = /\b(thank\s*you|thanks|thank)\b/i;
-
-    if (question.includes('currency')) {
-        const currencies = question.match(/(?:^|\s)([A-Za-z]{3})(?=\s|$)/g).map(currency => currency.trim());
-        const amount = question.match(/\d+/);
-        const filteredCurrencies = currencies.filter(currency => !["cur", "ren"].includes(currency.toLowerCase()));
-        if (currencies && amount) {
-            const fromCurrency = currencies[0].toUpperCase();
-            const toCurrency = currencies[1].toUpperCase();
-            const convertedAmount = await convertCurrency(fromCurrency, toCurrency, amount);
-            return `The converted amount from ${fromCurrency} to ${toCurrency} is ${convertedAmount}`;
-        } else {
-            return "I'm sorry, I couldn't understand the currency conversion request.";
-        }
-    } else if (question.includes('tips')) {
-
-        return "1. For Currency Converter:<br>Currency 100 usd to inr.<br><br>2. For Length Converter:<br>Length 100 m to cm.<br><br>3. For Area Converter:<br>Area 100 sqkm to ha.";;
-
-    } else if (question.includes('symbol')) {
-        return "1. For Currency Symbol:<br>Three letters unique symbol is used.<br>Example: usd, inr, aud etc.<br><br>2. For Length Symbol:<br>one/two letter(s) unique symbol is used.<br>Example: m, cm, km, ha, mm, in etc.<br><br>3. For Area Symbol:<br>Two/Three/Four letters unique symbol is used.<br> Example: sqkm, sqm, ha etc.";
-
-    } else if (question.includes('syntax')) {
-        return "Documentation Syntax:<br>" +
-            "1. Conversion Prompts:<br><br>" +
-            "   - For currency conversion, use the format: 'Convert [amount] [from currency symbol] to [to currency symbol]'<br><br>" +
-            "     Example: Convert 100 USD to INR<br><br>" +
-            "   - For length conversion, use the format: 'Convert [amount] [from unit symbol] to [to unit symbol]'<br><br>" +
-            "     Example: Convert 100 m to cm<br><br>" +
-            "   - For area conversion, use the format: 'Convert [amount] [from unit symbol] to [to unit symbol]'<br><br>" +
-            "     Example: Convert 100 sqkm to ha<br><br>" +
-            "2. Commands Available:<br><br>" +
-            "   - 'help' or 'commands' to see the available commands<br><br>" +
-            "   - 'examples' or 'usage' to get examples of conversion requests<br><br>" +
-            "   - 'syntax' to see the documentation syntax<br><br>" +
-            "   - 'currency supported' or 'currency list' to see the supported currencies<br><br>" +
-            "   - 'length supported' or 'length list' to see the supported length units<br><br>" +
-            "   - 'area supported' or 'area list' to see the supported area units<br><br>" +
-            "Additional Information:<br><br>" +
-            "- To cancel a conversion or any ongoing process, simply say 'cancel'<br><br>" +
-            "- If you encounter any issues or need further assistance, feel free to ask 'support' or 'contact support'<br><br>" +
-            "- You can provide feedback or suggestions by saying 'feedback' or 'submit feedback'<br><br>" +
-            "Please make sure to include the appropriate conversion keywords (Currency, Length, Area) in your request to indicate the type of conversion you want.<br><br>" +
-            "You can also ask for 'tips' to get examples of conversion requests.";
-    }
-    else if (question.includes('help') || question.includes('commands')) {
-        return "Available Commands:<br><br>" +
-            "- 'help' or 'commands': See the available commands<br><br>" +
-            "- 'examples' or 'usage': Get examples of conversion requests<br><br>" +
-            "- 'syntax': See the documentation syntax<br><br>" +
-            "- 'currency supported' or 'currency list': See the supported currencies<br><br>" +
-            "- 'length supported' or 'length list': See the supported length units<br><br>" +
-            "- 'area supported' or 'area list': See the supported area units";
-    }
-    else if (question.includes('examples') || question.includes('usage')) {
-        return "Conversion Examples:<br>" +
-            "- Currency Conversion:<br>" +
-            "   Example: Convert 100 USD to INR<br>" +
-            "   Example: Convert 50 EUR to USD<br><br>" +
-            "- Length Conversion:<br>" +
-            "   Example: Convert 100 m to cm<br>" +
-            "   Example: Convert 5 ft to m<br><br>" +
-            "- Area Conversion:<br>" +
-            "   Example: Convert 100 sqkm to ha<br>" +
-            "   Example: Convert 50 acres to sqm";
-    }
-    else if (question.includes('currency supported') || question.includes('currency list')) {
+    if (question.includes('currency supported') || question.includes('currency list')) {
         // Function to retrieve the supported currencies
         // Function to retrieve the supported currencies
         function getSupportedCurrencies() {
@@ -319,6 +255,70 @@ async function getResponse(question) {
             createMoreButton();
         }
 
+    }
+
+    else if (question.includes('currency')) {
+        const currencies = question.match(/(?:^|\s)([A-Za-z]{3})(?=\s|$)/g).map(currency => currency.trim());
+        const amount = question.match(/\d+/);
+        const filteredCurrencies = currencies.filter(currency => !["cur", "ren"].includes(currency.toLowerCase()));
+        if (currencies && amount) {
+            const fromCurrency = currencies[0].toUpperCase();
+            const toCurrency = currencies[1].toUpperCase();
+            const convertedAmount = await convertCurrency(fromCurrency, toCurrency, amount);
+            return `The converted amount from ${fromCurrency} to ${toCurrency} is ${convertedAmount}`;
+        } else {
+            return "I'm sorry, I couldn't understand the currency conversion request.";
+        }
+    } else if (question.includes('tips')) {
+
+        return "1. For Currency Converter:<br>Currency 100 usd to inr.<br><br>2. For Length Converter:<br>Length 100 m to cm.<br><br>3. For Area Converter:<br>Area 100 sqkm to ha.";;
+
+    } else if (question.includes('symbol')) {
+        return "1. For Currency Symbol:<br>Three letters unique symbol is used.<br>Example: usd, inr, aud etc.<br><br>2. For Length Symbol:<br>one/two letter(s) unique symbol is used.<br>Example: m, cm, km, ha, mm, in etc.<br><br>3. For Area Symbol:<br>Two/Three/Four letters unique symbol is used.<br> Example: sqkm, sqm, ha etc.";
+
+    } else if (question.includes('syntax')) {
+        return "Documentation Syntax:<br>" +
+            "1. Conversion Prompts:<br><br>" +
+            "   - For currency conversion, use the format: 'Convert [amount] [from currency symbol] to [to currency symbol]'<br><br>" +
+            "     Example: Convert 100 USD to INR<br><br>" +
+            "   - For length conversion, use the format: 'Convert [amount] [from unit symbol] to [to unit symbol]'<br><br>" +
+            "     Example: Convert 100 m to cm<br><br>" +
+            "   - For area conversion, use the format: 'Convert [amount] [from unit symbol] to [to unit symbol]'<br><br>" +
+            "     Example: Convert 100 sqkm to ha<br><br>" +
+            "2. Commands Available:<br><br>" +
+            "   - 'help' or 'commands' to see the available commands<br><br>" +
+            "   - 'examples' or 'usage' to get examples of conversion requests<br><br>" +
+            "   - 'syntax' to see the documentation syntax<br><br>" +
+            "   - 'currency supported' or 'currency list' to see the supported currencies<br><br>" +
+            "   - 'length supported' or 'length list' to see the supported length units<br><br>" +
+            "   - 'area supported' or 'area list' to see the supported area units<br><br>" +
+            "Additional Information:<br><br>" +
+            "- To cancel a conversion or any ongoing process, simply say 'cancel'<br><br>" +
+            "- If you encounter any issues or need further assistance, feel free to ask 'support' or 'contact support'<br><br>" +
+            "- You can provide feedback or suggestions by saying 'feedback' or 'submit feedback'<br><br>" +
+            "Please make sure to include the appropriate conversion keywords (Currency, Length, Area) in your request to indicate the type of conversion you want.<br><br>" +
+            "You can also ask for 'tips' to get examples of conversion requests.";
+    }
+    else if (question.includes('help') || question.includes('commands')) {
+        return "Available Commands:<br><br>" +
+            "- 'help' or 'commands': See the available commands<br><br>" +
+            "- 'examples' or 'usage': Get examples of conversion requests<br><br>" +
+            "- 'syntax': See the documentation syntax<br><br>" +
+            "- 'currency supported' or 'currency list': See the supported currencies<br><br>" +
+            "- 'length supported' or 'length list': See the supported length units<br><br>" +
+            "- 'area supported' or 'area list': See the supported area units";
+    }
+    else if (question.includes('examples') || question.includes('usage')) {
+        return "Conversion Examples:<br>" +
+            "- Currency Conversion:<br>" +
+            "   Example: Convert 100 USD to INR<br>" +
+            "   Example: Convert 50 EUR to USD<br><br>" +
+            "- Length Conversion:<br>" +
+            "   Example: Convert 100 m to cm<br>" +
+            "   Example: Convert 5 ft to m<br><br>" +
+            "- Area Conversion:<br>" +
+            "   Example: Convert 100 sqkm to ha<br>" +
+            "   Example: Convert 50 acres to sqm";
     }
 
     else if (question.includes('length supported') || question.includes('length list')) {
