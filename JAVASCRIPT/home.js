@@ -49,3 +49,69 @@ chatToggle.addEventListener('click', function () {
   chatToggleIcon.classList.toggle('fa-minus');
   chatSection.classList.toggle('hide-chat');
 });
+
+
+
+// calculator
+
+
+let result = document.getElementById('result');
+let hasError = false;
+
+function appendValue(value) {
+  if (hasError) {
+    clearResult();
+  }
+  result.value += value;
+}
+function calculate() {
+  try {
+    if (/[*\/]$/.test(result.value)) {
+      throw new Error('Please enter another number or perform a valid calculation');
+    }
+    let calculatedResult = eval(result.value);
+    if (isNaN(calculatedResult)) {
+      throw new Error('Invalid calculation');
+    }
+
+    let significantFigures = getSignificantFigures(calculatedResult);
+
+    result.value = formatNumber(calculatedResult, significantFigures);
+    hasError = false;
+  } catch (error) {
+    result.value = error.message;
+    hasError = true;
+  }
+}
+
+function getSignificantFigures(number) {
+  let numberString = number.toString();
+
+  if (numberString.startsWith('-')) {
+    numberString = numberString.substring(1);
+  }
+
+  numberString = numberString.replace(/e[+-]\d+$/i, '');
+
+  if (Number.isInteger(number)) {
+    numberString = numberString.replace('.', '');
+  }
+
+  numberString = numberString.replace(/^0+/, '');
+
+  let significantFigures = numberString.replace(/[^\d]/g, '').length;
+
+  return significantFigures;
+}
+
+function formatNumber(number, significantFigures) {
+  if (Number.isInteger(number)) {
+    return number.toString();
+  } else {
+    return number.toPrecision(significantFigures);
+  }
+}
+function clearResult() {
+  result.value = '';
+  hasError = false;
+}
