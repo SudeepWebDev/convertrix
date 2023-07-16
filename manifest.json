@@ -10,5 +10,20 @@
             "sizes": "300x300",
             "type": "image/png"
         }
+    ],
+    "shortcuts": [
+        {
+            "name": "Calculator",
+            "description": "A basic calculator for performing arithmetic operations.",
+            "url": "/convertrix/index.html#calculator",
+            "icons": [
+                {
+                    "src": "/convertrix/images/calc.png",
+                    "sizes": "300x300",
+                    "type": "image/png",
+                    "purpose": "any"
+                }
+            ]
+        }
     ]
 }
