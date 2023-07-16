@@ -93,6 +93,8 @@ iframe#video-container {
     width: 100%;
     height: auto;
   }
+
+  #calculator {
+    width: 90%;
+  }
 }
-
-

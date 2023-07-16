@@ -16,28 +16,28 @@ const showConverterName = () => {
     if (currentIndex2 < converterName.length) {
       dynamic_textH3.textContent += converterName[currentIndex2];
       currentIndex2++;
-      setTimeout(typeCharacter, 100); 
+      setTimeout(typeCharacter, 100);
     } else {
       setTimeout(() => {
-        backspaceCharacter(); 
-      }, 1000); 
+        backspaceCharacter();
+      }, 1000);
     }
   };
 
   const backspaceCharacter = () => {
     let text = dynamic_textH3.textContent;
     if (text.length > 0) {
-      dynamic_textH3.textContent = text.slice(0, -1); 
+      dynamic_textH3.textContent = text.slice(0, -1);
       setTimeout(backspaceCharacter, 50);
     } else {
       setTimeout(() => {
         currentIndex = (currentIndex + 1) % dynamic_text.length;
-        showConverterName(); 
-      }, 1000); 
+        showConverterName();
+      }, 1000);
     }
   };
 
-  typeCharacter(); 
+  typeCharacter();
 };
 
 showConverterName();
@@ -64,25 +64,46 @@ function appendValue(value) {
   }
   result.value += value;
 }
+
+let lastCalculation = '';
 function calculate() {
   try {
     if (/[*\/]$/.test(result.value)) {
       throw new Error('Please enter another number or perform a valid calculation');
     }
-    let calculatedResult = eval(result.value);
+
+    let expression = result.value;
+    let calculatedResult;
+
+    while (expression.includes('%')) {
+      expression = expression.replace(/([0-9.]+)%/, (_, num) => {
+        return String(Number(num) * 0.01);
+      });
+    }
+
+    calculatedResult = eval(expression);
+
     if (isNaN(calculatedResult)) {
       throw new Error('Invalid calculation');
     }
+
+    // Fix for precision issue with division
+    calculatedResult = Number(calculatedResult.toFixed(15));
 
     let significantFigures = getSignificantFigures(calculatedResult);
 
     result.value = formatNumber(calculatedResult, significantFigures);
     hasError = false;
+    lastCalculation = result.value; // Update the global variable
+
   } catch (error) {
     result.value = error.message;
     hasError = true;
   }
 }
+
+
+
 
 function getSignificantFigures(number) {
   let numberString = number.toString();
@@ -114,4 +135,11 @@ function formatNumber(number, significantFigures) {
 function clearResult() {
   result.value = '';
   hasError = false;
+}
+function removeLastEntered() {
+  if (hasError) {
+    clearResult();
+  } else {
+    result.value = result.value.slice(0, -1);
+  }
 }
