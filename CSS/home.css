@@ -280,3 +280,7 @@
 #equalbtn:hover,#equalbtn1:hover {
   border-radius: 5px;
 }
+
+#calculator1 {
+  display: none;
+}
