@@ -274,6 +274,7 @@
 #equalbtn,#equalbtn1 {
   border: 2px solid transparent;
   border-radius: 5px;
+  grid-column: span 4;
 }
 
 #equalbtn:hover,#equalbtn1:hover {
