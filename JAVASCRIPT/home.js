@@ -139,3 +139,89 @@ function removeLastEntered() {
     result.value = result.value.slice(0, -1);
   }
 }
+let result1 = document.getElementById('result1');
+let hasError1 = false;
+let decimalEntered1 = false;
+let operators1 = ['+', '-', '*', '/', '%'];
+
+function appendValue1(value) {
+  if (hasError1) {
+    clearResult1();
+  }
+
+  if (value === '.' && decimalEntered1) {
+    return;
+  }
+
+  if (value === '.') {
+    decimalEntered1 = true;
+  }
+  if (['+', '-'].includes(value)) {
+    const lastChar = result1.value.slice(-1);
+    if (['*', '/', '%'].includes(lastChar)) {
+      result1.value += value;
+      return;
+    }
+    if (result1.value === '' || ['*', '/', '%'].includes(lastChar)) {
+      return;
+    }
+  } else if (operators1.includes(value)) {
+    const lastChar = result1.value.slice(-1);
+    if (operators1.includes(lastChar)) {
+      return;
+    }
+  }
+
+  result1.value += value;
+}
+
+let lastCalculation1 = '';
+
+function calculate1() {
+  try {
+    if (/[*\/]$/.test(result1.value)) {
+      throw new Error('Please enter another number or perform a valid calculation');
+    }
+
+    let expression1 = result1.value;
+    let calculatedResult1;
+
+    while (expression1.includes('%')) {
+      expression1 = expression1.replace(/([0-9.]+)%/, (_, num) => {
+        return String(Number(num) * 0.01);
+      });
+    }
+
+    calculatedResult1 = eval(expression1);
+
+    if (isNaN(calculatedResult1)) {
+      throw new Error('Invalid calculation');
+    }
+    calculatedResult1 = Number(calculatedResult1.toFixed(15));
+    result1.value = calculatedResult1;
+    hasError1 = false;
+    lastCalculation1 = result1.value;
+
+  } catch (error) {
+    result1.value = error.message;
+    hasError1 = true;
+  }
+}
+
+function clearResult1() {
+  result1.value = '';
+  hasError1 = false;
+  decimalEntered1 = false;
+}
+
+function removeLastEntered1() {
+  if (hasError1) {
+    clearResult1();
+  } else {
+    const lastChar = result1.value.slice(-1);
+    if (lastChar === '.') {
+      decimalEntered1 = false;
+    }
+    result1.value = result1.value.slice(0, -1);
+  }
+}

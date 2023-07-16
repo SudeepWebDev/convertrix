@@ -94,15 +94,18 @@ iframe#video-container {
     height: auto;
   }
 
-  #calculator {
+  #calculator,
+  #calculator1 {
     width: 90%;
   }
 
-  #buttons button {
+  #buttons button,
+  #buttons1 button {
     height: 50px;
   }
 
-  #result {
+  #result,
+  #result1 {
     height: 80px;
   }
 }
