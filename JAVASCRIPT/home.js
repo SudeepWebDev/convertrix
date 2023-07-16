@@ -70,9 +70,9 @@ function appendValue(value) {
   if (value === '.') {
     decimalEntered = true;
   }
-  if (['*', '/', '%'].includes(value)) {
+  if (['+', '-'].includes(value)) {
     const lastChar = result.value.slice(-1);
-    if (['+', '-'].includes(lastChar)) {
+    if (['*', '/', '%'].includes(lastChar)) {
       result.value += value;
       return;
     }
