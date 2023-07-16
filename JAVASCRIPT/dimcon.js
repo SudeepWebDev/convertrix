@@ -34,12 +34,11 @@ const lengthValueM = {
   
     // Astronomical Units
     'AU': 6.68458712E-12, // Astronomical Unit (AU)
-    'ly': 1.057E-16,    // Light Year (ly)
-    'pc': 3.2408E-17,    // Parsec (pc)
-  
+    'ly': 1.05700083E-16,    // Light Year (ly)
+    'pc': 3.24078E-17,    // Parsec (pc)
+    
     // Lunar Distances
-    'LD': 2.6014432807322E-9 ,   // Lunar Distance (LD)
-  
+    'LD': 2.604166E-9 ,   // Lunar Distance (LD)
   };
   
   const lengthsym = {
