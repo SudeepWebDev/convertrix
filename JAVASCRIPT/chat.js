@@ -251,14 +251,47 @@ async function getResponse(question) {
     }
     else if (question.includes('length supported') || question.includes('length list')) {
         const lengthList = {
-            'm': { name: 'meter' },
-            'mm': { name: 'millimeter' },
-            'cm': { name: 'centimeter' },
-            'km': { name: 'kilometer' },
-            'in': { name: 'inch' },
-            'ft': { name: 'foot' },
-            'yd': { name: 'yard' },
-            'mi': { name: 'mile' }
+
+            // Metric Units
+            'm': { name: 'Meter' },
+            'mm': { name: 'Millimeter' },
+            'cm': { name: 'Centimeter' },
+            'km': { name: 'Kilometer' },
+            'µm': { name: 'Micrometer (Micron)' },
+            'nm': { name: 'Nanometer' },
+            'zm': { name: 'Zeptometer' },
+            'am': { name: 'Attometer' },
+            'fm': { name: 'Femtometer' },
+            'pm': { name: 'Picometer' },
+            'dm': { name: 'Decimeter' },
+            'dam': { name: 'Decameter' },
+            'hm': { name: 'Hectometer' },
+            'Mm': { name: 'Megameter' },
+            'Gm': { name: 'Gigameter' },
+            'Tm': { name: 'Terameter' },
+            'Pm': { name: 'Petameter' },
+            'Em': { name: 'Exameter' },
+            'Zm': { name: 'Zettameter' },
+            'Ym': { name: 'Yottameter' },
+
+            // Imperial Units
+            'in': { name: 'Inch' },
+            'ft': { name: 'Feet' },
+            'yd': { name: 'Yard' },
+            'mi': { name: 'Mile' },
+            'nmi': { name: 'Nautical Mile' },
+            'furlong': { name: 'Furlong' },
+            'fathom': { name: 'Fathom' },
+
+            // Astronomical Units
+            'AU': { name: 'Astronomical Unit' },
+            'ly': { name: 'Light Year' },
+            'pc': { name: 'Parsec' },
+
+            // Lunar Distances
+            'LD': { name: 'Lunar Distance (Earth-Moon distance)' },
+
+
         };
 
 
@@ -616,7 +649,7 @@ function convertLength(convertOption1, convertOption2, amount) {
         'Em': 1e-18,        // Exameter (Em)
         'Zm': 1e-21,        // Zettameter (Zm)
         'Ym': 1e-24,        // Yottameter (Ym)
-      
+
         // Imperial Units
         'in': 39.3700787,      // Inch (in)
         'ft': 3.2808399,      // Feet (ft)
@@ -625,15 +658,15 @@ function convertLength(convertOption1, convertOption2, amount) {
         'nmi': 0.00053996,       // Nautical Mile (nmi)
         'furlong': 0.00497097, // Furlong (furlong)
         'fathom': 0.54680665,  // Fathom (fathom)
-      
+
         // Astronomical Units
         'AU': 6.68458712E-12, // Astronomical Unit (AU)
         'ly': 1.05700083E-16,    // Light Year (ly)
         'pc': 3.24078E-17,    // Parsec (pc)
-        
+
         // Lunar Distances
-        'LD': 2.604166E-9 ,   // Lunar Distance (LD)
-      };
+        'LD': 2.604166E-9,   // Lunar Distance (LD)
+    };
 
     let convertedAmount;
     let convertedLengthM;
