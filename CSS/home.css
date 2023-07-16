@@ -282,7 +282,7 @@
 #equalbtn {
   border: 2px solid transparent;
   border-radius: 5px;
-  grid-column: span 2;
+  grid-column: span 4;
 }
 
 #equalbtn:hover {
