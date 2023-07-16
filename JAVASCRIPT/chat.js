@@ -672,14 +672,14 @@ function convertLength(convertOption1, convertOption2, amount) {
     let convertedLengthM;
 
     for (keys in lengthValueM) {
-        if (keys == convertOption2) {
+        if (keys.toLowerCase() == convertOption2) {
             if (convertOption1 == 'm') {
                 convertedAmount = Number(amount) * lengthValueM[keys.toLowerCase()];
                 return convertedAmount;
                 //   break;
             } else {
                 for (keys2 in lengthValueM) {
-                    if (keys2 == convertOption1) {
+                    if (keys2.toLowerCase() == convertOption1) {
                         convertedLengthM = Number(amount) / lengthValueM[keys2.toLowerCase()];
                         convertedAmount = convertedLengthM * lengthValueM[convertOption2];
                         return convertedAmount;
