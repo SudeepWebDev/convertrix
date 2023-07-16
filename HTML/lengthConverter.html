@@ -4,8 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Convertrix is a versatile conversion tool that allows you to effortlessly convert between different units of measurement, including currency, length, temperature, and area. Simplify your conversions with Convertrix and get accurate results in seconds.">
-    <meta name="keywords" content="conversion tool, unit converter, currency converter, length converter, temperature converter, area converter, online converter, measurement converter, currency exchange, convert units, convert currency, convert length, convert temperature, convert area">
+    <meta name="description"
+        content="Convertrix is a versatile conversion tool that allows you to effortlessly convert between different units of measurement, including currency, length, temperature, and area. Simplify your conversions with Convertrix and get accurate results in seconds.">
+    <meta name="keywords"
+        content="conversion tool, unit converter, currency converter, length converter, temperature converter, area converter, online converter, measurement converter, currency exchange, convert units, convert currency, convert length, convert temperature, convert area">
     <meta name="msapplication-tap-highlight" content="no">
 
     <!-- Web Application Manifest -->
@@ -53,16 +55,16 @@
 
             <span id="accessibility" title="accessibility"><i class="fa fa-universal-access fa-2x"
                     aria-hidden="true"></i>
-                    <ul class="accessibility_menu">
-                        <!-- <li>
+                <ul class="accessibility_menu">
+                    <!-- <li>
                             <a href="#">
                                 <i class="fa fa-moon-o" title="dark theme" id="theme-toggle"></i>
                             </a>
                         </li> -->
-                        <li>
-                            <div id="google_translate_element" style="padding: 10px;"></div>
-                        </li>
-                    </ul>
+                    <li>
+                        <div id="google_translate_element" style="padding: 10px;"></div>
+                    </li>
+                </ul>
             </span>
         </div>
 
@@ -81,34 +83,102 @@
     <main>
         <h2>Length Converter</h2>
         <div class="converter-box">
-            
+
             <div>
 
                 <div class="input-box"><label for="">Length
 
                     </label><input type="number" name="" id="amount"></div>
-                <div class="input-box"><label for="">From</label><select name="" id="a1">
-                        <option value="mm"><i class="fas fa-ruler-vertical"></i> mm - Millimeter</option>
-                        <option value="cm"><i class="fas fa-ruler-vertical"></i> cm - Centimeter</option>
-                        <option value="m"><i class="fas fa-ruler-vertical"></i> m - Meter</option>
-                        <option value="km"><i class="fas fa-ruler-vertical"></i> km - Kilometer</option>
-                        <option value="in"><i class="fas fa-ruler-horizontal"></i> in - Inch</option>
-                        <option value="ft"><i class="fas fa-ruler-horizontal"></i> ft - Foot</option>
-                        <option value="yd"><i class="fas fa-ruler-horizontal"></i> yd - Yard</option>
-                        <option value="mi"><i class="fas fa-road"></i> mi - Mile</option>
+                <div class="input-box"><label for="">From</label>
+                    <select id="a1">
+                        <optgroup label="Metric Units">
+                            <option value="mm"><i class="fas fa-ruler-vertical"></i> mm - Millimeter</option>
+                            <option value="cm"><i class="fas fa-ruler-vertical"></i> cm - Centimeter</option>
+                            <option value="m"><i class="fas fa-ruler-vertical"></i> m - Meter</option>
+                            <option value="km"><i class="fas fa-ruler-vertical"></i> km - Kilometer</option>
+                            <option value="µm"><i class="fas fa-microscope"></i> µm - Micrometer</option>
+                            <option value="nm"><i class="fas fa-microscope"></i> nm - Nanometer</option>
+                            <option value="zm"><i class="fas fa-microscope"></i> zm - Zeptometer</option>
+                            <option value="am"><i class="fas fa-microscope"></i> am - Attometer</option>
+                            <option value="fm"><i class="fas fa-microscope"></i> fm - Femtometer</option>
+                            <option value="pm"><i class="fas fa-microscope"></i> pm - Picometer</option>
+                            <option value="dm"><i class="fas fa-ruler-vertical"></i> dm - Decimeter</option>
+                            <option value="dam"><i class="fas fa-ruler-vertical"></i> dam - Decameter</option>
+                            <option value="hm"><i class="fas fa-ruler-vertical"></i> hm - Hectometer</option>
+                            <option value="Mm"><i class="fas fa-ruler-vertical"></i> Mm - Megameter</option>
+                            <option value="Gm"><i class="fas fa-ruler-vertical"></i> Gm - Gigameter</option>
+                            <option value="Tm"><i class="fas fa-ruler-vertical"></i> Tm - Terameter</option>
+                            <option value="Pm"><i class="fas fa-ruler-vertical"></i> Pm - Petameter</option>
+                            <option value="Em"><i class="fas fa-ruler-vertical"></i> Em - Exameter</option>
+                            <option value="Zm"><i class="fas fa-ruler-vertical"></i> Zm - Zettameter</option>
+                            <option value="Ym"><i class="fas fa-ruler-vertical"></i> Ym - Yottameter</option>
+                        </optgroup>
 
-                    </select></div>
-                <div class="input-box"><label for="">To</label><select name="" id="a2">
-                        <option value="mm"><i class="fas fa-ruler-vertical"></i> mm - Millimeter</option>
-                        <option value="cm"><i class="fas fa-ruler-vertical"></i> cm - Centimeter</option>
-                        <option value="m"><i class="fas fa-ruler-vertical"></i> m - Meter</option>
-                        <option value="km"><i class="fas fa-ruler-vertical"></i> km - Kilometer</option>
-                        <option value="in"><i class="fas fa-ruler-horizontal"></i> in - Inch</option>
-                        <option value="ft"><i class="fas fa-ruler-horizontal"></i> ft - Foot</option>
-                        <option value="yd"><i class="fas fa-ruler-horizontal"></i> yd - Yard</option>
-                        <option value="mi"><i class="fas fa-road"></i> mi - Mile</option>
+                        <optgroup label="Imperial Units">
+                            <option value="in"><i class="fas fa-ruler-horizontal"></i> in - Inch</option>
+                            <option value="ft"><i class="fas fa-ruler-horizontal"></i> ft - Foot</option>
+                            <option value="yd"><i class="fas fa-ruler-horizontal"></i> yd - Yard</option>
+                            <option value="mi"><i class="fas fa-road"></i> mi - Mile</option>
+                            <option value="nmi"><i class="fas fa-ship"></i> nmi - Nautical Mile</option>
+                            <option value="furlong"><i class="fas fa-horse"></i> furlong - Furlong</option>
+                            <option value="fathom"><i class="fas fa-water"></i> fathom - Fathom</option>
+                        </optgroup>
 
-                    </select></div>
+                        <optgroup label="Astronomical Units">
+                            <option value="AU"><i class="fas fa-satellite-dish"></i> AU - Astronomical Unit</option>
+                            <option value="ly"><i class="fas fa-space-shuttle"></i> ly - Light Year</option>
+                            <option value="pc"><i class="fas fa-satellite"></i> pc - Parsec</option>
+                            <option value="LD"><i class="fas fa-moon"></i> LD - Lunar Distance</option>
+                        </optgroup>
+                    </select>
+
+                </div>
+                <div class="input-box"><label for="">To</label>
+                    
+                    <select id="a2">
+                        <optgroup label="Metric Units">
+                            <option value="mm"><i class="fas fa-ruler-vertical"></i> mm - Millimeter</option>
+                            <option value="cm"><i class="fas fa-ruler-vertical"></i> cm - Centimeter</option>
+                            <option value="m"><i class="fas fa-ruler-vertical"></i> m - Meter</option>
+                            <option value="km"><i class="fas fa-ruler-vertical"></i> km - Kilometer</option>
+                            <option value="µm"><i class="fas fa-microscope"></i> µm - Micrometer</option>
+                            <option value="nm"><i class="fas fa-microscope"></i> nm - Nanometer</option>
+                            <option value="zm"><i class="fas fa-microscope"></i> zm - Zeptometer</option>
+                            <option value="am"><i class="fas fa-microscope"></i> am - Attometer</option>
+                            <option value="fm"><i class="fas fa-microscope"></i> fm - Femtometer</option>
+                            <option value="pm"><i class="fas fa-microscope"></i> pm - Picometer</option>
+                            <option value="dm"><i class="fas fa-ruler-vertical"></i> dm - Decimeter</option>
+                            <option value="dam"><i class="fas fa-ruler-vertical"></i> dam - Decameter</option>
+                            <option value="hm"><i class="fas fa-ruler-vertical"></i> hm - Hectometer</option>
+                            <option value="Mm"><i class="fas fa-ruler-vertical"></i> Mm - Megameter</option>
+                            <option value="Gm"><i class="fas fa-ruler-vertical"></i> Gm - Gigameter</option>
+                            <option value="Tm"><i class="fas fa-ruler-vertical"></i> Tm - Terameter</option>
+                            <option value="Pm"><i class="fas fa-ruler-vertical"></i> Pm - Petameter</option>
+                            <option value="Em"><i class="fas fa-ruler-vertical"></i> Em - Exameter</option>
+                            <option value="Zm"><i class="fas fa-ruler-vertical"></i> Zm - Zettameter</option>
+                            <option value="Ym"><i class="fas fa-ruler-vertical"></i> Ym - Yottameter</option>
+                        </optgroup>
+
+                        <optgroup label="Imperial Units">
+                            <option value="in"><i class="fas fa-ruler-horizontal"></i> in - Inch</option>
+                            <option value="ft"><i class="fas fa-ruler-horizontal"></i> ft - Foot</option>
+                            <option value="yd"><i class="fas fa-ruler-horizontal"></i> yd - Yard</option>
+                            <option value="mi"><i class="fas fa-road"></i> mi - Mile</option>
+                            <option value="nmi"><i class="fas fa-ship"></i> nmi - Nautical Mile</option>
+                            <option value="furlong"><i class="fas fa-horse"></i> furlong - Furlong</option>
+                            <option value="fathom"><i class="fas fa-water"></i> fathom - Fathom</option>
+                        </optgroup>
+
+                        <optgroup label="Astronomical Units">
+                            <option value="AU"><i class="fas fa-satellite-dish"></i> AU - Astronomical Unit</option>
+                            <option value="ly"><i class="fas fa-space-shuttle"></i> ly - Light Year</option>
+                            <option value="pc"><i class="fas fa-satellite"></i> pc - Parsec</option>
+                            <option value="LD"><i class="fas fa-moon"></i> LD - Lunar Distance</option>
+                        </optgroup>
+                    </select>
+                
+                
+                </div>
                 <div class="currency-converter-popup popup">
                     <p></p>
                     <button class="">

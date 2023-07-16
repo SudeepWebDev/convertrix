@@ -1,26 +1,88 @@
 
 
 const lengthValueM = {
+    // Metric Units
     'm': 1,
-    'mm': 1000,
-    'cm': 100,
-    'km': 0.001,
-    'in': 39.3701,
-    'ft': 3.28084,
-    'yd': 1.09361,
-    'mi': 0.000621
-
-}
-const lengthsym = {
-    'm': 'm',
-    'mm': 'mm',
-    'cm': 'cm',
-    'km': 'km',
-    'in': 'in',
-    'ft': 'ft',
-    'yd': 'yd',
-    'mi': 'mi'
+    'mm': 0.001,
+    'cm': 0.01,
+    'km': 1000,
+    'µm': 1e-6,        // Micrometer (µm)
+    'nm': 1e-9,        // Nanometer (nm)
+    'zm': 1e-21,       // Zeptometer (zm)
+    'am': 1e-18,       // Attometer (am)
+    'fm': 1e-15,       // Femtometer (fm)
+    'pm': 1e-12,       // Picometer (pm)
+    'dm': 1e-1,        // Decimeter (dm)
+    'dam': 10,         // Decameter (dam)
+    'hm': 1e2,         // Hectometer (hm)
+    'Mm': 1e6,         // Megameter (Mm)
+    'Gm': 1e9,         // Gigameter (Gm)
+    'Tm': 1e12,        // Terameter (Tm)
+    'Pm': 1e15,        // Petameter (Pm)
+    'Em': 1e18,        // Exameter (Em)
+    'Zm': 1e21,        // Zettameter (Zm)
+    'Ym': 1e24,        // Yottameter (Ym)
+  
+    // Imperial Units
+    'in': 0.0254,      // Inch (in)
+    'ft': 0.3048,      // Feet (ft)
+    'yd': 0.9144,      // Yard (yd)
+    'mi': 1609.34,     // Mile (mi)
+    'nmi': 1852,       // Nautical Mile (nmi)
+    'furlong': 201.168, // Furlong (furlong)
+    'fathom': 1.8288,  // Fathom (fathom)
+  
+    // Astronomical Units
+    'AU': 149597870.7, // Astronomical Unit (AU)
+    'ly': 9.461e15,    // Light Year (ly)
+    'pc': 3.086e16,    // Parsec (pc)
+  
+    // Lunar Distances
+    'LD': 384400000,   // Lunar Distance (LD)
+  
   };
+  
+  const lengthsym = {
+    // Metric Units
+    'm': 'Meter',
+    'mm': 'Millimeter',
+    'cm': 'Centimeter',
+    'km': 'Kilometer',
+    'µm': 'Micrometer (Micron)',
+    'nm': 'Nanometer',
+    'zm': 'Zeptometer',
+    'am': 'Attometer',
+    'fm': 'Femtometer',
+    'pm': 'Picometer',
+    'dm': 'Decimeter',
+    'dam': 'Decameter',
+    'hm': 'Hectometer',
+    'Mm': 'Megameter',
+    'Gm': 'Gigameter',
+    'Tm': 'Terameter',
+    'Pm': 'Petameter',
+    'Em': 'Exameter',
+    'Zm': 'Zettameter',
+    'Ym': 'Yottameter',
+  
+    // Imperial Units
+    'in': 'Inch',
+    'ft': 'Feet',
+    'yd': 'Yard',
+    'mi': 'Mile',
+    'nmi': 'Nautical Mile',
+    'furlong': 'Furlong',
+    'fathom': 'Fathom',
+  
+    // Astronomical Units
+    'AU': 'Astronomical Unit',
+    'ly': 'Light Year',
+    'pc': 'Parsec',
+  
+    // Lunar Distances
+    'LD': 'Lunar Distance (Earth-Moon distance)',
+  };
+  
   
 
 

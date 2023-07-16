@@ -5,6 +5,7 @@ const sendBtn = document.getElementById('send-btn');
 sendBtn.addEventListener('click', handleUserInput);
 
 async function handleUserInput() {
+    const question1 = (userInput.value);
     const question = (userInput.value);
     if (question) {
         const response = await getResponse(question.toLowerCase());
