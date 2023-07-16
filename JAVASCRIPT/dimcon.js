@@ -33,7 +33,7 @@ const lengthValueM = {
     'fathom': 0.54680665,  // Fathom (fathom)
   
     // Astronomical Units
-    'AU': 6.6846E-12, // Astronomical Unit (AU)
+    'AU': 6.68458712E-12, // Astronomical Unit (AU)
     'ly': 1.057E-16,    // Light Year (ly)
     'pc': 3.2408E-17,    // Parsec (pc)
   
