@@ -53,19 +53,44 @@ chatToggle.addEventListener('click', function () {
 
 
 // calculator
-
-
 let result = document.getElementById('result');
 let hasError = false;
+let decimalEntered = false;
+let operators = ['+', '-', '*', '/', '%']; 
 
 function appendValue(value) {
   if (hasError) {
     clearResult();
   }
+
+  if (value === '.' && decimalEntered) {
+    return; 
+  }
+
+  if (value === '.') {
+    decimalEntered = true;
+  }
+  if (['*', '/', '%'].includes(value)) {
+    const lastChar = result.value.slice(-1);
+    if (['+', '-'].includes(lastChar)) {
+      result.value += value;
+      return;
+    }
+    if (result.value === '' || ['*', '/', '%'].includes(lastChar)) {
+      return;
+    }
+  } else if (operators.includes(value)) {
+    const lastChar = result.value.slice(-1);
+    if (operators.includes(lastChar)) {
+      return;
+    }
+  }
+
   result.value += value;
 }
 
 let lastCalculation = '';
+
 function calculate() {
   try {
     if (/[*\/]$/.test(result.value)) {
@@ -100,11 +125,17 @@ function calculate() {
 function clearResult() {
   result.value = '';
   hasError = false;
+  decimalEntered = false; 
 }
+
 function removeLastEntered() {
   if (hasError) {
     clearResult();
   } else {
+    const lastChar = result.value.slice(-1);
+    if (lastChar === '.') {
+      decimalEntered = false; 
+    }
     result.value = result.value.slice(0, -1);
   }
 }
