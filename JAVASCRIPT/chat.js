@@ -214,6 +214,7 @@ async function getResponse(question) {
         } else {
             const calculatorContainer = document.getElementById('calculator1');
             calculatorContainer.style.display = 'block';
+            document.getElementById('#chat-container').style.height = '450px';
             return 'Above is your calculator';
         }
 
