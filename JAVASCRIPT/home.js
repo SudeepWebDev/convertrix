@@ -86,15 +86,10 @@ function calculate() {
     if (isNaN(calculatedResult)) {
       throw new Error('Invalid calculation');
     }
-
-    // Fix for precision issue with division
     calculatedResult = Number(calculatedResult.toFixed(15));
-
-    let significantFigures = getSignificantFigures(calculatedResult);
-
-    result.value = formatNumber(calculatedResult, significantFigures);
+    result.value = calculatedResult;
     hasError = false;
-    lastCalculation = result.value; // Update the global variable
+    lastCalculation = result.value;
 
   } catch (error) {
     result.value = error.message;
@@ -102,36 +97,6 @@ function calculate() {
   }
 }
 
-
-
-
-function getSignificantFigures(number) {
-  let numberString = number.toString();
-
-  if (numberString.startsWith('-')) {
-    numberString = numberString.substring(1);
-  }
-
-  numberString = numberString.replace(/e[+-]\d+$/i, '');
-
-  if (Number.isInteger(number)) {
-    numberString = numberString.replace('.', '');
-  }
-
-  numberString = numberString.replace(/^0+/, '');
-
-  let significantFigures = numberString.replace(/[^\d]/g, '').length;
-
-  return significantFigures;
-}
-
-function formatNumber(number, significantFigures) {
-  if (Number.isInteger(number)) {
-    return number.toString();
-  } else {
-    return number.toPrecision(significantFigures);
-  }
-}
 function clearResult() {
   result.value = '';
   hasError = false;
