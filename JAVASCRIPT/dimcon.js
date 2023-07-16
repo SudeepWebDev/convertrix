@@ -3,42 +3,42 @@
 const lengthValueM = {
     // Metric Units
     'm': 1,
-    'mm': 0.001,
-    'cm': 0.01,
-    'km': 1000,
-    'µm': 1e-6,        // Micrometer (µm)
-    'nm': 1e-9,        // Nanometer (nm)
-    'zm': 1e-21,       // Zeptometer (zm)
-    'am': 1e-18,       // Attometer (am)
-    'fm': 1e-15,       // Femtometer (fm)
-    'pm': 1e-12,       // Picometer (pm)
-    'dm': 1e-1,        // Decimeter (dm)
-    'dam': 10,         // Decameter (dam)
-    'hm': 1e2,         // Hectometer (hm)
-    'Mm': 1e6,         // Megameter (Mm)
-    'Gm': 1e9,         // Gigameter (Gm)
-    'Tm': 1e12,        // Terameter (Tm)
-    'Pm': 1e15,        // Petameter (Pm)
-    'Em': 1e18,        // Exameter (Em)
-    'Zm': 1e21,        // Zettameter (Zm)
-    'Ym': 1e24,        // Yottameter (Ym)
+    'mm': 1000,
+    'cm': 100,
+    'km': 0.001,
+    'µm': 1e+6,        // Micrometer (µm)
+    'nm': 1e+9,        // Nanometer (nm)
+    'zm': 1e+21,       // Zeptometer (zm)
+    'am': 1e+18,       // Attometer (am)
+    'fm': 1e+15,       // Femtometer (fm)
+    'pm': 1e+12,       // Picometer (pm)
+    'dm': 10,        // Decimeter (dm)
+    'dam': 0.1,         // Decameter (dam)
+    'hm': 1e-2,         // Hectometer (hm)
+    'Mm': 1e-6,         // Megameter (Mm)
+    'Gm': 1e-9,         // Gigameter (Gm)
+    'Tm': 1e-12,        // Terameter (Tm)
+    'Pm': 1e-15,        // Petameter (Pm)
+    'Em': 1e-18,        // Exameter (Em)
+    'Zm': 1e-21,        // Zettameter (Zm)
+    'Ym': 1e-24,        // Yottameter (Ym)
   
     // Imperial Units
-    'in': 0.0254,      // Inch (in)
-    'ft': 0.3048,      // Feet (ft)
-    'yd': 0.9144,      // Yard (yd)
-    'mi': 1609.34,     // Mile (mi)
-    'nmi': 1852,       // Nautical Mile (nmi)
-    'furlong': 201.168, // Furlong (furlong)
-    'fathom': 1.8288,  // Fathom (fathom)
+    'in': 39.3700787,      // Inch (in)
+    'ft': 3.2808399,      // Feet (ft)
+    'yd': 1.0936133,      // Yard (yd)
+    'mi': 0.00062137,     // Mile (mi)
+    'nmi': 0.00053996,       // Nautical Mile (nmi)
+    'furlong': 0.00497097, // Furlong (furlong)
+    'fathom': 0.54680665,  // Fathom (fathom)
   
     // Astronomical Units
-    'AU': 149597870.7, // Astronomical Unit (AU)
-    'ly': 9.461e15,    // Light Year (ly)
-    'pc': 3.086e16,    // Parsec (pc)
+    'AU': 6.6846E-12, // Astronomical Unit (AU)
+    'ly': 1.057E-16,    // Light Year (ly)
+    'pc': 3.2408E-17,    // Parsec (pc)
   
     // Lunar Distances
-    'LD': 384400000,   // Lunar Distance (LD)
+    'LD': 2.6014432807322E-9 ,   // Lunar Distance (LD)
   
   };
   
