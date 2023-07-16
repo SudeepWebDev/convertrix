@@ -207,31 +207,15 @@ async function getResponse(question) {
         }
 
     } else if (question.includes('calculator')) {
-        return `<div id="calculator1">
-       <input type="text" id="result1" disabled>
-       <div id="buttons1">
-           <button onclick="clearResult1()">C</button>
-           <button onclick="appendValue1('%')">%</button>
-           <button onclick="removeLastEntered1()" style="color: red;"><i class="fas fa-backspace"></i></button>
-           <button onclick="appendValue1('/')">/</button>
-           <button onclick="appendValue1('7')">7</button>
-           <button onclick="appendValue1('8')">8</button>
-           <button onclick="appendValue1('9')">9</button>
-           <button onclick="appendValue1('*')">*</button>
-           <button onclick="appendValue1('4')">4</button>
-           <button onclick="appendValue1('5')">5</button>
-           <button onclick="appendValue1('6')">6</button>
-           <button onclick="appendValue1('-')">-</button>
-           <button onclick="appendValue1('1')">1</button>
-           <button onclick="appendValue1('2')">2</button>
-           <button onclick="appendValue1('3')">3</button>
-           <button onclick="appendValue1('+')">+</button>
-           <button onclick="appendValue1('.')">.</button>
-           <button onclick="appendValue1('0')">0</button>
-           <button onclick="appendValue1('00')">00</button>
-           <button onclick="calculate1()" id="equalbtn1">=</button>
-       </div>
-   </div>`;
+        
+        if (document.getElementById('calculator1').style.display == 'block') {
+            document.getElementById('calculator1').scrollIntoView({ behavior: 'smooth', block: 'end' });
+            return 'Scrolling!'
+        } else {
+            const calculatorContainer = document.getElementById('calculator1');
+            calculatorContainer.style.display = 'block';
+            return 'Above is your calculator';
+        }
 
     } else if (question.includes('symbol')) {
         return "1. For Currency Symbol:<br>Three letters unique symbol is used.<br>Example: usd, inr, aud etc.<br><br>2. For Length Symbol:<br>one/two letter(s) unique symbol is used.<br>Example: m, cm, km, ha, mm, in etc.<br><br>3. For Area Symbol:<br>Two/Three/Four letters unique symbol is used.<br> Example: sqkm, sqm, ha etc.";
