@@ -15,7 +15,7 @@ const converterSrc = [
     '/convertrix/HTML/lengthConverter.html',
     '/convertrix/HTML/temperatureConverter.html',
     '/convertrix/HTML/areaConverter.html',
-    '/index.html#calculator',
+    '/convertrix/index.html#calculator',
 
 ];
 
