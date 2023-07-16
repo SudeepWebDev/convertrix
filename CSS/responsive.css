@@ -97,4 +97,12 @@ iframe#video-container {
   #calculator {
     width: 90%;
   }
+
+  #buttons button {
+    height: 50px;
+  }
+
+  #result {
+    height: 80px;
+  }
 }
