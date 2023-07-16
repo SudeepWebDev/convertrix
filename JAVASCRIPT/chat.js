@@ -674,13 +674,13 @@ function convertLength(convertOption1, convertOption2, amount) {
     for (keys in lengthValueM) {
         if (keys.toLowerCase() == convertOption2) {
             if (convertOption1 == 'm') {
-                convertedAmount = Number(amount) * lengthValueM[keys.toLowerCase()];
+                convertedAmount = Number(amount) * lengthValueM[keys];
                 return convertedAmount;
                 //   break;
             } else {
                 for (keys2 in lengthValueM) {
                     if (keys2.toLowerCase() == convertOption1) {
-                        convertedLengthM = Number(amount) / lengthValueM[keys2.toLowerCase()];
+                        convertedLengthM = Number(amount) / lengthValueM[keys2];
                         convertedAmount = convertedLengthM * lengthValueM[convertOption2];
                         return convertedAmount;
                         //    break;
