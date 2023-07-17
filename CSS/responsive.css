@@ -112,4 +112,14 @@ iframe#video-container {
   #calculatorContainer {
     max-width: 100%!important;
   }
+
+  section#sic {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+  }
+  .interest-calculator {
+    width: 90%;
+  }
 }
