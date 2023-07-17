@@ -199,10 +199,20 @@
                     <input type="range" id="rateCI" min="1" max="50" step="0.1" value="5" name="groep2">
                     </p>
                 </div>
+                <div class="label-amount-group">
+                    <label>Interest Frequency:</label>
+                    <select id="interestFrequency">
+                        <option value="monthly">Monthly</option>
+                        <option value="quarterly">Quarterly</option>
+                        <option value="half-yearly">Half-Yearly</option>
+                        <option value="yearly" selected>Yearly</option>
+                        <option value="bi-annually">Bi-Annually</option>
+                    </select>
+                </div>
                 <div class="range-cont">
                     <p class="range">
                     <div class="label-amount-group">
-                        <label for="time">Time Period (Years):</label>
+                        <label for="time">Time Period:</label>
                         <output id="timeValueCI">1</output>
                     </div>
                     <input type="range" id="timeCI" min="1" max="30" value="1" name="groep3" step="1">
@@ -221,7 +231,7 @@
                     <span id="totalAmountCI">525</span>
                 </div>
             </div>
-            <canvas id="pieChartCI"  style="max-width:300px;max-height: 300px;width: 100%;height: 100%;">></canvas>
+            <canvas id="pieChartCI" style="max-width:300px;max-height: 300px;width: 100%;height: 100%;">></canvas>
 
         </section>
         <h2 id="tool_head" style="text-align: center;">Calculator</h2>

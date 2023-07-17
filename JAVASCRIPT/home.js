@@ -1,8 +1,4 @@
 
-
-
-
-
 // dynamic css
 const dynamic_text = ['Currency', 'Length', 'Temperature', 'Area'];
 const dynamic_textH3 = document.getElementById('dynamic_textH3');
@@ -302,72 +298,71 @@ function calculateInterest() {
   myPieChart.update();
 }
 
-document.getElementById('principal').addEventListener('input', function() {
+document.getElementById('principal').addEventListener('input', function () {
   updatePrincipalValue();
 });
 
-document.getElementById('rate').addEventListener('input', function() {
+document.getElementById('rate').addEventListener('input', function () {
   updateRateValue();
 });
 
-document.getElementById('time').addEventListener('input', function() {
+document.getElementById('time').addEventListener('input', function () {
   updateTimeValue();
 });
 
 calculateInterest();
 
 window.onload = function () {
-	sliders();
+  sliders();
 }
 
 function sliders() {
 
-	var tracks = [
-		'-webkit-slider-runnable-track',
-	];
+  var tracks = [
+    '-webkit-slider-runnable-track',
+  ];
 
-	initSliders();
+  initSliders();
 
-	function initSliders() {
-		var sliders = document.querySelectorAll('input[type=range]');
-		var testAndWK = window.getComputedStyle(sliders[0],'::-webkit-slider-thumb').background;
-		for (var i=0;i<sliders.length;i+=1) {
-			if (!testAndWK) {
-				sliders[i].style.WebkitAppearance = 'slider-horizontal';
-			}
-			
-			var st = document.createElement('style');
-			st.id = 's' + sliders[i].id;
-			document.head.appendChild(st);
+  function initSliders() {
+    var sliders = document.querySelectorAll('input[type=range]');
+    var testAndWK = window.getComputedStyle(sliders[0], '::-webkit-slider-thumb').background;
+    for (var i = 0; i < sliders.length; i += 1) {
+      if (!testAndWK) {
+        sliders[i].style.WebkitAppearance = 'slider-horizontal';
+      }
+
+      var st = document.createElement('style');
+      st.id = 's' + sliders[i].id;
+      document.head.appendChild(st);
 
 
-			sliders[i].addEventListener('input',function () {handleSlider(this)},false);
-			sliders[i].addEventListener('change',function () {handleSlider(this)},false);
+      sliders[i].addEventListener('input', function () { handleSlider(this) }, false);
+      sliders[i].addEventListener('change', function () { handleSlider(this) }, false);
 
-			sliders[i].output = sliders[i].parentNode.querySelector('output');
-			
-			
-			if (sliders[i].value*1) {
-				handleSlider(sliders[i]);
-			}
-		}
-	}
+      sliders[i].output = sliders[i].parentNode.querySelector('output');
 
-	function handleSlider(slider) {
-		var gradValue = Math.round((slider.value/slider.getAttribute('max')*1)*100);
-		var grad = 'linear-gradient(90deg,#5082e0 ' + gradValue + '%,#cccccc ' + (gradValue+1) + '%)';
-		var rangeSelector = 'input[id='+slider.id+']::';
-		var styleString = '';
-		var printedValue = (slider.values) ? slider.values[slider.value] : slider.value;
-		slider.output.innerHTML = printedValue;
-		for (var j=0;j<tracks.length;j+=1) {
-			styleString += rangeSelector + tracks[j] + '{background: ' + grad + ';} ';
-		}
-		document.getElementById('s'+slider.id).textContent = styleString;
-	}
 
-}
-const principalAmountElementCI = document.getElementById('principalAmountCI');
+      if (sliders[i].value * 1) {
+        handleSlider(sliders[i]);
+      }
+    }
+  }
+
+  function handleSlider(slider) {
+    var gradValue = Math.round((slider.value / slider.getAttribute('max') * 1) * 100);
+    var grad = 'linear-gradient(90deg,#5082e0 ' + gradValue + '%,#cccccc ' + (gradValue + 1) + '%)';
+    var rangeSelector = 'input[id=' + slider.id + ']::';
+    var styleString = '';
+    var printedValue = (slider.values) ? slider.values[slider.value] : slider.value;
+    slider.output.innerHTML = printedValue;
+    for (var j = 0; j < tracks.length; j += 1) {
+      styleString += rangeSelector + tracks[j] + '{background: ' + grad + ';} ';
+    }
+    document.getElementById('s' + slider.id).textContent = styleString;
+  }
+
+} const principalAmountElementCI = document.getElementById('principalAmountCI');
 const interestAmountElementCI = document.getElementById('interestAmountCI');
 const totalAmountElementCI = document.getElementById('totalAmountCI');
 
@@ -421,12 +416,32 @@ function updateTimeValueCI() {
   calculateInterestCI();
 }
 
+function getInterestFrequencyFactor(frequency) {
+  switch (frequency) {
+    case 'monthly':
+      return 12;
+    case 'yearly':
+      return 1;
+    case 'half-yearly':
+      return 2;
+    case 'quarterly':
+      return 4;
+    case 'bi-annually':
+      return 2;
+    default:
+      return 1;
+  }
+}
+
 function calculateInterestCI() {
   const principalCI = parseInt(document.getElementById('principalCI').value);
   const rateCI = parseFloat(document.getElementById('rateCI').value);
   const timeCI = parseInt(document.getElementById('timeCI').value);
+  const interestFrequency = document.getElementById('interestFrequency').value;
 
-  const compoundInterestCI = principalCI * (Math.pow(1 + rateCI / 100, timeCI) - 1);
+  const interestFrequencyFactor = getInterestFrequencyFactor(interestFrequency);
+
+  const compoundInterestCI = principalCI * (Math.pow(1 + rateCI / (100 * interestFrequencyFactor), timeCI * interestFrequencyFactor) - 1);
 
   interestAmountElementCI.innerText = compoundInterestCI.toFixed(2);
   const totalAmountCI = principalCI + compoundInterestCI;
@@ -437,16 +452,20 @@ function calculateInterestCI() {
   myPieChartCI.update();
 }
 
-document.getElementById('principalCI').addEventListener('input', function() {
+document.getElementById('principalCI').addEventListener('input', function () {
   updatePrincipalValueCI();
 });
 
-document.getElementById('rateCI').addEventListener('input', function() {
+document.getElementById('rateCI').addEventListener('input', function () {
   updateRateValueCI();
 });
 
-document.getElementById('timeCI').addEventListener('input', function() {
+document.getElementById('timeCI').addEventListener('input', function () {
   updateTimeValueCI();
+});
+
+document.getElementById('interestFrequency').addEventListener('change', function () {
+  calculateInterestCI();
 });
 
 calculateInterestCI();
