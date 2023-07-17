@@ -367,3 +367,86 @@ function sliders() {
 	}
 
 }
+const principalAmountElementCI = document.getElementById('principalAmountCI');
+const interestAmountElementCI = document.getElementById('interestAmountCI');
+const totalAmountElementCI = document.getElementById('totalAmountCI');
+
+const pieChartConfigCI = {
+  type: 'pie',
+  data: {
+    datasets: [
+      {
+        data: [0, 0], // Initial data, will be updated in calculateInterestCI function
+        backgroundColor: ['#5367ff', 'lightblue'], // Customize colors as desired
+      },
+    ],
+    labels: ['Principal Amount', 'Compound Interest'],
+  },
+  options: {
+    responsive: true,
+    legend: {
+      display: true,
+      position: 'bottom',
+    },
+    plugins: {
+      legend: {
+        labels: {
+          font: {
+            size: 12, // Reduce the font size
+          },
+        },
+      },
+    },
+  },
+};
+
+const ctxCI = document.getElementById('pieChartCI').getContext('2d');
+const myPieChartCI = new Chart(ctxCI, pieChartConfigCI);
+
+function updatePrincipalValueCI() {
+  const principalValueCI = parseInt(document.getElementById('principalCI').value);
+  principalAmountElementCI.innerText = principalValueCI;
+  calculateInterestCI();
+}
+
+function updateRateValueCI() {
+  const rateValueCI = document.getElementById('rateCI').value;
+  document.getElementById('rateValueCI').innerText = rateValueCI;
+  calculateInterestCI();
+}
+
+function updateTimeValueCI() {
+  const timeValueCI = document.getElementById('timeCI').value;
+  document.getElementById('timeValueCI').innerText = timeValueCI;
+  calculateInterestCI();
+}
+
+function calculateInterestCI() {
+  const principalCI = parseInt(document.getElementById('principalCI').value);
+  const rateCI = parseFloat(document.getElementById('rateCI').value);
+  const timeCI = parseInt(document.getElementById('timeCI').value);
+
+  const compoundInterestCI = principalCI * (Math.pow(1 + rateCI / 100, timeCI) - 1);
+
+  interestAmountElementCI.innerText = compoundInterestCI.toFixed(2);
+  const totalAmountCI = principalCI + compoundInterestCI;
+  totalAmountElementCI.innerText = totalAmountCI.toFixed(2);
+
+  // Update pie chart data
+  myPieChartCI.data.datasets[0].data = [principalCI, compoundInterestCI];
+  myPieChartCI.update();
+}
+
+document.getElementById('principalCI').addEventListener('input', function() {
+  updatePrincipalValueCI();
+});
+
+document.getElementById('rateCI').addEventListener('input', function() {
+  updateRateValueCI();
+});
+
+document.getElementById('timeCI').addEventListener('input', function() {
+  updateTimeValueCI();
+});
+
+calculateInterestCI();

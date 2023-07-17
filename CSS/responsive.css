@@ -113,7 +113,7 @@ iframe#video-container {
     max-width: 100%!important;
   }
 
-  section#sic {
+  section#sic, section#cic  {
     display: flex;
     align-items: center;
     justify-content: space-evenly;
