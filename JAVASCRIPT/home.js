@@ -2,6 +2,7 @@
 
 
 
+
 // dynamic css
 const dynamic_text = ['Currency', 'Length', 'Temperature', 'Area'];
 const dynamic_textH3 = document.getElementById('dynamic_textH3');
@@ -42,6 +43,7 @@ const showConverterName = () => {
 
 showConverterName();
 
+
 const chatSection = document.getElementById('chat-section');
 const chatToggle = document.getElementById('chat-toggle');
 const chatToggleIcon = document.querySelector('#chat-toggle i');
@@ -52,34 +54,34 @@ chatToggle.addEventListener('click', function () {
 
 
 
-// calculator
+
+
 let result = document.getElementById('result');
 let hasError = false;
 let decimalEntered = false;
-let operators = ['+', '-', '*', '/', '%']; 
-
+let operators = ['+', '-', '*', '/', '%'];
 function appendValue(value) {
   if (hasError) {
     clearResult();
   }
 
   if (value === '.' && decimalEntered) {
-    return; 
+    return;
   }
 
   if (value === '.') {
     decimalEntered = true;
   }
-  if (['+', '-'].includes(value)) {
+
+  if (['*', '/', '%'].includes(value)) {
     const lastChar = result.value.slice(-1);
+    if (['+', '-'].includes(lastChar) || result.value === '') {
+      return;
+    }
     if (['*', '/', '%'].includes(lastChar)) {
-      result.value += value;
       return;
     }
-    if (result.value === '' || ['*', '/', '%'].includes(lastChar)) {
-      return;
-    }
-  } else if (operators.includes(value)) {
+  } else if (['+', '-'].includes(value)) {
     const lastChar = result.value.slice(-1);
     if (operators.includes(lastChar)) {
       return;
@@ -88,6 +90,7 @@ function appendValue(value) {
 
   result.value += value;
 }
+
 
 let lastCalculation = '';
 
@@ -125,7 +128,7 @@ function calculate() {
 function clearResult() {
   result.value = '';
   hasError = false;
-  decimalEntered = false; 
+  decimalEntered = false;
 }
 
 function removeLastEntered() {
@@ -134,7 +137,7 @@ function removeLastEntered() {
   } else {
     const lastChar = result.value.slice(-1);
     if (lastChar === '.') {
-      decimalEntered = false; 
+      decimalEntered = false;
     }
     result.value = result.value.slice(0, -1);
   }
@@ -166,8 +169,8 @@ function appendValue1(value) {
       return;
     }
   } else if (operators1.includes(value)) {
-    const lastChar = result1.value.slice(-1);
-    if (operators1.includes(lastChar)) {
+    const lastChar1 = result1.value.slice(-1);
+    if (operators1.includes(lastChar1)) {
       return;
     }
   }
@@ -218,10 +221,149 @@ function removeLastEntered1() {
   if (hasError1) {
     clearResult1();
   } else {
-    const lastChar = result1.value.slice(-1);
-    if (lastChar === '.') {
+    const lastChar1 = result1.value.slice(-1);
+    if (lastChar1 === '.') {
       decimalEntered1 = false;
     }
     result1.value = result1.value.slice(0, -1);
   }
+}
+
+var tracks = [
+  '-webkit-slider-runnable-track',
+];
+const principalAmountElement = document.getElementById('principalAmount');
+const interestAmountElement = document.getElementById('interestAmount');
+const totalAmountElement = document.getElementById('totalAmount');
+
+const pieChartConfig = {
+  type: 'pie',
+  data: {
+    datasets: [
+      {
+        data: [0, 0], // Initial data, will be updated in calculateInterest function
+        backgroundColor: ['#5367ff', 'lightblue'], // Customize colors as desired
+      },
+    ],
+    labels: ['Principal Amount', 'Total Interest'],
+  },
+  options: {
+    responsive: true,
+    legend: {
+      display: true,
+      position: 'bottom',
+    },
+    plugins: {
+      legend: {
+        labels: {
+          font: {
+            size: 12, // Reduce the font size
+          },
+        },
+      },
+    },
+  },
+};
+
+const ctx = document.getElementById('pieChart').getContext('2d');
+const myPieChart = new Chart(ctx, pieChartConfig);
+
+function updatePrincipalValue() {
+  const principalValue = parseInt(document.getElementById('principal').value);
+  principalAmountElement.innerText = principalValue;
+  calculateInterest();
+}
+
+function updateRateValue() {
+  const rateValue = document.getElementById('rate').value;
+  document.getElementById('rateValue').innerText = rateValue;
+  calculateInterest();
+}
+
+function updateTimeValue() {
+  const timeValue = document.getElementById('time').value;
+  document.getElementById('timeValue').innerText = timeValue;
+  calculateInterest();
+}
+
+function calculateInterest() {
+  const principal = parseInt(document.getElementById('principal').value);
+  const rate = parseFloat(document.getElementById('rate').value);
+  const time = parseInt(document.getElementById('time').value);
+
+  const interestAmount = (principal * rate * time) / 100;
+  const totalAmount = interestAmount + principal;
+
+  interestAmountElement.innerText = interestAmount.toFixed(2);
+  totalAmountElement.innerText = totalAmount.toFixed(2);
+
+  // Update pie chart data
+  myPieChart.data.datasets[0].data = [principal, interestAmount];
+  myPieChart.update();
+}
+
+document.getElementById('principal').addEventListener('input', function() {
+  updatePrincipalValue();
+});
+
+document.getElementById('rate').addEventListener('input', function() {
+  updateRateValue();
+});
+
+document.getElementById('time').addEventListener('input', function() {
+  updateTimeValue();
+});
+
+calculateInterest();
+
+window.onload = function () {
+	sliders();
+}
+
+function sliders() {
+
+	var tracks = [
+		'-webkit-slider-runnable-track',
+	];
+
+	initSliders();
+
+	function initSliders() {
+		var sliders = document.querySelectorAll('input[type=range]');
+		var testAndWK = window.getComputedStyle(sliders[0],'::-webkit-slider-thumb').background;
+		for (var i=0;i<sliders.length;i+=1) {
+			if (!testAndWK) {
+				sliders[i].style.WebkitAppearance = 'slider-horizontal';
+			}
+			
+			var st = document.createElement('style');
+			st.id = 's' + sliders[i].id;
+			document.head.appendChild(st);
+
+
+			sliders[i].addEventListener('input',function () {handleSlider(this)},false);
+			sliders[i].addEventListener('change',function () {handleSlider(this)},false);
+
+			sliders[i].output = sliders[i].parentNode.querySelector('output');
+			
+			
+			if (sliders[i].value*1) {
+				handleSlider(sliders[i]);
+			}
+		}
+	}
+
+	function handleSlider(slider) {
+		var gradValue = Math.round((slider.value/slider.getAttribute('max')*1)*100);
+		var grad = 'linear-gradient(90deg,#5082e0 ' + gradValue + '%,#cccccc ' + (gradValue+1) + '%)';
+		var rangeSelector = 'input[id='+slider.id+']::';
+		var styleString = '';
+		var printedValue = (slider.values) ? slider.values[slider.value] : slider.value;
+		slider.output.innerHTML = printedValue;
+		for (var j=0;j<tracks.length;j+=1) {
+			styleString += rangeSelector + tracks[j] + '{background: ' + grad + ';} ';
+		}
+		document.getElementById('s'+slider.id).textContent = styleString;
+	}
+
 }

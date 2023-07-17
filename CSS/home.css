@@ -284,3 +284,182 @@
 #calculator1 {
   display: none;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+.interest-calculator {
+  width: 300px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin: 20px;
+  background: linear-gradient(120deg, #ffffff 0%, #ffffff 100%);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.interest-calculator h2 {
+  margin: 0;
+  padding: 10px 0;
+  font-size: 18px;
+  font-weight: bold;
+  color: #000000;
+  text-align: center;
+}
+
+.interest-calculator label {
+  display: inline-block;
+  width: 150px;
+  font-weight: bold;
+  color: #000000;
+}
+
+.interest-calculator input[type="range"] {
+  width: 100%;
+  cursor: pointer;
+}
+
+.interest-calculator div.range-cont {
+  display: flex;
+  margin-bottom: 10px;
+  flex-direction: column;
+}
+
+.label-amount-group {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+
+.interest-calculator span {
+  margin-left: 10px;
+  font-weight: bold;
+  color: #000000;
+}
+
+p.range {
+  width: 100%;
+  position: relative;
+}
+
+input[type=range] {
+  -webkit-appearance: none;
+  height: 35px;
+  padding: 0;
+  width: 100%;
+}
+
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  box-sizing: content-box;
+  border: 12px solid #a6d8ef;
+  height: 8px;
+  width: 8px;
+  border-radius: 18px;
+  background-color: #5082e0;
+  cursor: ew-resize;
+  margin-top: -14px;
+  opacity: .7;
+}
+
+input[type=range]::-moz-range-thumb {
+  border: 12px solid #a6d8ef;
+  height: 8px;
+  width: 8px;
+  border-radius: 18px;
+  background-color: #5082e0;
+  cursor: ew-resize;
+  margin-top: -14px;
+  opacity: .7;
+
+}
+
+input[type=range]::-ms-thumb {
+  display: inline-block;
+  border: 12px solid #a6d8ef;
+  height: 8px;
+  width: 8px;
+  border-radius: 18px;
+  background-color: #5082e0;
+  cursor: ew-resize;
+  margin-top: 5px;
+  /* note: different margin-top for IE */
+}
+
+
+input[type=range]::-webkit-slider-runnable-track {
+  height: 3px;
+  border-color: transparent;
+  color: transparent;
+  background-color: #cccccc;
+}
+
+input[type=range]::-moz-range-track {
+  height: 3px;
+  background-color: #cccccc;
+}
+
+input[type=range]::-ms-track {
+  border-color: transparent;
+  color: transparent;
+  height: 3px;
+  background-color: #cccccc;
+}
+
+input[type=range]::-ms-fill-lower {
+  background-color: #5082e0;
+
+}
+
+input[type=range]::-moz-range-progress {
+  background-color: #5082e0;
+}
+
+input[type=range]::-ms-tooltip {
+  display: none;
+}
+
+p.range {
+  margin-top: 25px;
+}
+
+p.range output {
+  position: absolute;
+  top: -25px;
+  left: 0;
+  width: 100%;
+  height: 20px;
+  text-align: center;
+  font-weight: bold;
+}
+
+p.range span {
+  width: 100%;
+  display: block;
+  height: 20px;
+  position: relative;
+}
+
+output {
+  color: #000000;
+  background: linear-gradient(90deg, #9dd2ff, #39a3ff);
+  width: 72px;
+  padding: 5px;
+  cursor: pointer;
+  text-align: right;
+}
+
+section#sic {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
