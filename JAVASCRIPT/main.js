@@ -6,7 +6,8 @@ const gradients = [
   'linear-gradient(45deg, #2c3e50, #bdc3c7)', // Length Converter gradient
   'linear-gradient(45deg, #3498db, #9b59b6)', // Temperature Converter gradient
   'linear-gradient(45deg, #ff9f43, #ff6b6b)', // Area Converter gradient
-  'linear-gradient(45deg, #27ae60, #2ecc71)' // Calculator gradient
+  'linear-gradient(45deg, #27ae60, #2ecc71)', // Calculator gradient,
+  'linear-gradient(135deg, #1abc9c, #3498db)',//SIC gradient
 ];
 
 
@@ -16,6 +17,7 @@ const converterSrc = [
     '/convertrix/HTML/temperatureConverter.html',
     '/convertrix/HTML/areaConverter.html',
     '/convertrix/index.html#calculator',
+    '/convertrix/index.html#sic',
 
 ];
 
