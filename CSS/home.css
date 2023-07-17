@@ -452,7 +452,7 @@ p.range span {
 output {
   color: #000000;
   background: linear-gradient(90deg, #9dd2ff, #39a3ff);
-  width: 72px;
+  width: 80px;
   padding: 5px;
   cursor: pointer;
   text-align: right;
