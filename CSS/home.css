@@ -463,3 +463,10 @@ section#sic,section#cic {
   align-items: center;
   justify-content: space-evenly;
 }
+
+#interestFrequency {
+outline:none;
+border:none;
+border-bottom: 1px solid #0071EB;
+padding:5px;
+}
