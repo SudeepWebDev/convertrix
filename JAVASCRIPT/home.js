@@ -469,3 +469,165 @@ document.getElementById('interestFrequency').addEventListener('change', function
 });
 
 calculateInterestCI();
+
+
+
+
+
+// All in unit converter class
+
+
+
+class UnitConverter {
+  constructor() {
+    this.conversionTypeSelect = document.getElementById('conversionType');
+    this.fromSelect = document.getElementById('from');
+    this.toSelect = document.getElementById('to');
+    this.amountInput = document.getElementById('amount');
+    this.resultOutput = document.querySelector('.unit-converter-popup p');
+    this.convertButton = document.querySelector('.convert-btn');
+
+    this.convertButton.addEventListener('click', () => {
+      this.convert();
+    });
+
+    this.conversionTypeSelect.addEventListener('change', () => {
+      this.updateOptions();
+    });
+    this.updateOptions();
+
+  }
+
+  updateOptions() {
+    const conversionType = this.conversionTypeSelect.value;
+    let units;
+
+    if (conversionType === 'length') {
+      units = ['mm', 'cm', 'm', 'km', 'in', 'ft', 'yd', 'mi'];
+    } else {
+      units = ['sqkm', 'sqm', 'ha', 'acre', 'sqmi', 'sqyd', 'sqft', 'sqin'];
+    }
+
+    this.fromSelect.innerHTML = '';
+    this.toSelect.innerHTML = '';
+
+    units.forEach(unit => {
+      const option1 = document.createElement('option');
+      option1.value = unit;
+      option1.textContent = unit;
+      this.fromSelect.appendChild(option1);
+
+      const option2 = document.createElement('option');
+      option2.value = unit;
+      option2.textContent = unit;
+      this.toSelect.appendChild(option2);
+    });
+
+  }
+
+  convert() {
+    const conversionType = this.conversionTypeSelect.value;
+    const fromUnit = this.fromSelect.value;
+    const toUnit = this.toSelect.value;
+    const amount = parseFloat(this.amountInput.value);
+
+    let result;
+
+    if (conversionType === 'length') {
+      result = this.convertLength(amount, fromUnit, toUnit);
+    } else {
+      result = this.convertArea(amount, fromUnit, toUnit);
+    }
+
+    if (isNaN(result)) {
+      this.resultOutput.textContent = 'Invalid input. Please check your values.';
+    } else {
+      this.resultOutput.textContent = `Converted result: ${amount} ${fromUnit} = ${result} ${toUnit}`;
+    }
+
+    // Update the popup display
+    let unitConverterPopupP = document.querySelector('.unit-converter-popup p');
+    let unitConverterPopupCont = document.querySelector('.unit-converter-popup');
+
+    unitConverterPopupP.style.display = 'flex';
+    unitConverterPopupCont.style.display = 'flex';
+  }
+
+  convertLength(value, fromUnit, toUnit) {
+    const lengthValueM = {
+      // Metric Units
+      'm': 1,
+      'mm': 0.001,
+      'cm': 0.01,
+      'km': 1000,
+      'µm': 1e-6,        // Micrometer (µm)
+      'nm': 1e-9,        // Nanometer (nm)
+      'zm': 1e-21,       // Zeptometer (zm)
+      'am': 1e-18,       // Attometer (am)
+      'fm': 1e-15,       // Femtometer (fm)
+      'pm': 1e-12,       // Picometer (pm)
+      'dm': 1e-1,        // Decimeter (dm)
+      'dam': 10,         // Decameter (dam)
+      'hm': 1e2,         // Hectometer (hm)
+      'Mm': 1e6,         // Megameter (Mm)
+      'Gm': 1e9,         // Gigameter (Gm)
+      'Tm': 1e12,        // Terameter (Tm)
+      'Pm': 1e15,        // Petameter (Pm)
+      'Em': 1e18,        // Exameter (Em)
+      'Zm': 1e21,        // Zettameter (Zm)
+      'Ym': 1e24,        // Yottameter (Ym)
+
+      // Imperial Units
+      'in': 0.0254,      // Inch (in)
+      'ft': 0.3048,      // Feet (ft)
+      'yd': 0.9144,      // Yard (yd)
+      'mi': 1609.34,     // Mile (mi)
+      'nmi': 1852,       // Nautical Mile (nmi)
+      'furlong': 201.168, // Furlong (furlong)
+      'fathom': 1.8288,  // Fathom (fathom)
+
+      // Astronomical Units
+      'AU': 149597870.7, // Astronomical Unit (AU)
+      'ly': 9.461e15,    // Light Year (ly)
+      'pc': 3.086e16,    // Parsec (pc)
+
+      // Lunar Distances
+      'LD': 384400000,   // Lunar Distance (LD)
+
+    };
+
+    const convertedValue = value * (lengthValueM[fromUnit] / lengthValueM[toUnit]);
+    return convertedValue.toFixed(6); // Rounding to 6 decimal places
+  }
+
+  convertArea(value, fromUnit, toUnit) {
+    const areaValuekilo = {
+      "sqkm": 1,
+      "sqm": 1000000,
+      "ha": 100,
+      "acre": 247.105,
+      "sqmi": 0.386102,
+      "sqyd": 1196000,
+      "sqft": 10760000,
+      "sqin": 1550000000
+    };
+  
+    const convertedValue = value * ( areaValuekilo[toUnit]/areaValuekilo[fromUnit] );
+    return convertedValue.toFixed(6); // Rounding to 6 decimal places
+  }
+  
+  
+  
+
+}
+
+// Create an instance of the UnitConverter class
+const converter = new UnitConverter();
+
+// Add event listener for the "Convert Again" button
+let unitConverterPopupBtn = document.querySelector('.unit-converter-popup button');
+unitConverterPopupBtn.addEventListener('click', function reConvert() {
+  let unitConverterPopupCont = document.querySelector('.unit-converter-popup');
+
+  unitConverterPopupCont.style.display = "none";
+});
