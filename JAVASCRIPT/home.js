@@ -426,8 +426,6 @@ function getInterestFrequencyFactor(frequency) {
       return 2;
     case 'quarterly':
       return 4;
-    case 'bi-annually':
-      return 2;
     default:
       return 1;
   }
