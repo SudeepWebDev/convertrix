@@ -462,13 +462,14 @@ section#sic,section#cic {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  
+
 }
 
 select#conversionType {
   margin: auto;
   display: flex;
   padding: 10px;
+  margin-top: 10px;
 }
 
 #interestFrequency {
