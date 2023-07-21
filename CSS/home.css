@@ -463,9 +463,3 @@ section#sic,section#cic {
   align-items: center;
   justify-content: space-evenly;
 }
-
-select#conversionType {
-  margin: auto;
-  display: flex;
-  padding: 10px;
-}
