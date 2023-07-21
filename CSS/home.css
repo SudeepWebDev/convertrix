@@ -463,3 +463,16 @@ section#sic,section#cic {
   align-items: center;
   justify-content: space-evenly;
 }
+
+select#conversionType {
+  margin: auto;
+  display: flex;
+  padding: 10px;
+}
+
+#interestFrequency {
+outline:none;
+border:none;
+border-bottom: 1px solid #0071EB;
+padding:5px;
+}
