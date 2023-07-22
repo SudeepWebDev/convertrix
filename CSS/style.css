@@ -196,7 +196,6 @@ label {
   top: -10px;
   right: 0;
   bottom: 0;
-  left: -10px;
   z-index: 2;
   background-color: aliceblue;
   flex-direction: column;
