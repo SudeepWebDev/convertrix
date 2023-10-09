@@ -170,11 +170,15 @@ label {
   padding: 10px;
   margin: auto;
   display: flex;
+  border-radius: 5px;
+  border: 1px solid #0071EB;
+  color: #0071EB;
+
+}
+
+.convert-btn:hover {
   background-color: #0071EB;
   color: white;
-  border: 1px solid #0071EB;
-  border-radius: 5px;
-
 }
 
 .currency-converter-popup,
@@ -210,6 +214,26 @@ label {
 }
 
 
+
+#result {
+  display: flex;
+  margin-top: 20px;
+  padding: 15px;
+  border-radius: 4px;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+#result h3 {
+  color: #333;
+}
+
+#result p {
+  display: none;
+  margin: 10px 0;
+  font-weight: bold;
+}
 
 @keyframes popup {
   from {

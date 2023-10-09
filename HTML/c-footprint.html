@@ -4,15 +4,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <meta name="description" content="Convertrix is a versatile conversion tool that allows you to effortlessly convert between different units of measurement, including currency, length, temperature, and area. Simplify your conversions with Convertrix and get accurate results in seconds.">
-    <meta name="keywords" content="conversion tool, unit converter, currency converter, length converter, temperature converter, area converter, online converter, measurement converter, currency exchange, convert units, convert currency, convert length, convert temperature, convert area">
+    <meta name="description"
+        content="Convertrix is a versatile conversion tool that allows you to effortlessly convert between different units of measurement, including currency, length, temperature, and area. Simplify your conversions with Convertrix and get accurate results in seconds.">
+    <meta name="keywords"
+        content="conversion tool, unit converter, currency converter, length converter, temperature converter, area converter, online converter, measurement converter, currency exchange, convert units, convert currency, convert length, convert temperature, convert area">
     <meta name="msapplication-tap-highlight" content="no">
 
     <!-- Web Application Manifest -->
-    <link rel="manifest" href="/convertrix/manifest.json">
+    <link rel="manifest" href="/manifest.json">
 
-    <link rel="icon" href="/convertrix/images/logo300.png">
-    <link rel="shortcut icon" href="/convertrix/images/logo300.png" type="image/x-icon">
+    <link rel="icon" href="/images/logo300.png">
+    <link rel="shortcut icon" href="/images/logo300.png" type="image/x-icon">
 
     <!-- Add to homescreen for Chrome on Android -->
     <meta name="mobile-web-app-capable" content="yes">
@@ -29,8 +31,8 @@
     <meta name="msapplication-TileColor" content="#3372DF">
     <meta name="msapplication-navbutton-color" content="#0071EB">
     <title>Area Converter</title>
-    <link rel="stylesheet" href="/convertrix/CSS/style.css">
-    <link rel="stylesheet" href="/convertrix/CSS/responsive.css">
+    <link rel="stylesheet" href="/CSS/style.css">
+    <link rel="stylesheet" href="/CSS/responsive.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <script type="text/javascript"
         src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
@@ -39,6 +41,31 @@
             new google.translate.TranslateElement({ pageLanguage: 'en' }, 'google_translate_element');
         }
     </script>
+    <style>
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #242424;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+    </style>
 
 <body>
     <header>
@@ -69,8 +96,8 @@
         <!-- main menu -->
         <nav class="main_menu" id="menu">
             <ul>
-                <li><a href="/convertrix/index.html">Home</a></li>
-                <li><a href="/convertrix/index.html#about-us">About</a></li>
+                <li><a href="/index.html">Home</a></li>
+                <li><a href="/index.html#about-us">About</a></li>
                 <li><a href="#features">Converters</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
@@ -80,9 +107,45 @@
 
     <main>
         <h2>Carbon Footprint Calculator using Alex Shimo Barry Method</h2>
-        <div class="converter-box">
-           
+        <div id="result" class="converter-box" style="margin-bottom: 20px; padding: 10px">
+            <h3>Your Carbon Footprint:</h3>
+            <p id="resultCategory" style="text-align: center;"></p>
         </div>
+        <div class="converter-box" style="border-radius: 10px 10px 0 0; padding: 20px;">
+            <form id="carbonCalculator">
+                <label for="electricity">Electricity (kWh per month):</label>
+                <input type="number" id="electricity" name="electricity" required>
+
+                <label for="gas">Gas (monthly bill):</label>
+                <input type="number" id="gas" name="gas" required>
+
+                <label for="mileage">Car's Mileage (total yearly mileage):</label>
+                <input type="number" id="mileage" name="mileage" required>
+
+                <label for="carType">Car Type:</label>
+                <select id="carType" name="carType">
+                    <option value="small">Small or Hybrid Car</option>
+                    <option value="medium">Medium-sized Car</option>
+                    <option value="large">Large Car, MPV, or Sports Car</option>
+                </select>
+
+                <label for="flightsShort">Flights (short-medium haul):</label>
+                <input type="number" id="flightsShort" name="flightsShort" required>
+
+                <label for="flightsLong">Flights (long haul):</label>
+                <input type="number" id="flightsLong" name="flightsLong" required>
+
+                <label for="recycleNewspaper">Recycle Newspaper (0 for no, 1 for yes):</label>
+                <input type="number" id="recycleNewspaper" name="recycleNewspaper" required>
+
+                <label for="recycleAluminum">Recycle Aluminum (0 for no, 1 for yes):</label>
+                <input type="number" id="recycleAluminum" name="recycleAluminum" required>
+
+                <button type="button" class="convert-btn" onclick="calculateCarbonFootprint()">Calculate</button>
+            </form>
+        </div>
+
+
         <section id="features" class="fade-in">
 
             <div class="feature">
@@ -162,8 +225,89 @@
         </div>
 
     </footer>
-    <script src="/convertrix/JAVASCRIPT/main.js"></script>
+    <script src="/JAVASCRIPT/main.js"></script>
+    <script>
+        function calculateCarbonFootprint() {
+            const electricity = parseFloat(document.getElementById('electricity').value) || 0;
+            const gas = parseFloat(document.getElementById('gas').value) || 0;
+            const mileage = parseFloat(document.getElementById('mileage').value) || 0;
+            const carType = document.getElementById('carType').value;
+            const flightsShort = parseFloat(document.getElementById('flightsShort').value) || 0;
+            const flightsLong = parseFloat(document.getElementById('flightsLong').value) || 0;
+            const recycleNewspaper = parseFloat(document.getElementById('recycleNewspaper').value) || 0;
+            const recycleAluminum = parseFloat(document.getElementById('recycleAluminum').value) || 0;
 
+            // Applying the formula mentioned in the Alex Shimo Barry method
+            let mileageMultiplier;
+
+            switch (carType) {
+                case 'small':
+                    mileageMultiplier = 0.1;
+                    break;
+                case 'medium':
+                    mileageMultiplier = 0.17;
+                    break;
+                case 'large':
+                    mileageMultiplier = 0.36;
+                    break;
+                default:
+                    mileageMultiplier = 0; // Default to 0 if the car type is not recognized
+            }
+
+            const carbonFootprint =
+                electricity * 0.84 +
+                gas * 50 +
+                mileage * mileageMultiplier +
+                flightsShort * 400 +
+                flightsLong * 1000 +
+                recycleNewspaper * 85 +
+                recycleAluminum * 75;
+
+            displayResult(carbonFootprint);
+        }
+        function displayResult(footprint) {
+            const resultElement = document.getElementById('result');
+            const resultCategoryElement = document.getElementById('resultCategory');
+
+            // Get the category
+            const category = getFootprintCategory(footprint);
+
+            // Display the calculated footprint along with the category
+            resultCategoryElement.innerHTML = footprint + '<br>' + category;
+            resultElement.style.display = 'block';
+
+            // Apply color based on the category
+            switch (category) {
+                case 'Good (Below 2500 kg)':
+                    resultCategoryElement.style.color = 'green';
+                    break;
+                case 'Average (2500-6999 kg)':
+                    resultCategoryElement.style.color = 'orange';
+                    break;
+                case 'Poor (7000-10,000 kg)':
+                    resultCategoryElement.style.color = 'red';
+                    break;
+                case 'Very Poor (Over 10,000 kg)':
+                    resultCategoryElement.style.color = 'darkred';
+                    break;
+                default:
+                    resultCategoryElement.style.color = 'black';
+            }
+        }
+        
+        function getFootprintCategory(footprint) {
+            if (footprint < 2500) {
+                return 'Good (Below 2500 kg)';
+            } else if (footprint >= 2500 && footprint < 7000) {
+                return 'Average (2500-6999 kg)';
+            } else if (footprint >= 7000 && footprint <= 10000) {
+                return 'Poor (7000-10,000 kg)';
+            } else {
+                return 'Very Poor (Over 10,000 kg)';
+            }
+        }
+   
+   </script>
 </body>
 
 </html>

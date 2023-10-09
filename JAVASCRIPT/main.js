@@ -37,126 +37,126 @@ menuBar.addEventListener('click', () => {
 
 
 
-const promoContainer = document.querySelector('.promo-container');
+// const promoContainer = document.querySelector('.promo-container');
 
-fetch("https://raw.githubusercontent.com/SudeepWebDev/Rewards-Assistant/main/promo.json")
-  .then(response => response.json())
-  .then(data => {
-    const promoKeys = Object.keys(data);
-    const randomKey = promoKeys[Math.floor(Math.random() * promoKeys.length)];
-    const promoData = data[randomKey];
-    document.getElementById('ads_section').style.display = 'block';
+// fetch("https://raw.githubusercontent.com/SudeepWebDev/Rewards-Assistant/main/promo.json")
+//   .then(response => response.json())
+//   .then(data => {
+//     const promoKeys = Object.keys(data);
+//     const randomKey = promoKeys[Math.floor(Math.random() * promoKeys.length)];
+//     const promoData = data[randomKey];
+//     document.getElementById('ads_section').style.display = 'block';
 
-    const { url, imageDivId, title, platform, description, ctaUrl, ctaText } = promoData;
+//     const { url, imageDivId, title, platform, description, ctaUrl, ctaText } = promoData;
 
-    const promoImage = promoContainer.querySelector('.promo-image');
-    promoImage.src = url;
-    promoImage.id = imageDivId;
+//     const promoImage = promoContainer.querySelector('.promo-image');
+//     promoImage.src = url;
+//     promoImage.id = imageDivId;
 
-    const promoTitle = promoContainer.querySelector('.promo-title');
-    promoTitle.textContent = title;
+//     const promoTitle = promoContainer.querySelector('.promo-title');
+//     promoTitle.textContent = title;
 
-    // const promoClose= promoContainer.querySelector('.promo-close');
-    // promoClose.textContent = `✖`;
+//     // const promoClose= promoContainer.querySelector('.promo-close');
+//     // promoClose.textContent = `✖`;
 
-    const promoPlatform = promoContainer.querySelector('.promo-title-last');
-    promoPlatform.textContent = platform;
+//     const promoPlatform = promoContainer.querySelector('.promo-title-last');
+//     promoPlatform.textContent = platform;
 
-    const promoDescription = promoContainer.querySelector('.promo-description');
-    promoDescription.textContent = description;
+//     const promoDescription = promoContainer.querySelector('.promo-description');
+//     promoDescription.textContent = description;
 
-    const promoCta = promoContainer.querySelector('.promo-cta');
-    promoCta.href = ctaUrl;
-    promoCta.textContent = ctaText;
-  })
-  .catch(error => {
-    console.error('Error fetching promo data:', error);
-    document.getElementById('ads_section').style.display = 'none';
+//     const promoCta = promoContainer.querySelector('.promo-cta');
+//     promoCta.href = ctaUrl;
+//     promoCta.textContent = ctaText;
+//   })
+//   .catch(error => {
+//     console.error('Error fetching promo data:', error);
+//     document.getElementById('ads_section').style.display = 'none';
 
-  });
-
-
+//   });
 
 
-fetch("https://raw.githubusercontent.com/SudeepWebDev/Rewards-Assistant/main/adsvideo.json")
-  .then(response => response.json())
-  .then(data => {
-    const promoKeys = Object.keys(data);
-    const randomKey = promoKeys[Math.floor(Math.random() * promoKeys.length)];
-    const promoData = data[randomKey];
-
-    const { url } = promoData;
-    onYouTubeIframeAPIReady(url);
-    function onYouTubeIframeAPIReady(url) {
-      player = new YT.Player('video-container', {
-        width: 560,
-        height: 315,
-        videoId: url, // Use the stored videoId
-        playerVars: {
-          controls: 0,
-          disablekb: 1,
-          rel: 0,
-          autoplay: 1,
-          mute: 1,
-
-        },
-        events: {
-          'onStateChange': onPlayerStateChange
-        }
-      });
-    }
-
-  })
-  .catch(error => {
-    console.error('Error fetching promo data:', error);
-    document.getElementById('ads_section').style.display = 'none';
-
-  });
-
-function onPlayerStateChange(event) {
-  if (event.data === YT.PlayerState.ENDED) {
-  } else if (event.data === YT.PlayerState.PLAYING) {
-    if (player.isMuted()) {
-      showUnmuteButton();
-    } else {
-      showMuteButton();
-
-    }
-  }
-}
-
-function toggleMute() {
-  if (player.isMuted()) {
-    player.unMute();
-  } else {
-    player.mute();
-  }
-  updateButtonState();
-}
-const muteButton = document.querySelector('#mute-button');
-
-muteButton.addEventListener('click', function textchange() {
-  const muteButton = document.querySelector('#mute-button');
-
-  if (muteButton.innerText == 'Mute') {
-    muteButton.innerText = 'Unmute'; // Change unmute button text here
-  } else {
-    muteButton.innerText = 'Mute'; // Change mute button text here
-  }
-})
 
 
-function showMuteButton() {
-  const muteButton = document.querySelector('#mute-button');
-  muteButton.innerText = 'Mute'; // Change mute button text here
-  muteButton.style.display = 'block';
-}
+// fetch("https://raw.githubusercontent.com/SudeepWebDev/Rewards-Assistant/main/adsvideo.json")
+//   .then(response => response.json())
+//   .then(data => {
+//     const promoKeys = Object.keys(data);
+//     const randomKey = promoKeys[Math.floor(Math.random() * promoKeys.length)];
+//     const promoData = data[randomKey];
 
-function showUnmuteButton() {
-  const unmuteButton = document.querySelector('#mute-button');
-  unmuteButton.innerText = 'Unmute'; // Change unmute button text here
-  unmuteButton.style.display = 'block';
-}
+//     const { url } = promoData;
+//     onYouTubeIframeAPIReady(url);
+//     function onYouTubeIframeAPIReady(url) {
+//       player = new YT.Player('video-container', {
+//         width: 560,
+//         height: 315,
+//         videoId: url, // Use the stored videoId
+//         playerVars: {
+//           controls: 0,
+//           disablekb: 1,
+//           rel: 0,
+//           autoplay: 1,
+//           mute: 1,
 
-document.querySelector('#mute-button').addEventListener('click', toggleMute);
-document.querySelector('#mute-button').addEventListener('click', toggleMute);
+//         },
+//         events: {
+//           'onStateChange': onPlayerStateChange
+//         }
+//       });
+//     }
+
+//   })
+//   .catch(error => {
+//     console.error('Error fetching promo data:', error);
+//     document.getElementById('ads_section').style.display = 'none';
+
+//   });
+
+// function onPlayerStateChange(event) {
+//   if (event.data === YT.PlayerState.ENDED) {
+//   } else if (event.data === YT.PlayerState.PLAYING) {
+//     if (player.isMuted()) {
+//       showUnmuteButton();
+//     } else {
+//       showMuteButton();
+
+//     }
+//   }
+// }
+
+// function toggleMute() {
+//   if (player.isMuted()) {
+//     player.unMute();
+//   } else {
+//     player.mute();
+//   }
+//   updateButtonState();
+// }
+// const muteButton = document.querySelector('#mute-button');
+
+// muteButton.addEventListener('click', function textchange() {
+//   const muteButton = document.querySelector('#mute-button');
+
+//   if (muteButton.innerText == 'Mute') {
+//     muteButton.innerText = 'Unmute'; // Change unmute button text here
+//   } else {
+//     muteButton.innerText = 'Mute'; // Change mute button text here
+//   }
+// })
+
+
+// function showMuteButton() {
+//   const muteButton = document.querySelector('#mute-button');
+//   muteButton.innerText = 'Mute'; // Change mute button text here
+//   muteButton.style.display = 'block';
+// }
+
+// function showUnmuteButton() {
+//   const unmuteButton = document.querySelector('#mute-button');
+//   unmuteButton.innerText = 'Unmute'; // Change unmute button text here
+//   unmuteButton.style.display = 'block';
+// }
+
+// document.querySelector('#mute-button').addEventListener('click', toggleMute);
+// document.querySelector('#mute-button').addEventListener('click', toggleMute);
