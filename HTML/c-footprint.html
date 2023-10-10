@@ -31,12 +31,12 @@
     <meta name="msapplication-TileColor" content="#3372DF">
     <meta name="msapplication-navbutton-color" content="#0071EB">
     <title>Area Converter</title>
-    <link rel="stylesheet" href="/convertrix/CSS/style.css">
-    <link rel="stylesheet" href="/convertrix/CSS/responsive.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="/convertrix/convertrix/CSS/style.css">
+    <link rel="stylesheet" href="/convertrix/convertrix/CSS/responsive.css">
+    <link rel="stylesheet" href="/convertrixhttps://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 
     <script type="text/javascript"
-        src="/translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+        src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
     <script type="text/javascript">
         function googleTranslateElementInit() {
             new google.translate.TranslateElement({ pageLanguage: 'en' }, 'google_translate_element');
@@ -49,6 +49,7 @@
             color: #242424;
         }
 
+
         input {
             width: 100%;
             padding: 10px;
@@ -56,6 +57,11 @@
             box-sizing: border-box;
             border: 1px solid #ccc;
             border-radius: 4px;
+        }
+
+        input[type="radio"] {
+            margin: 5px;
+            margin-bottom: 8px;
         }
 
         select {
@@ -66,6 +72,8 @@
             border: 1px solid #ccc;
             border-radius: 4px;
         }
+
+
 
         @media screen and (max-width: 769px) {
             .converter-box {
@@ -105,8 +113,8 @@
             <ul>
                 <li><a href="/convertrix/index.html">Home</a></li>
                 <li><a href="/convertrix/index.html#about-us">About</a></li>
-                <li><a href="/convertrix/convertrix#features">Converters</a></li>
-                <li><a href="/convertrix/convertrix#contact">Contact</a></li>
+                <li><a href="#features">Converters</a></li>
+                <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
 
@@ -114,45 +122,62 @@
 
     <main>
         <h2>Carbon Footprint Calculator using Alex Shimo Barry Method</h2>
-        <div id="result" class="converter-box" style="margin-bottom: 20px; padding: 10px">
+        <div id="result" class="converter-box" style="margin-bottom: 20px; padding: 10px;min-width: 400px; ">
             <h3>Your Carbon Footprint:</h3>
             <p id="resultCategory" style="text-align: center;"></p>
         </div>
-        <div class="converter-box" style="border-radius: 10px 10px 0 0; padding: 20px;">
-            <form id="carbonCalculator">
-                <label for="electricity">Electricity (kWh per month):</label>
-                <input type="number" id="electricity" name="electricity" required>
 
-                <label for="gas">Gas (monthly bill):</label>
-                <input type="number" id="gas" name="gas" required>
+        <div class="converter-box" style="border-radius: 10px 10px 0 0; padding: 20px; min-width: 400px;">
+            <form id="carbonCalculator" onsubmit="calculateCarbonFootprint(); return false;" name="google-sheet">
+                <label for="electricity">Monthly Electricity Bill (kWh or unit):</label>
+                <input type="number" min="0" id="electricity" name="electricity" required>
+
+                <label for="gas">Monthly Gas Bill (In Litre ):</label>
+                <input type="number" min="0" id="gas" name="gas" required>
+
+                <label for="oil">Monthly Oil Bill (In Litre ):</label>
+                <input type="number" min="0" id="oil" name="oil" required>
 
                 <label for="mileage">Car's Mileage (total yearly mileage):</label>
-                <input type="number" id="mileage" name="mileage" required>
+                <input type="number" min="0" id="mileage" name="mileage" required>
 
-                <label for="carType">Car Type:</label>
-                <select id="carType" name="carType">
-                    <option value="small">Small or Hybrid Car</option>
-                    <option value="medium">Medium-sized Car</option>
-                    <option value="large">Large Car, MPV, or Sports Car</option>
-                </select>
+                <label for="flightsShort">Number of flights taken in the past year (4 hours or less)</label>
+                <input type="number" min="0" id="flightsShort" name="flightsShort" required>
 
-                <label for="flightsShort">Flights (short-medium haul):</label>
-                <input type="number" id="flightsShort" name="flightsShort" required>
+                <label for="flightsLong">Number of flights taken in the past year (more than 4 hours):</label>
+                <input type="number" min="0" id="flightsLong" name="flightsLong" required>
 
-                <label for="flightsLong">Flights (long haul):</label>
-                <input type="number" id="flightsLong" name="flightsLong" required>
+                <label>Do you recycle newspaper?</label>
+                <div>
+                    <div style="display: flex; align-items: center; justify-content: center;">
+                        <input type="radio" id="recycleNewspaperYes" name="recycleNewspaper" value="1" required>
+                        <label for="recycleNewspaperYes">Yes</label>
+                    </div>
+                    <div style="display: flex; align-items: center; justify-content: center;">
+                        <input type="radio" id="recycleNewspaperNo" name="recycleNewspaper" value="0" required>
+                        <label for="recycleNewspaperNo">No</label>
+                    </div>
+                </div>
 
-                <label for="recycleNewspaper">Recycle Newspaper (0 for no, 1 for yes):</label>
-                <input type="number" id="recycleNewspaper" name="recycleNewspaper" required>
+                <label>Do you recycle aluminium and tin?</label>
+                <div>
+                    <div style="display: flex; align-items: center; justify-content: center; ">
+                        <input type="radio" id="recycleAluminumYes" name="recycleAluminum" value="1" required>
+                        <label for="recycleAluminumYes">Yes</label>
+                    </div>
 
-                <label for="recycleAluminum">Recycle Aluminum (0 for no, 1 for yes):</label>
-                <input type="number" id="recycleAluminum" name="recycleAluminum" required>
+                    <div style="display: flex; align-items: center; justify-content: center;">
+                        <input type="radio" id="recycleAluminumNo" name="recycleAluminum" value="0" required>
+                        <label for="recycleAluminumNo">No</label>
+                    </div>
+                </div>
 
-                <button type="button" class="convert-btn" onclick="calculateCarbonFootprint()">Calculate</button>
+
+
+                <button type="submit" class="convert-btn">Calculate</button>
 
             </form>
         </div>
-
 
         <section id="features" class="fade-in">
 
@@ -210,8 +235,8 @@
             <div class="footer-column">
                 <h4>Follow Us</h4>
                 <div class="social-media-icons">
-                    <a href="/convertrix/convertrix#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="/convertrix/convertrix#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
                 </div>
             </div>
 
@@ -234,74 +259,67 @@
 
     </footer>
     <script src="/convertrix/JAVASCRIPT/main.js"></script>
+
     <script>
         function validateInput(value) {
             return !isNaN(parseFloat(value)) && isFinite(value) && value >= 0;
         }
         function calculateCarbonFootprint() {
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbwrzHRD2i8WGBLH1_pc6HRPoL_0sbcRDVa5tPiV7UMYMoZKBUn1AfXOmTK7wlzIQoyO/exec'
+            const form = document.forms['google-sheet']
+
+            fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+                .then(response => console.log('Success!', response))
+                .catch(error => console.error('Error!', error.message))
             const electricity = parseFloat(document.getElementById('electricity').value) || 0;
             const gas = parseFloat(document.getElementById('gas').value) || 0;
+            const oil = parseFloat(document.getElementById('oil').value) || 0;
             const mileage = parseFloat(document.getElementById('mileage').value) || 0;
-            const carType = document.getElementById('carType').value;
             const flightsShort = parseFloat(document.getElementById('flightsShort').value) || 0;
             const flightsLong = parseFloat(document.getElementById('flightsLong').value) || 0;
-            const recycleNewspaper = parseFloat(document.getElementById('recycleNewspaper').value) || 0;
-            const recycleAluminum = parseFloat(document.getElementById('recycleAluminum').value) || 0;
+            const recycleNewspaper = parseFloat(document.querySelector('input[name="recycleNewspaper"]:checked').value) || 0;
+            const recycleAluminum = parseFloat(document.querySelector('input[name="recycleAluminum"]:checked').value) || 0;
             if (!validateInput(electricity) || !validateInput(gas) || !validateInput(mileage) || !validateInput(flightsShort) || !validateInput(flightsLong) || !validateInput(recycleNewspaper) || !validateInput(recycleAluminum)) {
                 alert("Please enter valid non-negative numerical values for all inputs.");
                 return;
             }
-            // Applying the formula mentioned in the Alex Shimo Barry method
-            let mileageMultiplier;
-
-            switch (carType) {
-                case 'small':
-                    mileageMultiplier = 0.1;
-                    break;
-                case 'medium':
-                    mileageMultiplier = 0.17;
-                    break;
-                case 'large':
-                    mileageMultiplier = 0.36;
-                    break;
-                default:
-                    mileageMultiplier = 0; // Default to 0 if the car type is not recognized
-            }
 
             const carbonFootprint =
-                electricity * 0.84 +
-                gas * 50 +
-                mileage * mileageMultiplier +
-                flightsShort * 400 +
-                flightsLong * 1000 +
-                recycleNewspaper * 85 +
-                recycleAluminum * 75;
+                electricity * 105 +
+                gas * 105 +
+                oil * 113 +
+                mileage * .79 +
+                flightsShort * 1100 +
+                flightsLong * 4400 +
+                recycleNewspaper * 184 +
+                recycleAluminum * 166;
 
             displayResult(carbonFootprint);
+            const myForm = document.getElementById('carbonCalculator');
+            myForm.reset();
+
+            return false;
         }
         function displayResult(footprint) {
             const resultElement = document.getElementById('result');
             const resultCategoryElement = document.getElementById('resultCategory');
 
-            // Get the category
             const category = getFootprintCategory(footprint);
 
-            // Display the calculated footprint along with the category
             resultCategoryElement.innerHTML = footprint + '<br>' + category;
             resultCategoryElement.style.display = 'block';
 
-            // Apply color based on the category
             switch (category) {
-                case 'Good (Below 2500 kg)':
+                case 'Very Low (< 6000 pounds)':
                     resultCategoryElement.style.color = 'green';
                     break;
-                case 'Average (2500-6999 kg)':
+                case 'Ideal (6000-15999 pounds)':
                     resultCategoryElement.style.color = 'orange';
                     break;
-                case 'Poor (7000-10,000 kg)':
+                case 'Average (16000-22000 pounds)':
                     resultCategoryElement.style.color = 'red';
                     break;
-                case 'Very Poor (Over 10,000 kg)':
+                case 'Consider Living Green Practices (> 22000 pounds)':
                     resultCategoryElement.style.color = 'darkred';
                     break;
                 default:
@@ -310,16 +328,17 @@
         }
 
         function getFootprintCategory(footprint) {
-            if (footprint < 2500) {
-                return 'Good (Below 2500 kg)';
-            } else if (footprint >= 2500 && footprint < 7000) {
-                return 'Average (2500-6999 kg)';
-            } else if (footprint >= 7000 && footprint <= 10000) {
-                return 'Poor (7000-10,000 kg)';
+            if (footprint < 6000) {
+                return 'Very Low (< 6000 pounds)';
+            } else if (footprint >= 6000 && footprint <= 15999) {
+                return 'Ideal (6000-15999 pounds)';
+            } else if (footprint >= 16000 && footprint <= 22000) {
+                return 'Average (16000-22000 pounds)';
             } else {
-                return 'Very Poor (Over 10,000 kg)';
+                return 'Consider Living Green Practices (> 22000 pounds)';
             }
         }
+
 
     </script>
 </body>
