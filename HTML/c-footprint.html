@@ -141,26 +141,45 @@
                 <label for="mileage">Car's Mileage (total yearly mileage):</label>
                 <input type="number" min="0" id="mileage" name="mileage" required>
 
-                <label for="carType">Car Type:</label>
-                <select id="carType" name="carType">
-                    <option value="small">Small or Hybrid Car</option>
-                    <option value="medium">Medium-sized Car</option>
-                    <option value="large">Large Car, MPV, or Sports Car</option>
-                </select>
+                <label for="flightsShort">Number of flights taken in the past year (4 hours or less)</label>
+                <input type="number" min="0" id="flightsShort" name="flightsShort" required>
 
-                <label for="flightsShort">Flights (short-medium haul):</label>
-                <input type="number" id="flightsShort" name="flightsShort" required>
+                <label for="flightsLong">Number of flights taken in the past year (more than 4 hours):</label>
+                <input type="number" min="0" id="flightsLong" name="flightsLong" required>
 
-                <label for="flightsLong">Flights (long haul):</label>
-                <input type="number" id="flightsLong" name="flightsLong" required>
+                <label>Do you recycle newspaper?</label>
+                <div>
+                    <div style="display: flex; align-items: center; justify-content: center;">
+                        <input type="radio" id="recycleNewspaperYes" name="recycleNewspaper" value="1" required>
+                        <label for="recycleNewspaperYes">Yes</label>
+                    </div>
+                    <div style="display: flex; align-items: center; justify-content: center;">
+                        <input type="radio" id="recycleNewspaperNo" name="recycleNewspaper" value="0" required>
+                        <label for="recycleNewspaperNo">No</label>
+                    </div>
+                </div>
 
-                <label for="recycleNewspaper">Recycle Newspaper (0 for no, 1 for yes):</label>
+                <label>Do you recycle aluminium and tin?</label>
+                <div>
+                    <div style="display: flex; align-items: center; justify-content: center; ">
+                        <input type="radio" id="recycleAluminumYes" name="recycleAluminum" value="1" required>
+                        <label for="recycleAluminumYes">Yes</label>
+                    </div>
+
+                    <div style="display: flex; align-items: center; justify-content: center;">
+                        <input type="radio" id="recycleAluminumNo" name="recycleAluminum" value="0" required>
+                        <label for="recycleAluminumNo">No</label>
+                    </div>
+                </div>
+
+                <label for="recycleNewspaper">Recycle Newspaper (1 for no, 0 for yes):</label>
                 <input type="number" id="recycleNewspaper" name="recycleNewspaper" required>
 
-                <label for="recycleAluminum">Recycle Aluminum (0 for no, 1 for yes):</label>
+                <label for="recycleAluminum">Recycle Aluminum (1 for no, 0 for yes):</label>
                 <input type="number" id="recycleAluminum" name="recycleAluminum" required>
 
-                <button type="button" class="convert-btn" onclick="calculateCarbonFootprint()">Calculate</button>
+
+                <button type="submit" class="convert-btn">Calculate</button>
 
             </form>
         </div>
@@ -286,6 +305,7 @@
 
             return false;
         }
+        
         function displayResult(footprint) {
             const resultElement = document.getElementById('result');
             const resultCategoryElement = document.getElementById('resultCategory');
