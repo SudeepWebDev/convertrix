@@ -78,8 +78,8 @@
         @media screen and (max-width: 769px) {
             .converter-box {
                 padding: 10px;
-width: 100%;
-min-width:100%;
+width: 100% !important;
+min-width:100% !important;
             }
         }
     </style>
@@ -173,13 +173,6 @@ min-width:100%;
                         <label for="recycleAluminumNo">No</label>
                     </div>
                 </div>
-
-                <label for="recycleNewspaper">Recycle Newspaper (1 for no, 0 for yes):</label>
-                <input type="number" id="recycleNewspaper" name="recycleNewspaper" required>
-
-                <label for="recycleAluminum">Recycle Aluminum (1 for no, 0 for yes):</label>
-                <input type="number" id="recycleAluminum" name="recycleAluminum" required>
-
 
                 <button type="submit" class="convert-btn">Calculate</button>
 
